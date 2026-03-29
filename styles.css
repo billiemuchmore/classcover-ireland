@@ -272,8 +272,11 @@ p {
 .nav-drawer a:hover { color: var(--purple); }
 
 .nav-drawer .btn {
-  margin-top: 8px;
-  align-self: flex-start;
+  margin-top: 12px;
+  width: 100%;
+  text-align: center;
+  border-bottom: none !important;
+  padding: 14px 24px;
 }
 
 /* Desktop: show nav links, hide toggle */
