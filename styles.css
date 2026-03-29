@@ -481,6 +481,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px 24px;
+  padding-left: 24px;
 }
 
 .mini-callout h4 {
@@ -531,6 +532,7 @@ p {
 .problem-block h3 {
   margin-bottom: 10px;
   font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 800;
 }
 
 .problem-block p {
