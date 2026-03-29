@@ -273,10 +273,9 @@ p {
 
 .nav-drawer .btn {
   margin-top: 12px;
-  width: 100%;
-  text-align: center;
+  align-self: flex-start;
   border-bottom: none !important;
-  padding: 14px 24px;
+  padding: 14px 28px;
 }
 
 /* Desktop: show nav links, hide toggle */
