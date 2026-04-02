@@ -278,6 +278,41 @@ p {
   padding: 14px 28px;
 }
 
+/* Region switcher pill */
+.nav-region {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(58,12,163,0.06);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-left: 8px;
+}
+.nav-region-current {
+  color: var(--text-dark);
+  opacity: 0.45;
+  cursor: default;
+}
+.nav-region-sep {
+  color: #ccc;
+  font-size: 11px;
+}
+.nav-region-link {
+  color: var(--text-dark);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: opacity 0.2s, color 0.2s;
+}
+.nav-region-link:hover { opacity: 1; color: var(--purple); }
+.nav-drawer .nav-region {
+  align-self: center;
+  margin-top: 16px;
+  border-bottom: none !important;
+}
+
 /* Desktop: show nav links, hide toggle */
 @media (min-width: 768px) {
   .nav-links { display: flex; }
