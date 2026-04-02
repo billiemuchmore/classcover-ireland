@@ -75,4 +75,61 @@
     });
   });
 
+
+  // ----------------------------------------------------------
+  // Australia geolocation popup
+  // ----------------------------------------------------------
+  if (!localStorage.getItem('au-popup-dismissed')) {
+    fetch('https://ipapi.co/json/')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.country_code === 'AU') {
+          showAuPopup();
+        }
+      })
+      .catch(function () {}); // fail silently — never block the page
+  }
+
+  function showAuPopup() {
+    var popup = document.createElement('div');
+    popup.className = 'au-popup';
+    popup.setAttribute('role', 'dialog');
+    popup.setAttribute('aria-modal', 'true');
+    popup.setAttribute('aria-label', 'Visit ClassCover Australia');
+    popup.innerHTML =
+      '<div class="au-popup-box">' +
+        '<button class="au-popup-close" aria-label="Close">&#x2715;</button>' +
+        '<div class="au-popup-flag">🇦🇺</div>' +
+        '<h3>Looks like you\'re in Australia</h3>' +
+        '<p>You\'re on the ClassCover Ireland site. The Australian site might be what you\'re looking for.</p>' +
+        '<a href="https://www.classcover.com.au/" target="_blank" rel="noopener" class="btn">Go to ClassCover Australia</a>' +
+      '</div>';
+    document.body.appendChild(popup);
+
+    requestAnimationFrame(function () {
+      popup.classList.add('is-visible');
+    });
+
+    popup.querySelector('.au-popup-close').addEventListener('click', function () {
+      dismissAuPopup(popup);
+    });
+
+    popup.addEventListener('click', function (e) {
+      if (e.target === popup) dismissAuPopup(popup);
+    });
+
+    document.addEventListener('keydown', function onKey(e) {
+      if (e.key === 'Escape') {
+        dismissAuPopup(popup);
+        document.removeEventListener('keydown', onKey);
+      }
+    });
+  }
+
+  function dismissAuPopup(popup) {
+    popup.classList.remove('is-visible');
+    localStorage.setItem('au-popup-dismissed', '1');
+    setTimeout(function () { popup.remove(); }, 300);
+  }
+
 })();
