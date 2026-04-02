@@ -84,7 +84,7 @@
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data.country_code === 'AU') {
-          showAuPopup();
+          setTimeout(showAuPopup, 3000);
         }
       })
       .catch(function () {}); // fail silently — never block the page
