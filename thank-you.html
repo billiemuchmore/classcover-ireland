@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You – ClassCover Ireland</title>
+  <meta name="description" content="Thanks for registering your interest in ClassCover Ireland. We'll be in touch soon." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ============================================================
+    TRACKING — fires on every visit to this page (= confirmed form submission)
+    Uncomment and replace with your real tracking IDs when ready.
+  ============================================================ -->
+
+  <!-- Google Analytics 4 — Conversion Event
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    gtag('event', 'conversion', { event_category: 'form', event_label: 'thank_you_page' });
+  </script>
+  -->
+
+  <!-- Meta / Facebook Pixel — Lead Event
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'Lead');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=Lead&noscript=1"/></noscript>
+  -->
+
+  <style>
+    /* ---- Page layout ---- */
+    .ty-hero {
+      background: linear-gradient(180deg, var(--white) 0%, var(--purple-light) 100%);
+      padding: calc(var(--nav-h) + 72px) 20px 80px;
+      text-align: center;
+    }
+    .ty-hero .eyebrow { margin-bottom: 32px; }
+    .ty-hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; margin-bottom: 18px; }
+    .ty-hero p { font-size: clamp(16px, 1.8vw, 19px); color: var(--text-body); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+
+    /* ---- Animated checkmark ---- */
+    .ty-check { display: flex; justify-content: center; margin-bottom: 36px; }
+    .ty-check svg { width: 88px; height: 88px; }
+    .ty-check-circle {
+      fill: none;
+      stroke: var(--purple);
+      stroke-width: 3;
+      stroke-dasharray: 264;
+      stroke-dashoffset: 264;
+      animation: drawCircle 0.6s ease forwards;
+    }
+    .ty-check-tick {
+      fill: none;
+      stroke: var(--purple);
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: drawTick 0.4s ease 0.55s forwards;
+    }
+    @keyframes drawCircle { to { stroke-dashoffset: 0; } }
+    @keyframes drawTick   { to { stroke-dashoffset: 0; } }
+
+    /* ---- Mailchimp subscribe section ---- */
+    .ty-subscribe {
+      background: linear-gradient(180deg, var(--purple-light) 0%, var(--white) 100%);
+      padding: 80px 20px 96px;
+      text-align: center;
+    }
+    .ty-subscribe .eyebrow { margin-bottom: 16px; }
+    .ty-subscribe h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; margin-bottom: 14px; }
+    .ty-subscribe > .container > p { font-size: 16px; color: var(--text-body); max-width: 440px; margin: 0 auto 36px; line-height: 1.7; }
+
+    .mc-form-wrap {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(58,12,163,0.10);
+      padding: 36px 32px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ====================================================
+       MAILCHIMP — paste your form action URL below.
+       Get it from: Mailchimp → Audience → Signup forms
+       → Embedded forms → copy the form action attribute.
+       It looks like:
+       https://YOURWORKSPACE.us1.list-manage.com/subscribe/post?u=XXXX&id=XXXX
+    ==================================================== */
+    .mc-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mc-form input[type="email"] {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1.5px solid rgba(58,12,163,0.2);
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .mc-form input[type="email"]:focus { border-color: var(--purple); }
+    .mc-form input[type="email"]::placeholder { color: #aaa; }
+    .mc-form .btn { width: 100%; justify-content: center; font-size: 16px; }
+
+    .mc-result {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+    .mc-result.success { background: #edf7ee; color: #1a7d2a; }
+    .mc-result.error   { background: #fdecea; color: #c0392b; }
+
+    .mc-privacy {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #999;
+      line-height: 1.5;
+    }
+    .mc-privacy a { color: var(--purple); text-decoration: underline; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+
+  <header class="site-nav" role="banner">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="ClassCover Ireland home">
+        <img src="images/logo-dark.png" alt="ClassCover" />
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#for-schools">For schools</a>
+        <a href="index.html#for-subs">For subs</a>
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="index.html#faq">FAQs</a>
+        <div class="nav-region" aria-label="Region"><span class="nav-region-current">🇮🇪 IE</span><span class="nav-region-sep">|</span><a href="https://www.classcover.com.au/" class="nav-region-link" target="_blank" rel="noopener" aria-label="Go to ClassCover Australia">🇦🇺 AU</a></div>
+        <a href="index.html#pre-register" class="btn">Pre-register</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile navigation">
+      <a href="index.html#for-schools">For schools</a>
+      <a href="index.html#for-subs">For subs</a>
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="index.html#faq">FAQs</a>
+      <a href="index.html#pre-register" class="btn">Pre-register</a>
+      <div class="nav-region" aria-label="Region"><span class="nav-region-current">🇮🇪 IE</span><span class="nav-region-sep">|</span><a href="https://www.classcover.com.au/" class="nav-region-link" target="_blank" rel="noopener" aria-label="Go to ClassCover Australia">🇦🇺 AU</a></div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+      CONFIRMATION HERO
+    ============================================================ -->
+    <section class="ty-hero">
+      <div class="container">
+        <span class="eyebrow">Confirmation</span>
+
+        <div class="ty-check" aria-hidden="true">
+          <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle class="ty-check-circle" cx="44" cy="44" r="42" />
+            <polyline class="ty-check-tick" points="26,44 38,56 62,32" />
+          </svg>
+        </div>
+
+        <h1>You're on the list!</h1>
+        <p>Thanks for registering your interest in ClassCover Ireland. We'll be in touch as we get closer to launch — watch this space.</p>
+        <a href="index.html" class="btn btn-outline">Back to home</a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      MAILCHIMP SUBSCRIBE
+    ============================================================ -->
+    <section class="ty-subscribe">
+      <div class="container">
+        <span class="eyebrow">Stay in the loop</span>
+        <h2>Get updates while you wait</h2>
+        <p>We'll send you a heads-up when ClassCover Ireland goes live — no spam, just the important stuff.</p>
+
+        <div class="mc-form-wrap">
+          <!-- ====================================================
+            MAILCHIMP EMBED
+            Replace the action URL below with your Mailchimp list URL.
+            Mailchimp → Audience → Signup forms → Embedded forms
+            → copy the action="" attribute value from the <form> tag.
+          ==================================================== -->
+          <form
+            class="mc-form"
+            action="https://classcover.us4.list-manage.com/subscribe/post?u=018b837d961f63a0ffb0e1c88&amp;id=2718d27bbf"
+            method="post"
+            id="mc-subscribe-form"
+            target="_blank"
+            novalidate
+          >
+            <label for="mce-EMAIL" class="sr-only">Email address</label>
+            <input
+              type="email"
+              name="EMAIL"
+              id="mce-EMAIL"
+              placeholder="Your email address"
+              required
+              autocomplete="email"
+            />
+
+            <!-- Mailchimp honeypot — do not remove -->
+            <div style="position:absolute;left:-5000px" aria-hidden="true">
+              <input type="text" name="b_018b837d961f63a0ffb0e1c88_2718d27bbf" tabindex="-1" value="" />
+            </div>
+
+            <button type="submit" class="btn">Subscribe to updates</button>
+          </form>
+
+          <p class="mc-result" id="mc-result" role="alert"></p>
+
+          <p class="mc-privacy">
+            We respect your privacy. Unsubscribe at any time.<br />
+            By subscribing you agree to our <a href="privacy.html">Privacy Policy</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html"><img src="images/logo-dark.png" alt="ClassCover" /></a>
+          <p class="footer-tagline">The smarter way for schools and subs to connect. Coming soon to Ireland.</p>
+        </div>
+        <div class="footer-nav-cols">
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="https://classcover.com.au" target="_blank" rel="noopener">ClassCover Australia</a></li>
+              <li><a href="https://www.classcoverlearn.com.au/" target="_blank" rel="noopener">ClassCover Learn</a></li>
+              <li><a href="contact.html">Contact us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms &amp; Conditions</a></li>
+              <li><a href="cookies.html">Cookie Policy</a></li>
+              <li><a href="dsar.html">Data Subject Request</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>ClassCover &copy; 2026. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms</a> &nbsp;&middot;&nbsp; <a href="cookies.html">Cookies</a> &nbsp;&middot;&nbsp; <a href="dsar.html">DSAR</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Read ?source= param and store for tracking
+    (function () {
+      var source = new URLSearchParams(window.location.search).get('source') || 'unknown';
+
+      // Pass source as hidden field to Mailchimp
+      var form = document.getElementById('mc-subscribe-form');
+      if (form) {
+        var hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = 'SOURCE';
+        hidden.value = source;
+        form.appendChild(hidden);
+      }
+
+      // Inline subscribe feedback (AJAX-style feel — form still posts to Mailchimp in new tab)
+      // For a fully AJAX Mailchimp submit, swap to jsonp approach when your URL is ready.
+    }());
+  </script>
+
+</body>
+</html>
