@@ -815,6 +815,10 @@ p {
   background: linear-gradient(180deg, var(--white) 0%, #f5f2fc 40%, var(--white) 100%);
 }
 
+.subscribe-section {
+  background: linear-gradient(180deg, var(--white) 0%, var(--purple-light) 60%, var(--white) 100%);
+}
+
 .faq-header {
   text-align: center;
   max-width: 600px;
