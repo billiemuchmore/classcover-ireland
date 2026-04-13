@@ -812,11 +812,11 @@ p {
    FAQ
    ============================================================ */
 .faq {
-  background: linear-gradient(180deg, var(--white) 0%, #f5f2fc 40%, var(--white) 100%);
+  background: var(--white);
 }
 
 .subscribe-section {
-  background: linear-gradient(180deg, var(--white) 0%, var(--purple-light) 60%, var(--white) 100%);
+  background: var(--white);
 }
 
 .faq-header {
