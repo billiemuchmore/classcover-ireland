@@ -597,7 +597,7 @@ p {
    HOW IT WORKS
    ============================================================ */
 .how-it-works {
-  background: linear-gradient(180deg, var(--white) 0%, #ede8fa 35%, #ede8fa 65%, var(--white) 100%);
+  background: var(--white);
 }
 
 .how-it-works-header {
