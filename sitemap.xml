@@ -48,7 +48,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.classcoverapp.com/blog/authors/ben-grozier/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
-  <!-- Blog posts added here by Claude when published -->
+  <!-- Blog posts -->
+  <url>
+    <loc>https://www.classcoverapp.com/blog/substitute-teacher-shortage-ireland/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.classcoverapp.com/blog/how-to-find-substitute-teacher-ireland/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>

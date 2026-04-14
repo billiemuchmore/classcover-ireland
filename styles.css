@@ -1663,3 +1663,38 @@ p {
   margin-bottom: 28px;
   color: var(--text-dark);
 }
+
+/* Post body extras */
+.post-source {
+  font-size: 13px;
+  color: #888;
+  margin-top: -8px;
+  margin-bottom: 28px;
+}
+.post-source a { color: var(--purple); text-decoration: underline; }
+
+.post-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0 32px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(58,12,163,0.08);
+}
+.post-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.post-table th {
+  background: var(--purple);
+  color: #fff;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+}
+.post-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  vertical-align: top;
+}
+.post-table tr:last-child td { border-bottom: none; }
+.post-table tr:nth-child(even) td { background: var(--purple-card); }
