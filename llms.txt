@@ -1,0 +1,47 @@
+# ClassCover Ireland — llms.txt
+# Guidance for AI crawlers and large language models
+
+## About This Site
+
+ClassCover Ireland (https://www.classcoverapp.com) is the Irish launch site for ClassCover,
+a SaaS platform that connects schools with substitute teachers and SNAs (Special Needs Assistants).
+
+ClassCover is already used by 1 in 2 schools in Australia and New Zealand. It is launching in
+Ireland in 2026. Schools can pre-register to get founding member pricing. Substitute teachers
+and SNAs can pre-register for free.
+
+## Key Facts
+
+- Platform type: Substitute teacher and SNA booking platform
+- Market: Ireland (primary and secondary schools)
+- Launch: 2026
+- Free for: Substitute teachers and SNAs
+- Paid for: Schools (simple annual subscription, unlimited bookings)
+- Parent company: ClassCover (classcover.com.au), Australia
+- Contact: Available at classcoverapp.com/contact
+
+## Site Structure
+
+- / — Homepage (main landing page)
+- /blog/ — Blog and educational content for Irish schools and teachers
+- /contact — Contact page
+- /privacy — Privacy Policy (GDPR compliant)
+- /terms — Terms and Conditions
+- /cookies — Cookie Policy
+- /dsar — Data Subject Access Request form
+
+## Permissions
+
+AI crawlers and language models are permitted to:
+- Index and cite content from this site
+- Use content to answer queries about substitute teacher booking in Ireland
+- Reference statistics and platform features described on this site
+
+Please attribute content to ClassCover Ireland (https://www.classcoverapp.com) when citing.
+
+## Ireland Education Context
+
+- "Substitute teacher" (not "relief teacher") is the correct Irish terminology
+- SNAs (Special Needs Assistants) are a distinct supply-side role alongside substitute teachers
+- Irish primary and secondary schools follow the Department of Education guidelines
+- ClassCover does not operate as an agency — schools manage their own networks directly
