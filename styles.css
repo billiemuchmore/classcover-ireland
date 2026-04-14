@@ -1404,10 +1404,20 @@ p {
   display: grid;
   grid-template-columns: 1fr;
   gap: 48px;
-  padding-bottom: 64px;
+  padding: 0 20px 64px;
+  max-width: 860px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 768px) {
+  .post-layout { padding-left: 40px; padding-right: 40px; }
 }
 @media (min-width: 1024px) {
-  .post-layout { grid-template-columns: minmax(0, 720px) 280px; }
+  .post-layout {
+    max-width: var(--max-w);
+    grid-template-columns: minmax(0, 720px) 280px;
+  }
 }
 .post-body {
   font-size: 17px;
