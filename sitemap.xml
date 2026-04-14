@@ -53,6 +53,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.classcoverapp.com/blog/authors/james-hanlon/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
   <!-- Blog posts -->
   <url>
@@ -63,6 +68,12 @@
   </url>
   <url>
     <loc>https://www.classcoverapp.com/blog/how-to-find-substitute-teacher-ireland/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.classcoverapp.com/blog/flexible-substitute-teaching-career-ireland/</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
