@@ -1357,12 +1357,17 @@ p {
 }
 .author-card-text {}
 .author-card-name {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text-dark);
   text-decoration: none;
 }
 .author-card-name:hover { color: var(--purple); }
+.author-card-role {
+  font-size: 13px;
+  color: var(--text-body);
+  display: block;
+}
 .author-card-meta {
   font-size: 13px;
   color: var(--text-body);
@@ -1394,7 +1399,7 @@ p {
   list-style: disc;
 }
 .tldr-box li {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-dark);
   line-height: 1.6;
   margin-bottom: 6px;
@@ -1439,7 +1444,7 @@ p {
   margin: 28px 0 12px;
   color: var(--text-dark);
 }
-.post-body p { margin-bottom: 20px; }
+.post-body p { font-size: 17px; margin-bottom: 20px; }
 .post-body ul,
 .post-body ol {
   padding-left: 24px;
@@ -1447,7 +1452,7 @@ p {
 }
 .post-body ul { list-style: disc; }
 .post-body ol { list-style: decimal; }
-.post-body li { margin-bottom: 8px; }
+.post-body li { font-size: 17px; margin-bottom: 8px; }
 .post-body strong { font-weight: 700; }
 .post-body a { color: var(--purple); }
 .post-body a:hover { text-decoration: none; }
