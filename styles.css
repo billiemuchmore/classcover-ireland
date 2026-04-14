@@ -419,8 +419,6 @@ p {
 .social-proof-visual img {
   width: 100%;
   max-width: 480px;
-  border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(58, 12, 163, 0.12);
 }
 
 /* Stats row */
@@ -497,8 +495,6 @@ p {
 .split-visual img {
   width: 100%;
   max-width: 520px;
-  border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(58, 12, 163, 0.12);
   margin: 0 auto;
 }
 
@@ -689,8 +685,6 @@ p {
 .subs-split-visual img {
   width: 100%;
   max-width: 500px;
-  border-radius: 16px;
-  box-shadow: 0 16px 40px rgba(58, 12, 163, 0.12);
   margin: 0 auto;
 }
 
