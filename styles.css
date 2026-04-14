@@ -545,8 +545,10 @@ p {
   box-shadow: 0 2px 12px rgba(58, 12, 163, 0.07);
 }
 
+.schools-feature h3,
 .schools-feature h4 {
   font-size: clamp(17px, 1.8vw, 20px);
+  font-weight: 800;
   margin-bottom: 8px;
 }
 
@@ -586,7 +588,8 @@ p {
   box-shadow: 0 2px 12px rgba(58, 12, 163, 0.07);
 }
 
-.feature-item h4 { margin-bottom: 8px; }
+.feature-item h3,
+.feature-item h4 { font-size: clamp(17px, 2.2vw, 22px); font-weight: 800; margin-bottom: 8px; }
 .feature-item p { font-size: 16px; }
 
 /* ============================================================
@@ -642,7 +645,8 @@ p {
   line-height: 1;
 }
 
-.step-text h4 { margin-bottom: 6px; }
+.step-text h3,
+.step-text h4 { font-size: clamp(17px, 2.2vw, 22px); font-weight: 800; margin-bottom: 6px; }
 .step-text p { font-size: 16px; }
 
 .hiw-cta {
@@ -729,10 +733,12 @@ p {
   padding-top: 16px;
 }
 
+.subs-showcase .feature-item h3,
 .subs-showcase .feature-item h4 {
   color: var(--text-dark);
   margin-bottom: 6px;
   font-size: 17px;
+  font-weight: 800;
 }
 
 .subs-showcase .feature-item p {
