@@ -127,10 +127,13 @@
     .rt-hero {
       background: linear-gradient(135deg, #3A0CA3 0%, #5a2fd4 100%);
       color: #fff;
-      padding: 80px 0 72px;
+      padding: 100px 0 72px;
       text-align: center;
     }
-    .rt-hero .eyebrow { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.4); white-space: normal; max-width: 280px; }
+    .rt-hero .eyebrow { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.65); }
+    @media (max-width: 480px) {
+      .rt-hero .eyebrow { white-space: normal; max-width: 240px; }
+    }
     .rt-hero h1 { color: #fff; margin: 12px auto 20px; max-width: 720px; }
     .rt-hero p { font-size: 18px; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; line-height: 1.7; }
 
