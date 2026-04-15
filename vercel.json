@@ -1,5 +1,12 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/returning-teachers",
+      "destination": "/reviews/subs",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
