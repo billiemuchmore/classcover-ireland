@@ -965,6 +965,7 @@ p {
   flex: 2;
 }
 
+.footer-col h3,
 .footer-col h5 {
   font-size: 13px;
   font-weight: 700;
