@@ -166,7 +166,15 @@
       border-radius: 16px;
       padding: 32px;
       min-height: 420px;
+      max-width: 100%;
+      overflow: hidden;
     }
+    .rt-form-embed iframe,
+    .rt-form-embed > div {
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    body { overflow-x: hidden; }
 
     .rt-stats { background: var(--purple); padding: 56px 0; }
     .rt-stats-grid {
