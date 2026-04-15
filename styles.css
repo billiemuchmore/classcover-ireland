@@ -771,7 +771,7 @@ p {
    PRE-REGISTER CTA BAND
    ============================================================ */
 .cta-band {
-  background: linear-gradient(180deg, var(--white) 0%, #5a35c7 10%, var(--purple) 25%, var(--purple) 80%, #5a35c7 100%);
+  background: linear-gradient(180deg, #5a35c7 0%, var(--purple) 20%, var(--purple) 80%, #5a35c7 100%);
   color: var(--white);
 }
 
