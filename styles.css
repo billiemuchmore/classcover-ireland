@@ -1741,6 +1741,11 @@ p {
    SCHOOLS PILOT LANDING PAGE
    ============================================================ */
 
+/* Pilot hero — allow eyebrow to wrap on mobile */
+.pilot-hero .eyebrow {
+  white-space: normal;
+}
+
 /* Proof strip under hero CTA */
 .proof-strip {
   display: flex;
