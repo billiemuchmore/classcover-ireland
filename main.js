@@ -3,6 +3,21 @@
    Vanilla JS only. No jQuery.
    ============================================================ */
 
+// ----------------------------------------------------------
+// Google Tag Manager — auto-inject if not already in page
+// ----------------------------------------------------------
+(function () {
+  if (!document.querySelector('script[src*="gtm.js?id=GTM-N4NPQXVQ"]')) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = document.getElementsByTagName('script')[0];
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N4NPQXVQ';
+    f.parentNode.insertBefore(j, f);
+  }
+})();
+
 (function () {
   'use strict';
 
