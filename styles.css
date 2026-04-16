@@ -1927,13 +1927,22 @@ p {
   background: rgba(58,12,163,0.04);
 }
 
-.compare-note {
-  text-align: center;
+.compare-callout {
   max-width: 720px;
-  margin: 28px auto 0;
-  font-size: 16px;
-  color: var(--text-body);
-  line-height: 1.7;
+  margin: 36px auto 0;
+  text-align: center;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 12px rgba(58,12,163,0.08);
+}
+.compare-callout p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+.compare-callout p:last-child {
+  margin-bottom: 0;
 }
 
 .pilot-cta-center {
