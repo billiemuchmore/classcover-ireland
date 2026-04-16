@@ -1998,3 +1998,161 @@ p {
   width: 100%;
   max-width: 480px;
 }
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+.about-origin {
+  background: var(--white);
+}
+.about-split {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .about-split {
+    flex-direction: row;
+    gap: 64px;
+    align-items: flex-start;
+  }
+  .about-split-text { flex: 1.2; }
+  .about-split-visual { flex: 0.8; }
+}
+.about-split-text h2 {
+  margin-bottom: 16px;
+}
+.about-split-text p {
+  margin-bottom: 14px;
+}
+.about-split-visual img {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Quote card */
+.about-quote-card {
+  background: var(--purple-card);
+  border-radius: 16px;
+  padding: 32px 28px;
+  position: relative;
+}
+.about-quote-mark {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--purple);
+  line-height: 1;
+  display: block;
+  margin-bottom: 8px;
+}
+.about-quote-card p {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.about-quote-attr {
+  font-size: 14px;
+  color: var(--text-body);
+  font-style: italic;
+}
+
+/* What ClassCover does */
+.about-what {
+  background: var(--purple-light);
+}
+.about-what-header {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.about-what-header h2 {
+  margin-bottom: 20px;
+}
+.about-what-header p {
+  margin-bottom: 16px;
+}
+
+/* Scale & trust */
+.about-scale {
+  background: var(--white);
+}
+.about-scale-heading {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.about-stats {
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+.about-trust {
+  max-width: 780px;
+  margin: 0 auto;
+}
+.about-trust h3 {
+  margin-bottom: 14px;
+}
+.about-trust p {
+  margin-bottom: 16px;
+}
+.about-trust-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.about-trust-list li {
+  background: var(--purple-card);
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-body);
+}
+
+/* Ireland section */
+.about-ireland {
+  background: var(--purple-light);
+}
+.about-ireland-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Team */
+.about-team {
+  background: var(--white);
+}
+.about-team-heading {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.about-team-grid {
+  max-width: 480px;
+  margin: 0 auto;
+}
+.about-team-card {
+  background: var(--purple-card);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+}
+.about-team-card h3 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.about-team-role {
+  font-size: 15px;
+  color: var(--purple);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.about-team-card p:last-child {
+  font-size: 16px;
+  color: var(--text-body);
+  line-height: 1.65;
+}
