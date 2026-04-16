@@ -1741,12 +1741,20 @@ p {
    SCHOOLS PILOT LANDING PAGE
    ============================================================ */
 
-/* Pilot product section — fix callout alignment and spacing */
+/* Pilot product section */
+.pilot-product {
+  background: var(--purple-section);
+}
 .pilot-product .split-content p {
   margin-bottom: 28px;
 }
 .pilot-product .schools-mini-callouts {
   padding-left: 0;
+}
+
+/* Hero gradient flows into purple product section */
+.pilot-hero {
+  background: linear-gradient(180deg, var(--white) 0%, var(--purple-section) 100%);
 }
 
 /* Pilot hero — allow eyebrow to wrap on mobile */
