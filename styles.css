@@ -1741,6 +1741,14 @@ p {
    SCHOOLS PILOT LANDING PAGE
    ============================================================ */
 
+/* Pilot product section — fix callout alignment and spacing */
+.pilot-product .split-content p {
+  margin-bottom: 28px;
+}
+.pilot-product .schools-mini-callouts {
+  padding-left: 0;
+}
+
 /* Pilot hero — allow eyebrow to wrap on mobile */
 .pilot-hero .eyebrow {
   white-space: normal;
