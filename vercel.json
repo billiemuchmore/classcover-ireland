@@ -5,12 +5,26 @@
       "source": "/returning-teachers",
       "destination": "/reviews/subs",
       "permanent": true
+    },
+    {
+      "source": "/calculator",
+      "destination": "/schools/time-saving-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tools/time-saving-calculator",
+      "destination": "/schools/time-saving-calculator",
+      "permanent": true
     }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
+        {
+          "key": "Content-Language",
+          "value": "en-IE"
+        },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"

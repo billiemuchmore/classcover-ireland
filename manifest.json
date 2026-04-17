@@ -1,6 +1,7 @@
 {
   "name": "ClassCover Ireland",
   "short_name": "ClassCover",
+  "lang": "en-IE",
   "description": "The smarter way for Irish schools to book substitute teachers and SNAs.",
   "start_url": "/",
   "display": "browser",

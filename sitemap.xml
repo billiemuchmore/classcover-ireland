@@ -8,38 +8,66 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
+  </url>
+  <url>
+    <loc>https://www.classcoverapp.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
+  </url>
+  <url>
+    <loc>https://www.classcoverapp.com/schools</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/schools" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
   <url>
     <loc>https://www.classcoverapp.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
-  <url>
-    <loc>https://www.classcoverapp.com/privacy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.classcoverapp.com/terms</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.classcoverapp.com/cookies</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.classcoverapp.com/dsar</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
   <url>
     <loc>https://www.classcoverapp.com/reviews/subs</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/reviews/subs" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
+  </url>
+  <url>
+    <loc>https://www.classcoverapp.com/privacy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
+  </url>
+  <url>
+    <loc>https://www.classcoverapp.com/terms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
+  </url>
+  <url>
+    <loc>https://www.classcoverapp.com/cookies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/cookies" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
+  </url>
+
+  <!-- Tools -->
+  <url>
+    <loc>https://www.classcoverapp.com/schools/time-saving-calculator/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/schools/time-saving-calculator/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
 
   <!-- Blog -->
@@ -47,6 +75,8 @@
     <loc>https://www.classcoverapp.com/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
 
   <!-- Blog authors -->
@@ -54,16 +84,22 @@
     <loc>https://www.classcoverapp.com/blog/authors/billie-muchmore/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/blog/authors/billie-muchmore/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
   <url>
     <loc>https://www.classcoverapp.com/blog/authors/ben-grozier/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/blog/authors/ben-grozier/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
   <url>
     <loc>https://www.classcoverapp.com/blog/authors/james-hanlon/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/blog/authors/james-hanlon/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
 
   <!-- Blog posts -->
@@ -72,18 +108,24 @@
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/blog/substitute-teacher-shortage-ireland/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
   <url>
     <loc>https://www.classcoverapp.com/blog/how-to-find-substitute-teacher-ireland/</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/blog/how-to-find-substitute-teacher-ireland/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
   <url>
     <loc>https://www.classcoverapp.com/blog/flexible-substitute-teaching-career-ireland/</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/blog/flexible-substitute-teaching-career-ireland/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com/" />
   </url>
 
 </urlset>
