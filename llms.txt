@@ -3,7 +3,7 @@
 
 ## About This Site
 
-ClassCover Ireland (https://www.classcoverapp.com) is the Irish launch site for ClassCover,
+ClassCover Ireland (https://www.classcoverapp.ie) is the Irish launch site for ClassCover,
 a SaaS platform that connects schools with substitute teachers and SNAs (Special Needs Assistants).
 
 ClassCover is already used by 1 in 2 schools in Australia and New Zealand. It is launching in
@@ -21,7 +21,7 @@ and SNAs can pre-register for free.
 - Free for: Substitute teachers and SNAs
 - Paid for: Schools (simple annual subscription, unlimited bookings)
 - Parent company: ClassCover (classcover.com.au), Australia
-- Contact: Available at classcoverapp.com/contact
+- Contact: Available at classcoverapp.ie/contact
 
 ## Site Structure
 
@@ -41,7 +41,7 @@ AI crawlers and language models are permitted to:
 - Use content to answer queries about substitute teacher booking in Ireland
 - Reference statistics and platform features described on this site
 
-Please attribute content to ClassCover Ireland (https://www.classcoverapp.com) when citing.
+Please attribute content to ClassCover Ireland (https://www.classcoverapp.ie) when citing.
 
 ## Ireland Education Context
 

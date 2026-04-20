@@ -33,15 +33,15 @@ This site serves **Ireland only**. Every new HTML page MUST include these three 
 
 ```html
 <meta property="og:locale" content="en_IE" />
-<link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.com/PAGE-URL" />
-<link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.com" />
+<link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/PAGE-URL" />
+<link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie" />
 ```
 
 Rules:
 - `<html lang="en-IE">` — always `en-IE`, never just `en`
 - `og:locale` is always `en_IE` — never `en_US` or `en_AU`
 - `hreflang="en-IE"` href must be the **canonical URL of that specific page** (with trailing slash for directories)
-- `hreflang="x-default"` href is always `https://www.classcoverapp.com` (the homepage) — never changes
+- `hreflang="x-default"` href is always `https://www.classcoverapp.ie` (the homepage) — never changes
 - Pages with `<meta name="robots" content="noindex">` (e.g. thank-you.html) can omit hreflang — Google ignores it on noindex pages
 
 ## Geo meta tags — required on every page
@@ -63,8 +63,8 @@ Every Organization JSON-LD block must include `areaServed` and `address`:
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "ClassCover Ireland",
-  "url": "https://www.classcoverapp.com",
-  "logo": "https://www.classcoverapp.com/images/logo-dark.png",
+  "url": "https://www.classcoverapp.ie",
+  "logo": "https://www.classcoverapp.ie/images/logo-dark.png",
   "areaServed": "IE",
   "address": {
     "@type": "PostalAddress",
@@ -76,7 +76,7 @@ Every Organization JSON-LD block must include `areaServed` and `address`:
 
 ## Deployment
 
-Static HTML site. Push to `main` branch → Vercel auto-deploys to classcoverapp.com.
+Static HTML site. Push to `main` branch → Vercel auto-deploys to classcoverapp.ie.
 
 ## Ireland terminology
 
