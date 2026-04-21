@@ -135,5 +135,13 @@
     <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/blog/sna-career-ireland/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
   </url>
+  <url>
+    <loc>https://www.classcoverapp.ie/blog/what-makes-school-great-place-to-work-ireland/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/blog/what-makes-school-great-place-to-work-ireland/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
+  </url>
 
 </urlset>
