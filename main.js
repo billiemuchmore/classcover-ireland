@@ -93,16 +93,14 @@
 
   // ----------------------------------------------------------
   // Australia geolocation popup
+  // Country is set as a cookie by Vercel Edge Middleware (middleware.ts)
+  // from the x-vercel-ip-country header. No external fetch needed.
   // ----------------------------------------------------------
   if (!localStorage.getItem('au-popup-dismissed')) {
-    fetch('https://ipapi.co/json/')
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        if (data.country_code === 'AU') {
-          setTimeout(showAuPopup, 3000);
-        }
-      })
-      .catch(function () {}); // fail silently — never block the page
+    var match = document.cookie.match(/(?:^|;\s*)visitor-country=([^;]+)/);
+    if (match && match[1] === 'AU') {
+      setTimeout(showAuPopup, 3000);
+    }
   }
 
   function showAuPopup() {
