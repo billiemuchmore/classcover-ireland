@@ -186,7 +186,7 @@ p {
 .nav-links {
   display: none;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
 }
 
 .nav-links a {
@@ -194,6 +194,7 @@ p {
   font-weight: 600;
   color: var(--text-dark);
   transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .nav-links a:hover { color: var(--purple); }
@@ -314,7 +315,11 @@ p {
 }
 
 /* Desktop: show nav links, hide toggle */
-@media (min-width: 768px) {
+/* Show full desktop nav only at iPad-landscape widths and up.
+   Below 1024px (iPad portrait, small laptops) we use the hamburger menu
+   so labels like "How it works" + 5 nav links + region switcher + CTA
+   don't crush the logo or wrap. */
+@media (min-width: 1024px) {
   .nav-links { display: flex; }
   .nav-toggle { display: none; }
   .nav-drawer { display: none !important; }
