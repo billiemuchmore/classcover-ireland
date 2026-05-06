@@ -1459,7 +1459,7 @@ p {
 /* Post body content */
 .post-layout {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 48px;
   padding: 0 20px 64px;
   max-width: 860px;
@@ -1467,6 +1467,13 @@ p {
   width: 100%;
   box-sizing: border-box;
 }
+.post-body .table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 24px;
+  max-width: 100%;
+}
+.post-body .table-scroll table { margin-bottom: 0; }
 @media (min-width: 768px) {
   .post-layout { padding-left: 40px; padding-right: 40px; }
 }
