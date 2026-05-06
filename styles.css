@@ -1434,6 +1434,28 @@ p {
 }
 .tldr-box li:last-child { margin-bottom: 0; }
 
+/* In-article purple callout (with emoji) */
+.post-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--purple-light);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 28px 0 32px;
+}
+.post-callout-icon {
+  font-size: 24px;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+.post-callout p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text-dark);
+}
+
 /* Post body content */
 .post-layout {
   display: grid;
