@@ -343,6 +343,10 @@ p {
 }
 
 .hero h1 {
+  /* Tighter floor than the global h1 (36px) so the two-sentence
+     headline ("Don't post and wait." / "Book and be done.") doesn't
+     orphan-wrap on phones <400px wide. Same 56px max for desktop. */
+  font-size: clamp(28px, 8vw, 56px);
   max-width: 760px;
 }
 
