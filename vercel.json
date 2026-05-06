@@ -15,6 +15,11 @@
       "source": "/tools/time-saving-calculator",
       "destination": "/schools/time-saving-calculator",
       "permanent": true
+    },
+    {
+      "source": "/blog/substitute-teacher-booking-platform-ireland",
+      "destination": "/blog/substitute-teacher-booking-platform-vs-jobs-board-ireland",
+      "permanent": true
     }
   ],
   "headers": [
