@@ -830,6 +830,14 @@ p {
   font-size: 16px;
 }
 
+/* Inset variant — used inside a blog post body, between sections */
+.cta-band--inset {
+  border-radius: 16px;
+  margin: 48px 0;
+  overflow: hidden;
+}
+.cta-band--inset .cta-panel { padding: 32px 28px; }
+
 /* ============================================================
    FAQ
    ============================================================ */
