@@ -81,13 +81,293 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .lm-hero-image {
       position: relative;
     }
-    .lm-hero-image img {
+
+    /* ── Inline hero composition: jobs-board phone + WhatsApp chaos ── */
+    .hc-stage {
+      position: relative;
       width: 100%;
-      max-width: 560px;
-      height: auto;
-      display: block;
+      max-width: 600px;
+      aspect-ratio: 11 / 10;
       margin: 0 auto;
+      font-family: "Helvetica Neue", Arial, sans-serif;
     }
+    .hc-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1100px;
+      height: 1000px;
+      transform-origin: top left;
+    }
+
+    /* Phone */
+    .hc-phone {
+      position: absolute;
+      left: 52%;
+      top: 50%;
+      width: auto;
+      height: 86%;
+      aspect-ratio: 393 / 760;
+      transform: translate(-50%, -50%) rotate(-1.5deg);
+      background: #fff;
+      border-radius: 38px;
+      overflow: hidden;
+      box-shadow: 0 40px 90px rgba(20,10,50,.22), 0 12px 30px rgba(20,10,50,.10), 0 2px 6px rgba(20,10,50,.08);
+      display: flex;
+      flex-direction: column;
+      border: 10px solid #1a1a1a;
+      color: #1a1a1a;
+      z-index: 10;
+    }
+    .hc-status {
+      background: #5d6b3a;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .hc-status__icons { display: flex; gap: 4px; align-items: center; }
+    .hc-wifi {
+      display: inline-block;
+      width: 16px; height: 9px;
+      background: #fff;
+      border-radius: 1.5px;
+    }
+    .hc-battery {
+      display: inline-block;
+      width: 22px; height: 10px;
+      border: 1.2px solid #fff;
+      border-radius: 2px;
+      position: relative;
+    }
+    .hc-battery::after {
+      content: "";
+      position: absolute;
+      top: 1.5px; bottom: 1.5px; left: 1.5px;
+      width: 12px;
+      background: #fff;
+      border-radius: 1px;
+    }
+    .hc-header {
+      background: #5d6b3a;
+      padding: 6px 18px 18px;
+      position: relative;
+      border-bottom: 1px solid rgba(0,0,0,.15);
+      flex-shrink: 0;
+    }
+    .hc-header__title {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+    .hc-header__avatar {
+      position: absolute;
+      top: 14px; right: 18px;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.3);
+    }
+    .hc-listings {
+      flex: 1;
+      overflow: hidden;
+      padding: 16px 14px 0;
+      background: #fff;
+    }
+    .hc-region { margin-bottom: 18px; }
+    .hc-region__name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 4px 0 8px;
+    }
+    .hc-job {
+      background: #f4f4f4;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .hc-job__mono {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      color: #fff;
+      display: grid; place-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      flex-shrink: 0;
+    }
+    .hc-job__info { flex: 1; min-width: 0; }
+    .hc-job__dates {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #7a8a4a;
+      letter-spacing: .05em;
+      margin-bottom: 2px;
+    }
+    .hc-job__title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.2;
+    }
+    .hc-job__school,
+    .hc-job__addr {
+      font-size: 11.5px;
+      color: #3a3a3a;
+      line-height: 1.3;
+    }
+    .hc-job__school { margin-top: 1px; }
+    .hc-tabbar {
+      border-top: 1px solid #e0e0e0;
+      background: #fff;
+      padding: 8px 0 14px;
+      display: flex;
+      justify-content: space-around;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .hc-tab { text-align: center; }
+    .hc-tab--active { color: #7a8a4a; }
+    .hc-tab--mute { color: #9a9a9a; }
+    .hc-tab__icon-jobs {
+      width: 22px; height: 16px;
+      margin: 0 auto;
+      border: 1.5px solid currentColor;
+      border-radius: 2px;
+      position: relative;
+    }
+    .hc-tab__icon-jobs::before {
+      content: "";
+      position: absolute;
+      top: -4px; left: 50%;
+      transform: translateX(-50%);
+      width: 8px; height: 4px;
+      border: 1.5px solid currentColor;
+      border-bottom: none;
+      border-radius: 2px 2px 0 0;
+    }
+    .hc-tab__icon-apps {
+      width: 22px; height: 16px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .hc-tab__icon-apps > i {
+      display: block;
+      height: 2px;
+      background: currentColor;
+    }
+    .hc-tab__icon-apps > i:nth-child(2) { width: 70%; }
+    .hc-tab__label {
+      font-size: 9px;
+      margin-top: 3px;
+    }
+    .hc-tab--active .hc-tab__label { font-weight: 600; }
+    .hc-home-indicator {
+      position: absolute;
+      bottom: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 4px;
+      border-radius: 4px;
+      background: #1a1a1a;
+    }
+
+    /* Chat bubbles */
+    .hc-bubble {
+      position: absolute;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 14px 8px;
+      color: #111;
+      box-shadow: 0 14px 32px rgba(20,10,50,.18), 0 3px 8px rgba(20,10,50,.10);
+      max-width: 290px;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+    .hc-bubble--md {
+      padding: 12px 16px 10px;
+      max-width: 340px;
+      font-size: 19px;
+    }
+    .hc-bubble--me { background: #dcf8c6; }
+
+    .hc-bubble__tail {
+      position: absolute;
+      top: 0;
+      left: -9px;
+      width: 0; height: 0;
+      border-top: 10px solid #fff;
+      border-right: 10px solid transparent;
+    }
+    .hc-bubble--md .hc-bubble__tail {
+      left: -10px;
+      border-top-width: 11px;
+      border-right-width: 11px;
+    }
+    .hc-bubble--me .hc-bubble__tail {
+      left: auto;
+      right: -9px;
+      border-top: 10px solid #dcf8c6;
+      border-right: none;
+      border-left: 10px solid transparent;
+    }
+    .hc-bubble--md.hc-bubble--me .hc-bubble__tail {
+      right: -10px;
+      border-top-width: 11px;
+      border-left-width: 11px;
+    }
+
+    .hc-bubble__name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .hc-bubble--md .hc-bubble__name { font-size: 15px; }
+
+    .hc-bubble__text { padding-right: 52px; }
+    .hc-bubble__urgent {
+      color: #d63031;
+      font-weight: 700;
+      margin-right: 2px;
+    }
+    .hc-bubble__time {
+      position: absolute;
+      bottom: 6px;
+      right: 12px;
+      font-size: 12px;
+      color: #9aa0a6;
+    }
+
+    /* Typing indicator */
+    .hc-typing {
+      position: absolute;
+      background: #fff;
+      border-radius: 20px;
+      padding: 14px 18px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      box-shadow: 0 14px 32px rgba(20,10,50,.18), 0 3px 8px rgba(20,10,50,.10);
+    }
+    .hc-typing > span {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .hc-typing > span:nth-child(1) { background: #9aa0a6; }
+    .hc-typing > span:nth-child(2) { background: #bcbfc4; }
+    .hc-typing > span:nth-child(3) { background: #d8dbe0; }
     .lm-hero .eyebrow {
       display: inline-block;
       background: #EBE7F6;
@@ -317,9 +597,199 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <div class="lm-hero-image">
-            <img src="/images/hero-jobs-chaos.png"
-                 alt="A jobs board phone screen surrounded by frantic WhatsApp messages between principals trying to find substitute teacher cover — the way Irish schools find subs today."
-                 width="1100" height="1000" loading="eager" fetchpriority="high" />
+            <div class="hc-stage" role="img" aria-label="A jobs board phone screen surrounded by frantic WhatsApp messages between principals trying to find substitute teachers — the way Irish schools find subs today.">
+              <div class="hc-canvas">
+
+                <!-- Phone: Jobs Board -->
+                <div class="hc-phone" aria-hidden="true">
+                  <div class="hc-status">
+                    <span>9:41</span>
+                    <span class="hc-status__icons"><span class="hc-wifi"></span><span class="hc-battery"></span></span>
+                  </div>
+                  <div class="hc-header">
+                    <div class="hc-header__title">Jobs Board</div>
+                    <div class="hc-header__avatar"></div>
+                  </div>
+                  <div class="hc-listings">
+
+                    <div class="hc-region">
+                      <div class="hc-region__name">Galway — North Galway</div>
+                      <div class="hc-job">
+                        <div class="hc-job__mono" style="background:#2f7a5a">BR</div>
+                        <div class="hc-job__info">
+                          <div class="hc-job__dates">TUE, 12 MAY — THU 14 MAY</div>
+                          <div class="hc-job__title">4th Class</div>
+                          <div class="hc-job__school">Briarwood NS</div>
+                          <div class="hc-job__addr">Church Road, Tuam, Co. Galway</div>
+                        </div>
+                      </div>
+                      <div class="hc-job">
+                        <div class="hc-job__mono" style="background:#7a4a2a">OS</div>
+                        <div class="hc-job__info">
+                          <div class="hc-job__dates">FRI, 15 MAY — FRI, 15 MAY</div>
+                          <div class="hc-job__title">Junior Infants</div>
+                          <div class="hc-job__school">Oakshade NS</div>
+                          <div class="hc-job__addr">Main Street, Headford, Co. Galway</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="hc-region">
+                      <div class="hc-region__name">Mayo — South Mayo</div>
+                      <div class="hc-job">
+                        <div class="hc-job__mono" style="background:#2b3950">HF</div>
+                        <div class="hc-job__info">
+                          <div class="hc-job__dates">MON, 11 MAY — FRI, 15 MAY</div>
+                          <div class="hc-job__title">2nd Class</div>
+                          <div class="hc-job__school">Hillfield NS</div>
+                          <div class="hc-job__addr">Abbey Lane, Ballinrobe, Co. Mayo</div>
+                        </div>
+                      </div>
+                      <div class="hc-job">
+                        <div class="hc-job__mono" style="background:#5a4a8a">GW</div>
+                        <div class="hc-job__info">
+                          <div class="hc-job__dates">WED, 20 MAY — THU, 21 MAY</div>
+                          <div class="hc-job__title">Resource Teacher</div>
+                          <div class="hc-job__school">Greenway NS</div>
+                          <div class="hc-job__addr">Castle Road, Westport, Co. Mayo</div>
+                        </div>
+                      </div>
+                      <div class="hc-job">
+                        <div class="hc-job__mono" style="background:#3a7a8a">KR</div>
+                        <div class="hc-job__info">
+                          <div class="hc-job__dates">MON, 25 MAY — TUE, 26 MAY</div>
+                          <div class="hc-job__title">SNA Cover</div>
+                          <div class="hc-job__school">Knockrea NS</div>
+                          <div class="hc-job__addr">Quay Road, Newport, Co. Mayo</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="hc-region">
+                      <div class="hc-region__name">Sligo — Sligo Town</div>
+                      <div class="hc-job">
+                        <div class="hc-job__mono" style="background:#a8443a">LM</div>
+                        <div class="hc-job__info">
+                          <div class="hc-job__dates">TUE, 26 MAY — WED, 27 MAY</div>
+                          <div class="hc-job__title">Senior Infants</div>
+                          <div class="hc-job__school">Lakemount NS</div>
+                          <div class="hc-job__addr">Harbour Road, Strandhill, Co. Sligo</div>
+                        </div>
+                      </div>
+                      <div class="hc-job">
+                        <div class="hc-job__mono" style="background:#5a3a7a">SC</div>
+                        <div class="hc-job__info">
+                          <div class="hc-job__dates">THU, 28 MAY — FRI, 29 MAY</div>
+                          <div class="hc-job__title">5th &amp; 6th Class</div>
+                          <div class="hc-job__school">Seacliff NS</div>
+                          <div class="hc-job__addr">Coast Road, Rosses Point, Co. Sligo</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="hc-region">
+                      <div class="hc-region__name">Roscommon — East</div>
+                      <div class="hc-job">
+                        <div class="hc-job__mono" style="background:#8a5a2a">BH</div>
+                        <div class="hc-job__info">
+                          <div class="hc-job__dates">WED, 3 JUN — THU, 4 JUN</div>
+                          <div class="hc-job__title">1st Class</div>
+                          <div class="hc-job__school">Birchhill NS</div>
+                          <div class="hc-job__addr">Castle Street, Boyle, Co. Roscommon</div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="hc-tabbar">
+                    <div class="hc-tab hc-tab--active">
+                      <div class="hc-tab__icon-jobs"></div>
+                      <div class="hc-tab__label">Jobs</div>
+                    </div>
+                    <div class="hc-tab hc-tab--mute">
+                      <div class="hc-tab__icon-apps"><i></i><i></i><i></i></div>
+                      <div class="hc-tab__label">Applications</div>
+                    </div>
+                  </div>
+                  <div class="hc-home-indicator"></div>
+                </div>
+
+                <!-- LEFT cluster -->
+                <div class="hc-bubble" style="left:2%;top:2%;transform:rotate(-4deg);z-index:20" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__name" style="color:#06745a">Mary K. (Principal)</div>
+                  <div class="hc-bubble__text"><span class="hc-bubble__urgent">!</span>Anyone free Tue for 4th class? 🙏</div>
+                  <div class="hc-bubble__time">08:42</div>
+                </div>
+
+                <div class="hc-bubble" style="left:14%;top:20%;transform:rotate(2deg);z-index:22" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__name" style="color:#a8443a">Sarah O'B</div>
+                  <div class="hc-bubble__text">Can't sorry — booked Tue/Wed</div>
+                  <div class="hc-bubble__time">08:51</div>
+                </div>
+
+                <div class="hc-bubble hc-bubble--md" style="left:2%;top:36%;transform:rotate(3deg);z-index:25" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__name" style="color:#2b6b8a">Tom D.</div>
+                  <div class="hc-bubble__text">Anyone got a number for Lisa? She subbed for me in March</div>
+                  <div class="hc-bubble__time">09:14</div>
+                </div>
+
+                <div class="hc-typing" style="left:20%;top:56%;transform:rotate(-2deg);z-index:24" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+
+                <div class="hc-bubble" style="left:3%;top:68%;transform:rotate(-3deg);z-index:23" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__name" style="color:#7a5a2a">Aoife</div>
+                  <div class="hc-bubble__text">Try the Mayo group too?</div>
+                  <div class="hc-bubble__time">10:05</div>
+                </div>
+
+                <div class="hc-bubble" style="left:12%;top:84%;transform:rotate(3deg);z-index:26" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__name" style="color:#8a3a6a">Conor</div>
+                  <div class="hc-bubble__text">Which Briarwood? Tuam or Athenry??</div>
+                  <div class="hc-bubble__time">10:31</div>
+                </div>
+
+                <!-- RIGHT cluster -->
+                <div class="hc-bubble hc-bubble--me" style="right:2%;top:3%;transform:rotate(4deg);z-index:22" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__text"><span class="hc-bubble__urgent">!</span>Reposting — STILL need Tue. PM me??</div>
+                  <div class="hc-bubble__time">09:22</div>
+                </div>
+
+                <div class="hc-bubble" style="right:12%;top:22%;transform:rotate(-3deg);z-index:24" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__name" style="color:#3a8a6a">+353 86 ••• 4421</div>
+                  <div class="hc-bubble__text">Hi I saw the post. Am I too late?</div>
+                  <div class="hc-bubble__time">09:31</div>
+                </div>
+
+                <div class="hc-bubble hc-bubble--me" style="right:2%;top:40%;transform:rotate(2deg);z-index:23" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__text">Any luck? Thu yes, Tue no 😕</div>
+                  <div class="hc-bubble__time">09:48</div>
+                </div>
+
+                <div class="hc-bubble hc-bubble--md" style="right:3%;top:58%;transform:rotate(-3deg);z-index:26" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__name" style="color:#06745a">Mary K. (Principal)</div>
+                  <div class="hc-bubble__text">Sorted! Found someone via 3rd group 🙏🙏</div>
+                  <div class="hc-bubble__time">10:14</div>
+                </div>
+
+                <div class="hc-bubble" style="right:10%;top:82%;transform:rotate(3deg);z-index:25" aria-hidden="true">
+                  <span class="hc-bubble__tail"></span>
+                  <div class="hc-bubble__name" style="color:#5a8a3a">Eilis</div>
+                  <div class="hc-bubble__text">Forwarded 👍</div>
+                  <div class="hc-bubble__time">10:42</div>
+                </div>
+
+              </div>
+            </div>
           </div>
 
         </div>
@@ -448,6 +918,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
 
+  <script>
+    // Scale the 1100x1000 hero composition to fit its container width
+    (function () {
+      var CANVAS_W = 1100;
+      var stages = document.querySelectorAll('.hc-stage');
+      if (!stages.length) return;
+      function fit() {
+        stages.forEach(function (stage) {
+          var canvas = stage.querySelector('.hc-canvas');
+          if (!canvas) return;
+          var w = stage.clientWidth;
+          canvas.style.transform = 'scale(' + (w / CANVAS_W) + ')';
+        });
+      }
+      fit();
+      window.addEventListener('resize', fit);
+      if (typeof ResizeObserver !== 'undefined') {
+        var ro = new ResizeObserver(fit);
+        stages.forEach(function (s) { ro.observe(s); });
+      }
+    })();
+  </script>
   <script src="https://embed.typeform.com/next/embed.js" async></script>
   <script src="/main.js" defer></script>
 </body>
