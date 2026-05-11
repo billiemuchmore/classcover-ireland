@@ -118,6 +118,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin: 0 0 28px;
     }
 
+    /* ── Product preview: what the alternative looks like ── */
+    .calc-alt-section {
+      background: #ffffff;
+      padding: 80px 0;
+    }
+    .calc-alt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .calc-alt-copy .eyebrow {
+      display: inline-block;
+      background: #EBE7F6;
+      color: #3A0CA3;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 99px;
+      margin-bottom: 18px;
+    }
+    .calc-alt-copy h2 {
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 800;
+      color: #1A1A1A;
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+    .calc-alt-copy h2 strong { color: #3A0CA3; font-weight: 800; }
+    .calc-alt-copy p {
+      font-size: 17px;
+      color: #555;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .calc-alt-image img {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .calc-alt-section { padding: 56px 0; }
+      .calc-alt-grid { grid-template-columns: 1fr; gap: 32px; }
+      .calc-alt-copy { text-align: center; }
+    }
+
     /* ── Calculator widget ── */
     #cc-timecalc-root {
       all: initial;
@@ -587,6 +639,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         PRODUCT PREVIEW: what 2m 17s actually looks like
+    ====================================================== -->
+    <section class="calc-alt-section">
+      <div class="container">
+        <div class="calc-alt-grid">
+          <div class="calc-alt-copy">
+            <span class="eyebrow">The new way</span>
+            <h2>Booking a sub takes <strong>2 minutes 17 seconds</strong>.</h2>
+            <p>Pick a sub from your invite list. Tap to send. Watch them accept in real time. That's the average across schools using ClassCover today — and the benchmark behind the savings shown above.</p>
+          </div>
+          <div class="calc-alt-image">
+            <img src="/images/Final%20homepage%20images/Ireland%20CC%20-%20Invite%20List%20with%20booking%20conf.png"
+                 alt="ClassCover Ireland — invite list showing the moment a substitute teacher booking is confirmed"
+                 width="1500" height="1500" loading="lazy" />
           </div>
         </div>
       </div>
