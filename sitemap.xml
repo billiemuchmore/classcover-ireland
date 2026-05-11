@@ -69,6 +69,16 @@
     <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/schools/time-saving-calculator/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
   </url>
+
+  <!-- Lead magnets -->
+  <url>
+    <loc>https://www.classcoverapp.ie/schools/find-out-how-much-time-you-waste/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/schools/find-out-how-much-time-you-waste/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
+  </url>
   <url>
     <loc>https://www.classcoverapp.ie/schools/pricing/</loc>
     <changefreq>monthly</changefreq>
