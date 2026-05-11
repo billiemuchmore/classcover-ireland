@@ -471,6 +471,44 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 0 4px;
       font-family: 'Poppins', system-ui, sans-serif;
     }
+
+    /* In-results CTA */
+    #cc-timecalc-root .cc-result-cta {
+      margin-top: 22px;
+      padding: 22px 22px 24px;
+      background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%);
+      border-radius: 14px;
+      text-align: center;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-result-cta__line {
+      margin: 0 0 14px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #ffffff;
+      line-height: 1.45;
+    }
+    #cc-timecalc-root .cc-result-cta__btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #3A0CA3;
+      padding: 12px 26px;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,.18);
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-result-cta__btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    }
+    #cc-timecalc-root .cc-result-cta__btn:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 3px;
+    }
   </style>
 </head>
 <body>
@@ -634,6 +672,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div class="cc-footer-note">
                   Time saved = (your current minutes − 2m 17s) × substitute bookings per week. Both sides scale with volume, so savings grow as your school gets busier.
+                </div>
+
+                <div class="cc-result-cta">
+                  <p class="cc-result-cta__line">Like those numbers? Apply for the pilot and put them to work.</p>
+                  <a href="https://rtcon.typeform.com/to/EHewmpE4" target="_blank" rel="noopener" class="cc-result-cta__btn">Apply for the Pilot Program</a>
                 </div>
 
               </div>
