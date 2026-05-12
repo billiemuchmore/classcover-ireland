@@ -472,6 +472,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-family: 'Poppins', system-ui, sans-serif;
     }
 
+    /* Full-width CTA card — sits below the two grid columns inside the calculator */
+    #cc-timecalc-root .cc-cta-card {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%);
+      border-radius: 20px;
+      box-shadow: 0 8px 28px rgba(58,12,163,.22);
+      padding: 36px 28px 38px;
+      text-align: center;
+      color: #ffffff;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-cta-card h3 {
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 12px;
+      line-height: 1.25;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-cta-card p {
+      font-size: 15px;
+      color: rgba(255,255,255,.92);
+      line-height: 1.6;
+      margin: 0 auto 22px;
+      max-width: 640px;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-cta-btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #3A0CA3;
+      padding: 14px 32px;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,.22);
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0,0,0,.28);
+    }
+    #cc-timecalc-root .cc-cta-btn:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 3px;
+    }
+
   </style>
 </head>
 <body>
@@ -640,20 +689,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-    </section>
+            <!-- CTA card — third row of the calculator grid, spans full width -->
+            <div class="cc-cta-card">
+              <h3>Want to see these hours saved at your school?</h3>
+              <p>Apply for the ClassCover Pilot Program. Selected schools get 2 months of full access, free. Every school that applies gets ClassCover Lite from launch — until the full version rolls out to your area.</p>
+              <a href="https://rtcon.typeform.com/to/EHewmpE4" target="_blank" rel="noopener" class="cc-cta-btn">Sign up for the pilot</a>
+            </div>
 
-    <!-- ======================================================
-         PILOT CTA — primary conversion point, sits right under the calculator
-    ====================================================== -->
-    <section class="calc-cta-section">
-      <div class="container">
-        <h2>Want to see these hours saved at your school?</h2>
-        <p>Apply for the ClassCover Pilot Program. Selected schools get 2 months of full access, free. Every school that applies gets ClassCover Lite from launch — until the full version rolls out to your area.</p>
-        <div class="btn-group" style="justify-content:center;">
-          <a href="https://rtcon.typeform.com/to/EHewmpE4" target="_blank" rel="noopener" class="btn" style="background:#ffffff !important;color:#3A0CA3 !important;">Sign up for the pilot</a>
+          </div>
         </div>
       </div>
     </section>
