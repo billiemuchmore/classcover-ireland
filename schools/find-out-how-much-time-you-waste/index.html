@@ -488,11 +488,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .lm-value-grid { grid-template-columns: 1fr; gap: 16px; }
     }
 
-    /* ── Bottom CTA strip ── */
+    /* ── Bottom CTA — floating dark card on light bg, breathing room before footer ── */
     .lm-cta {
+      background: #ffffff;
+      padding: 32px 0 80px;
+    }
+    .lm-cta-card {
       background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%);
-      padding: 72px 0;
+      border-radius: 28px;
+      padding: 64px 48px;
       text-align: center;
+      max-width: 880px;
+      margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(58, 12, 163, 0.22), 0 8px 20px rgba(58, 12, 163, 0.14);
     }
     .lm-cta h2 {
       font-size: clamp(24px, 4vw, 34px);
@@ -848,10 +856,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ====================================================== -->
     <section class="lm-cta">
       <div class="container">
-        <h2>Ready to skip the chase entirely?</h2>
-        <p>Join the schools piloting ClassCover Ireland and book subs in one tap.</p>
+        <div class="lm-cta-card">
+          <h2>Ready to skip the chase entirely?</h2>
+          <p>Join the schools piloting ClassCover Ireland and book subs in one tap.</p>
 
-        <a href="https://rtcon.typeform.com/to/EHewmpE4" target="_blank" rel="noopener" class="tf-btn-light">Apply for the Pilot Program</a>
+          <a href="https://rtcon.typeform.com/to/EHewmpE4" target="_blank" rel="noopener" class="tf-btn-light">Apply for the Pilot Program</a>
+        </div>
       </div>
     </section>
 
@@ -867,7 +877,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="footer-brand">
           <a href="/index.html" aria-label="ClassCover Ireland home">
-            <img src="/images/logo-light.png" alt="ClassCover" width="160" height="38" loading="lazy" />
+            <img src="/images/logo-dark.png" alt="ClassCover" width="160" height="38" loading="lazy" />
           </a>
           <p class="footer-tagline">Ireland's first purpose-built booking platform for substitute teachers and SNAs. Coming soon.</p>
           <div class="footer-socials">
