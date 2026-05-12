@@ -931,8 +931,8 @@ p {
    FOOTER
    ============================================================ */
 .site-footer {
-  background: #f4f0fc;
-  border-top: 1px solid rgba(58, 12, 163, 0.1);
+  background: #2A0780;
+  color: rgba(255, 255, 255, 0.85);
   padding: 60px 0 32px;
 }
 
@@ -962,7 +962,7 @@ p {
 
 .footer-tagline {
   font-size: 15px;
-  color: var(--text-body);
+  color: rgba(255, 255, 255, 0.7);
   max-width: 300px;
   line-height: 1.6;
 }
@@ -977,16 +977,16 @@ p {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: var(--purple-card);
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--purple);
+  color: #ffffff;
   font-size: 16px;
   transition: background 0.2s, color 0.2s;
 }
 
-.footer-socials a:hover { background: var(--purple); color: var(--white); }
+.footer-socials a:hover { background: #ffffff; color: var(--purple); }
 
 .footer-socials svg {
   width: 18px;
@@ -1012,7 +1012,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-dark);
+  color: #ffffff;
   margin-bottom: 14px;
 }
 
@@ -1024,14 +1024,14 @@ p {
 
 .footer-col ul a {
   font-size: 15px;
-  color: var(--text-body);
+  color: rgba(255, 255, 255, 0.75);
   transition: color 0.2s;
 }
 
-.footer-col ul a:hover { color: var(--purple); }
+.footer-col ul a:hover { color: #ffffff; }
 
 .footer-bottom {
-  border-top: 1px solid rgba(0,0,0,0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-top: 24px;
   display: flex;
   flex-direction: column;
@@ -1050,7 +1050,16 @@ p {
 
 .footer-bottom p {
   font-size: 14px;
-  color: #888;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.footer-bottom a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s;
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
 }
 
 /* ============================================================
