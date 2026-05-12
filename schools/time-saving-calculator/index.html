@@ -407,7 +407,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-family: 'Poppins', system-ui, sans-serif;
     }
 
-    /* Time saved hero */
+    /* Hours wasted hero (current state) */
+    #cc-timecalc-root .cc-kpi-waste {
+      background: linear-gradient(135deg, #FFE4DC 0%, #FFF5EF 100%);
+      border-radius: 16px;
+      padding: 22px 20px;
+      display: grid;
+      gap: 4px;
+      border: none;
+      margin-bottom: 16px;
+    }
+    #cc-timecalc-root .cc-kpi-waste .cc-waste-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #A8443A;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-kpi-waste .cc-waste-val {
+      font-size: 38px;
+      font-weight: 700;
+      color: #6E2814;
+      line-height: 1.1;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-kpi-waste .cc-waste-sub {
+      font-size: 12px;
+      color: rgba(110,40,20,.65);
+      margin-top: 2px;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+
+    /* Time saved hero (with ClassCover) */
     #cc-timecalc-root .cc-kpi-hero {
       background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%);
       border-radius: 16px;
@@ -576,8 +608,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="calc-page-hero">
       <div class="container">
         <span class="eyebrow">Free tool for schools</span>
-        <h1>How many hours does your school spend on <span>substitute cover</span>?</h1>
-        <p>Enter your school's numbers below to see exactly how much time is lost to phone calls, WhatsApp messages and chasing subs — and how much ClassCover could give back.</p>
+        <h1>How much time is your school <span>wasting</span> chasing subs?</h1>
+        <p>Plug in your numbers. The calculator shows you the real hours lost to phone calls, WhatsApps and waiting for replies — and exactly how much you'd get back with ClassCover.</p>
       </div>
     </section>
 
@@ -653,11 +685,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
               <div class="cc-content">
 
-                <!-- Hero: time saved per year -->
+                <!-- Hero 1: hours your school is losing (matches marketing hook) -->
+                <div class="cc-kpi-waste">
+                  <div class="cc-waste-label">Hours your school is losing per year</div>
+                  <div class="cc-waste-val" id="tc-wasted-year">0h 00m</div>
+                  <div class="cc-waste-sub">Chasing subs the old way — phone calls, WhatsApps, waiting</div>
+                </div>
+
+                <!-- Hero 2: hours saved with ClassCover (the relief) -->
                 <div class="cc-kpi-hero">
-                  <div class="cc-hero-label">Time saved per year</div>
+                  <div class="cc-hero-label">Hours saved per year with ClassCover</div>
                   <div class="cc-hero-val" id="tc-saved-year">0h 00m</div>
-                  <div class="cc-hero-sub">vs. your current booking process</div>
+                  <div class="cc-hero-sub">ClassCover books in 2m 17s on average</div>
                 </div>
 
                 <!-- Money saved (conditional) -->
@@ -818,11 +857,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var currentHrsWeek = (minsPerBooking * bkw) / 60;
       var ccHrsWeek      = (CC_MINS_PER_BOOKING * bkw) / 60;
       var savedHrsWeek   = Math.max(currentHrsWeek - ccHrsWeek, 0);
+      var currentHrsYear = currentHrsWeek * wpy;
       var savedHrsYear   = savedHrsWeek * wpy;
 
       document.getElementById("tc-current-week").textContent = hm(currentHrsWeek);
       document.getElementById("tc-cc-week").textContent      = hm(ccHrsWeek);
       document.getElementById("tc-saved-week").textContent   = hm(savedHrsWeek);
+      document.getElementById("tc-wasted-year").textContent  = hm(currentHrsYear);
       document.getElementById("tc-saved-year").textContent   = hm(savedHrsYear);
 
       var moneyWrap = document.getElementById("tc-money-wrap");
