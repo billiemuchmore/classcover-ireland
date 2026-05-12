@@ -410,15 +410,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* Hours wasted hero (current state) */
     #cc-timecalc-root .cc-kpi-waste {
       background: linear-gradient(135deg, #FFE4DC 0%, #FFF5EF 100%);
-      border-radius: 16px;
-      padding: 22px 20px;
+      border-radius: 14px;
+      padding: 16px 18px;
       display: grid;
-      gap: 4px;
+      gap: 2px;
       border: none;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     #cc-timecalc-root .cc-kpi-waste .cc-waste-label {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       color: #A8443A;
       text-transform: uppercase;
@@ -426,7 +426,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-family: 'Poppins', system-ui, sans-serif;
     }
     #cc-timecalc-root .cc-kpi-waste .cc-waste-val {
-      font-size: 38px;
+      font-size: 32px;
       font-weight: 700;
       color: #6E2814;
       line-height: 1.1;
@@ -442,10 +442,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* Time saved hero (with ClassCover) */
     #cc-timecalc-root .cc-kpi-hero {
       background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%);
-      border-radius: 16px;
-      padding: 22px 20px;
+      border-radius: 14px;
+      padding: 16px 18px;
       display: grid;
-      gap: 4px;
+      gap: 2px;
       border: none;
     }
     #cc-timecalc-root .cc-kpi-hero .cc-hero-label {
@@ -457,11 +457,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-family: 'Poppins', system-ui, sans-serif;
     }
     #cc-timecalc-root .cc-kpi-hero .cc-hero-val {
-      font-size: 38px;
+      font-size: 32px;
       font-weight: 700;
       color: #ffffff;
       line-height: 1.1;
       font-family: 'Poppins', system-ui, sans-serif;
+    }
+
+    /* Compact weekly breakdown — 3-column strip below the heroes */
+    #cc-timecalc-root .cc-week-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+      padding: 12px 14px;
+      background: #F8F6FD;
+      border: 1px solid #EBE7F6;
+      border-radius: 12px;
+      margin-top: 14px;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-week-cell {
+      text-align: center;
+    }
+    #cc-timecalc-root .cc-week-cell + .cc-week-cell {
+      border-left: 1px solid #EBE7F6;
+    }
+    #cc-timecalc-root .cc-week-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #7B5CC1;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-week-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1A1A1A;
+      margin-top: 2px;
+      font-family: 'Poppins', system-ui, sans-serif;
+    }
+    #cc-timecalc-root .cc-week-cell--win .cc-week-val {
+      color: #3A0CA3;
     }
     #cc-timecalc-root .cc-kpi-hero .cc-hero-sub {
       font-size: 12px;
@@ -705,20 +742,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <span class="val" id="tc-money-year">€0</span>
                 </div>
 
-                <div class="cc-divider"></div>
-
-                <!-- Weekly breakdown -->
-                <div class="cc-kpi">
-                  <em>Your current time per week</em>
-                  <span class="val" id="tc-current-week">0h 00m</span>
-                </div>
-                <div class="cc-kpi">
-                  <em>With ClassCover (per week)</em>
-                  <span class="val" id="tc-cc-week">0h 00m</span>
-                </div>
-                <div class="cc-kpi">
-                  <em>Time saved per week</em>
-                  <span class="val" id="tc-saved-week">0h 00m</span>
+                <!-- Weekly breakdown: compact 3-column strip -->
+                <div class="cc-week-grid">
+                  <div class="cc-week-cell">
+                    <div class="cc-week-label">Now / week</div>
+                    <div class="cc-week-val" id="tc-current-week">0h 00m</div>
+                  </div>
+                  <div class="cc-week-cell">
+                    <div class="cc-week-label">With CC</div>
+                    <div class="cc-week-val" id="tc-cc-week">0h 00m</div>
+                  </div>
+                  <div class="cc-week-cell cc-week-cell--win">
+                    <div class="cc-week-label">Saved</div>
+                    <div class="cc-week-val" id="tc-saved-week">0h 00m</div>
+                  </div>
                 </div>
 
                 <div class="cc-footer-note">
