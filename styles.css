@@ -998,7 +998,12 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-  flex: 2;
+  flex: 2.6;
+}
+
+.footer-col {
+  flex: 1 1 130px;
+  min-width: 0;
 }
 
 .footer-col h3,
