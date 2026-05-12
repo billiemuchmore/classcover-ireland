@@ -1,0 +1,298 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "ClassCover Ireland home" [ref=e4] [cursor=pointer]:
+        - /url: /index.html
+        - img "ClassCover" [ref=e5]
+      - navigation "Main navigation" [ref=e6]:
+        - link "For schools" [ref=e7] [cursor=pointer]:
+          - /url: /index.html#for-schools
+        - link "For subs" [ref=e8] [cursor=pointer]:
+          - /url: /index.html#for-subs
+        - link "How it works" [ref=e9] [cursor=pointer]:
+          - /url: /index.html#how-it-works
+        - link "FAQs" [ref=e10] [cursor=pointer]:
+          - /url: /index.html#faq
+        - link "Blog" [ref=e11] [cursor=pointer]:
+          - /url: /blog/
+        - generic "Region" [ref=e12]:
+          - generic [ref=e13]: 🇮🇪 IE
+          - generic [ref=e14]: "|"
+          - link "Go to ClassCover Australia" [ref=e15] [cursor=pointer]:
+            - /url: https://www.classcover.com.au/
+            - text: 🇦🇺 AU
+        - link "Apply now" [ref=e16] [cursor=pointer]:
+          - /url: https://rtcon.typeform.com/to/EHewmpE4
+  - main [ref=e17]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Find out how much time your school wastes chasing subs." [level=1] [ref=e22]
+        - paragraph [ref=e23]: Plug in your bookings per week and your current time per booking. The calculator shows your real hours — and the euros, if you want them. Takes 60 seconds.
+        - button "Run the numbers" [ref=e24] [cursor=pointer]
+      - img "A jobs board phone screen surrounded by frantic WhatsApp messages between principals trying to find substitute teachers — the way Irish schools find subs today." [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e30]: 9:41
+            - generic [ref=e35]: Jobs Board
+            - generic [ref=e37]:
+              - generic [ref=e38]:
+                - generic [ref=e39]: Galway — North Galway
+                - generic [ref=e40]:
+                  - generic [ref=e41]: BR
+                  - generic [ref=e42]:
+                    - generic [ref=e43]: TUE, 12 MAY — THU 14 MAY
+                    - generic [ref=e44]: 4th Class
+                    - generic [ref=e45]: Briarwood NS
+                    - generic [ref=e46]: Church Road, Tuam, Co. Galway
+                - generic [ref=e47]:
+                  - generic [ref=e48]: OS
+                  - generic [ref=e49]:
+                    - generic [ref=e50]: FRI, 15 MAY — FRI, 15 MAY
+                    - generic [ref=e51]: Junior Infants
+                    - generic [ref=e52]: Oakshade NS
+                    - generic [ref=e53]: Main Street, Headford, Co. Galway
+              - generic [ref=e54]:
+                - generic [ref=e55]: Mayo — South Mayo
+                - generic [ref=e56]:
+                  - generic [ref=e57]: HF
+                  - generic [ref=e58]:
+                    - generic [ref=e59]: MON, 11 MAY — FRI, 15 MAY
+                    - generic [ref=e60]: 2nd Class
+                    - generic [ref=e61]: Hillfield NS
+                    - generic [ref=e62]: Abbey Lane, Ballinrobe, Co. Mayo
+                - generic [ref=e63]:
+                  - generic [ref=e64]: GW
+                  - generic [ref=e65]:
+                    - generic [ref=e66]: WED, 20 MAY — THU, 21 MAY
+                    - generic [ref=e67]: Resource Teacher
+                    - generic [ref=e68]: Greenway NS
+                    - generic [ref=e69]: Castle Road, Westport, Co. Mayo
+                - generic [ref=e70]:
+                  - generic [ref=e71]: KR
+                  - generic [ref=e72]:
+                    - generic [ref=e73]: MON, 25 MAY — TUE, 26 MAY
+                    - generic [ref=e74]: SNA Cover
+                    - generic [ref=e75]: Knockrea NS
+                    - generic [ref=e76]: Quay Road, Newport, Co. Mayo
+              - generic [ref=e77]:
+                - generic [ref=e78]: Sligo — Sligo Town
+                - generic [ref=e79]:
+                  - generic [ref=e80]: LM
+                  - generic [ref=e81]:
+                    - generic [ref=e82]: TUE, 26 MAY — WED, 27 MAY
+                    - generic [ref=e83]: Senior Infants
+                    - generic [ref=e84]: Lakemount NS
+                    - generic [ref=e85]: Harbour Road, Strandhill, Co. Sligo
+                - generic [ref=e86]:
+                  - generic [ref=e87]: SC
+                  - generic [ref=e88]:
+                    - generic [ref=e89]: THU, 28 MAY — FRI, 29 MAY
+                    - generic [ref=e90]: 5th & 6th Class
+                    - generic [ref=e91]: Seacliff NS
+                    - generic [ref=e92]: Coast Road, Rosses Point, Co. Sligo
+              - generic [ref=e93]:
+                - generic [ref=e94]: Roscommon — East
+                - generic [ref=e95]:
+                  - generic [ref=e96]: BH
+                  - generic [ref=e97]:
+                    - generic [ref=e98]: WED, 3 JUN — THU, 4 JUN
+                    - generic [ref=e99]: 1st Class
+                    - generic [ref=e100]: Birchhill NS
+                    - generic [ref=e101]: Castle Street, Boyle, Co. Roscommon
+            - generic [ref=e102]:
+              - generic [ref=e105]: Jobs
+              - generic [ref=e111]: Applications
+          - generic [ref=e113]:
+            - generic [ref=e115]: Mary K. (Principal)
+            - generic [ref=e116]: "!Anyone free Tue for 4th class? 🙏"
+            - generic [ref=e117]: 08:42
+          - generic [ref=e118]:
+            - generic [ref=e120]: Sarah O'B
+            - generic [ref=e121]: Can't sorry — booked Tue/Wed
+            - generic [ref=e122]: 08:51
+          - generic [ref=e123]:
+            - generic [ref=e125]: Tom D.
+            - generic [ref=e126]: Anyone got a number for Lisa? She subbed for me in March
+            - generic [ref=e127]: 09:14
+          - generic [ref=e132]:
+            - generic [ref=e134]: Aoife
+            - generic [ref=e135]: Try the Mayo group too?
+            - generic [ref=e136]: 10:05
+          - generic [ref=e137]:
+            - generic [ref=e139]: Conor
+            - generic [ref=e140]: Which Briarwood? Tuam or Athenry??
+            - generic [ref=e141]: 10:31
+          - generic [ref=e142]:
+            - generic [ref=e144]: "!Reposting — STILL need Tue. PM me??"
+            - generic [ref=e145]: 09:22
+          - generic [ref=e146]:
+            - generic [ref=e148]: +353 86 ••• 4421
+            - generic [ref=e149]: Hi I saw the post. Am I too late?
+            - generic [ref=e150]: 09:31
+          - generic [ref=e151]:
+            - generic [ref=e153]: Any luck? Thu yes, Tue no 😕
+            - generic [ref=e154]: 09:48
+          - generic [ref=e155]:
+            - generic [ref=e157]: Mary K. (Principal)
+            - generic [ref=e158]: Sorted! Found someone via 3rd group 🙏🙏
+            - generic [ref=e159]: 10:14
+          - generic [ref=e160]:
+            - generic [ref=e162]: Eilis
+            - generic [ref=e163]: Forwarded 👍
+            - generic [ref=e164]: 10:42
+    - generic [ref=e166]:
+      - heading "What you'll see in 60 seconds" [level=2] [ref=e167]
+      - generic [ref=e168]:
+        - generic [ref=e169]:
+          - img [ref=e171]
+          - heading "Your school's real weekly hours on sub admin" [level=3] [ref=e174]
+          - paragraph [ref=e175]: Based on the time you actually spend per booking and how many bookings hit your school each week.
+        - generic [ref=e176]:
+          - img [ref=e178]
+          - heading "Your annual time cost across the school year" [level=3] [ref=e180]
+          - paragraph [ref=e181]: The same calculation, scaled to the full school year so you can see the hours stacking up.
+        - generic [ref=e182]:
+          - img [ref=e184]
+          - heading "What you'd get back with ClassCover" [level=3] [ref=e187]
+          - paragraph [ref=e188]: Hours saved per week and per year, benchmarked against a 2m 17s booking. Add an hourly rate to see the euros too.
+    - generic [ref=e190]:
+      - heading "Ready to skip the chase entirely?" [level=2] [ref=e191]
+      - paragraph [ref=e192]: Join the schools piloting ClassCover Ireland and book subs in one tap.
+      - link "Apply for the Pilot Program" [ref=e193] [cursor=pointer]:
+        - /url: https://rtcon.typeform.com/to/EHewmpE4
+  - contentinfo [ref=e194]:
+    - generic [ref=e195]:
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - link "ClassCover Ireland home" [ref=e198] [cursor=pointer]:
+            - /url: /index.html
+            - img "ClassCover" [ref=e199]
+          - paragraph [ref=e200]: Ireland's first purpose-built booking platform for substitute teachers and SNAs. Coming soon.
+          - generic [ref=e201]:
+            - link "ClassCover on Facebook" [ref=e202] [cursor=pointer]:
+              - /url: https://facebook.com/classcover
+              - img [ref=e203]
+            - link "ClassCover on Instagram" [ref=e205] [cursor=pointer]:
+              - /url: https://instagram.com/classcoverapp/
+              - img [ref=e206]
+            - link "ClassCover on LinkedIn" [ref=e208] [cursor=pointer]:
+              - /url: https://linkedin.com/company/class-cover/
+              - img [ref=e209]
+        - generic [ref=e211]:
+          - generic [ref=e212]:
+            - heading "Company" [level=3] [ref=e213]
+            - list [ref=e214]:
+              - listitem [ref=e215]:
+                - link "About" [ref=e216] [cursor=pointer]:
+                  - /url: /about.html
+              - listitem [ref=e217]:
+                - link "ClassCover Australia" [ref=e218] [cursor=pointer]:
+                  - /url: https://classcover.com.au
+              - listitem [ref=e219]:
+                - link "ClassCover Learn" [ref=e220] [cursor=pointer]:
+                  - /url: https://www.classcoverlearn.com.au/
+              - listitem [ref=e221]:
+                - link "Contact us" [ref=e222] [cursor=pointer]:
+                  - /url: /contact.html
+              - listitem [ref=e223]:
+                - link "Blog" [ref=e224] [cursor=pointer]:
+                  - /url: /blog/
+          - generic [ref=e225]:
+            - heading "Legal" [level=3] [ref=e226]
+            - list [ref=e227]:
+              - listitem [ref=e228]:
+                - link "Privacy Policy" [ref=e229] [cursor=pointer]:
+                  - /url: /privacy.html
+              - listitem [ref=e230]:
+                - link "Terms & Conditions" [ref=e231] [cursor=pointer]:
+                  - /url: /terms.html
+              - listitem [ref=e232]:
+                - link "Cookie Policy" [ref=e233] [cursor=pointer]:
+                  - /url: /cookies.html
+      - generic [ref=e234]:
+        - paragraph [ref=e235]: ClassCover © 2026. All rights reserved.
+        - paragraph [ref=e236]:
+          - link "Privacy" [ref=e237] [cursor=pointer]:
+            - /url: /privacy.html
+          - text: ·
+          - link "Terms" [ref=e238] [cursor=pointer]:
+            - /url: /terms.html
+          - text: ·
+          - link "Cookies" [ref=e239] [cursor=pointer]:
+            - /url: /cookies.html
+  - generic [ref=e241]:
+    - iframe [active] [ref=e242]:
+      - generic [ref=f6e1]:
+        - generic [ref=f6e4]:
+          - img [ref=f6e6]
+          - progressbar "Form progress" [ref=f6e11]
+        - generic [ref=f6e17]:
+          - generic:
+            - progressbar "Form progress"
+            - generic:
+              - img
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - group "How much time does your school spend chasing subs? Find out in 60 seconds. Drop a few details and you're in." [active] [ref=f6e20]:
+                          - generic [ref=f6e23]:
+                            - strong [ref=f6e24]: How much time does your school spend chasing subs?
+                            - text: Find out in 60 seconds. Drop a few details and you're in.
+                          - button "Start Next question" [ref=f6e29] [cursor=pointer]:
+                            - generic [ref=f6e30]: Start
+                        - group "Question 1 Your detailsThis question is required. By completing this form I agree to ClassCover's Terms and Conditions and Privacy Policy. ClassCover will use your details to notify you about the Ireland launch and product updates. You can unsubscribe at any time." [ref=f6e33]:
+                          - generic [ref=f6e34]:
+                            - generic [ref=f6e35]:
+                              - generic "Question 1" [ref=f6e38]: "1"
+                              - generic [ref=f6e39]: Your details*
+                            - generic [ref=f6e41]:
+                              - text: By completing this form I agree to ClassCover's
+                              - link "Terms and Conditions" [ref=f6e42] [cursor=pointer]:
+                                - /url: https://www.classcoverapp.com/terms.html
+                              - text: and
+                              - link "Privacy Policy" [ref=f6e43] [cursor=pointer]:
+                                - /url: https://www.classcoverapp.com/privacy.html
+                              - text: . ClassCover will use your details to notify you about the Ireland launch and product updates. You can unsubscribe at any time.
+                          - generic [ref=f6e45]:
+                            - generic [ref=f6e46]:
+                              - generic [ref=f6e48]: Your name*
+                              - textbox "Your nameQuestion is required" [ref=f6e50]:
+                                - /placeholder: Type your answer here...
+                            - generic [ref=f6e51]:
+                              - generic [ref=f6e53]: Your Email*
+                              - textbox "Your EmailQuestion is required" [ref=f6e55]:
+                                - /placeholder: name@example.com
+                            - generic [ref=f6e56]:
+                              - generic [ref=f6e58]: Your Phone Number*
+                              - generic [ref=f6e59]:
+                                - generic [ref=f6e61]:
+                                  - button [ref=f6e62]:
+                                    - img [ref=f6e66]
+                                  - generic:
+                                    - img
+                                - textbox "Phone number input" [ref=f6e74]:
+                                  - /placeholder: 085 012 3456
+                            - generic [ref=f6e75]:
+                              - generic [ref=f6e77]: I agree to ClassCover's Terms and Conditions and Privacy Policy, linked above.*
+                              - group "I agree to ClassCover's Terms and Conditions and Privacy Policy, linked above." [ref=f6e79]:
+                                - generic [ref=f6e80]: I agree to ClassCover's Terms and Conditions and Privacy Policy, linked above.
+                                - radiogroup [ref=f6e81]:
+                                  - radio "Yes" [ref=f6e82] [cursor=pointer]:
+                                    - generic [ref=f6e85]: "Y"
+                                    - generic [ref=f6e86]: "Yes"
+                                  - radio "No" [ref=f6e87] [cursor=pointer]:
+                                    - generic [ref=f6e90]: "N"
+                                    - generic [ref=f6e91]: "No"
+                          - button "Start Next question" [ref=f6e96] [cursor=pointer]:
+                            - generic [ref=f6e97]: Start
+          - generic [ref=f6e100]:
+            - button "Navigate to previous question" [disabled] [ref=f6e101]:
+              - img [ref=f6e103]
+            - button "Navigate to next question" [ref=f6e105] [cursor=pointer]:
+              - img [ref=f6e107]
+    - button "Close" [ref=e243] [cursor=pointer]:
+      - img [ref=e244]
