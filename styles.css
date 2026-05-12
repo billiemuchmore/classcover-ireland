@@ -943,6 +943,21 @@ p {
   color: var(--white);
 }
 
+/* Inline body-copy links inside FAQ answers and the Lite vs Full callout — make them
+   look clickable (global `a` is color:inherit;text-decoration:none). */
+.faq-answer a,
+.compare-callout a {
+  color: var(--purple);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.faq-answer a:hover,
+.compare-callout a:hover {
+  color: #2A0780;
+}
+
 .faq-answer {
   display: none;
   padding: 0 0 20px;
