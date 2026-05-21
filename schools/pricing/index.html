@@ -108,7 +108,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "name": "Do prices include VAT?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All list prices on this page are exclusive of VAT. Irish VAT (currently 23% on digital services) is added at checkout."
+            "text": "Yes. All list prices on this page include Irish VAT. The price you see is the price you pay — there is nothing added at checkout."
           }
         }
       ]
@@ -315,6 +315,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 6px 14px;
       border-radius: 99px;
     }
+    #cc-price-root .cc-price-perstudent[hidden] { display: none; }
 
     /* DEIS / small school variant */
     #cc-price-root .cc-price-display-deis {
@@ -874,7 +875,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li>Priority support and onboarding</li>
               <li>Reporting and booking analytics</li>
             </ul>
-            <div class="price-line">From <strong>€600 / year</strong> (ex VAT)</div>
+            <div class="price-line">From <strong>€600 / year</strong> (incl. VAT)</div>
             <a href="#pricing-calculator" class="tier-cta">See your school's price ↓</a>
           </div>
         </div>
@@ -897,27 +898,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- Price display (standard pricing) -->
               <div class="cc-price-display" id="cc-price-display">
                 <div class="cc-price-eyebrow">Annual list price</div>
-                <div class="cc-price-amount"><span class="cc-currency">€</span><span id="cc-price-val">600</span></div>
-                <div class="cc-price-period">per year, ex VAT</div>
-                <div class="cc-price-perstudent" id="cc-perstudent">Approx. €3.00 per student / year</div>
+                <div class="cc-price-amount"><span class="cc-currency">€</span><span id="cc-price-val">750</span></div>
+                <div class="cc-price-period">per year, incl. VAT</div>
+                <div class="cc-price-perstudent" id="cc-perstudent">Approx. €2.50 per student / year</div>
               </div>
 
               <!-- Price display (DEIS / small school rate) -->
               <div class="cc-price-display cc-price-display-deis" id="cc-price-display-deis" hidden>
                 <div class="cc-deis-badge">DEIS &amp; small school rate</div>
                 <div class="cc-deis-headline">Discounts available</div>
-                <p class="cc-deis-sub">Schools under 50 students, DEIS primary and DEIS post-primary schools will qualify for our discounted rate when we launch.</p>
+                <p class="cc-deis-sub">Schools with 100 students or fewer, DEIS primary and DEIS post-primary schools will qualify for our discounted rate when we launch.</p>
               </div>
 
               <!-- Slider -->
               <div class="cc-slider-wrap">
                 <div class="cc-slider-label-row">
                   <label for="cc-enrolment">School enrolment</label>
-                  <span class="cc-enrolment-readout"><span id="cc-enrolment-val">100</span> students</span>
+                  <span class="cc-enrolment-readout"><span id="cc-enrolment-val">300</span> students</span>
                 </div>
-                <input type="range" id="cc-enrolment" min="20" max="2000" value="100" step="10" aria-label="School enrolment" />
+                <input type="range" id="cc-enrolment" min="20" max="2000" value="300" step="10" aria-label="School enrolment" />
                 <div class="cc-slider-ticks">
-                  <span>&lt;50</span>
+                  <span>&le;100</span>
                   <span>500</span>
                   <span>1,000</span>
                   <span>1,500</span>
@@ -928,10 +929,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- Tier summary -->
               <div class="cc-tier-row">
                 <em>Your pricing band</em>
-                <span class="val" id="cc-tier-label">Tier 1 · Up to 200 students</span>
+                <span class="val" id="cc-tier-label">Tier 2 · 201 – 300 students</span>
               </div>
 
-              <p class="cc-footer-note">Pricing shown is the annual list price for ClassCover Standard, exclusive of VAT. DEIS schools and very small schools will qualify for additional discounts at launch.</p>
+              <p class="cc-footer-note">Pricing shown is the annual list price for ClassCover Standard, inclusive of VAT. DEIS schools and very small schools will qualify for additional discounts at launch.</p>
 
               <!-- Pilot CTA under slider -->
               <div class="cc-pilot-cta">
@@ -989,7 +990,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="price-faq-item">
             <button class="faq-question" aria-expanded="false">Do prices include VAT?<span class="faq-icon" aria-hidden="true">+</span></button>
-            <div class="faq-answer"><p>All list prices on this page are exclusive of VAT. Irish VAT (currently 23% on digital services) is added at checkout.</p></div>
+            <div class="faq-answer"><p>Yes. All list prices on this page include Irish VAT. The price you see is the price you pay — there is nothing added at checkout.</p></div>
           </div>
           <div class="price-faq-item">
             <button class="faq-question" aria-expanded="false">How do I pay? What are the terms?<span class="faq-icon" aria-hidden="true">+</span></button>
@@ -1118,7 +1119,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         var e = parseInt(slider.value, 10);
         enrolmentVal.textContent = fmt(e) + (e >= 2000 ? '+' : '');
 
-        if (e < 50) {
+        if (e <= 100) {
           // DEIS / small school rate
           stdDisplay.hidden = true;
           deisDisplay.hidden = false;
@@ -1130,8 +1131,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           var price = t[1];
           priceVal.textContent = fmt(price);
           tierLabel.textContent = 'Tier ' + t[2] + ' · ' + t[3];
-          var ps = (price / e);
-          perStudent.textContent = 'Approx. €' + ps.toFixed(2) + ' per student / year';
+          if (e >= 250) {
+            var ps = (price / e);
+            perStudent.textContent = 'Approx. €' + ps.toFixed(2) + ' per student / year';
+            perStudent.hidden = false;
+          } else {
+            perStudent.textContent = '';
+            perStudent.hidden = true;
+          }
         }
       }
 
