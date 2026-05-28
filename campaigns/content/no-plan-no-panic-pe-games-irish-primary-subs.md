@@ -10,7 +10,7 @@ author_role: CEO, ClassCover
 author_slug: ben-grozier
 tags: [Substitute Teachers, Tips, How To, Guide]
 meta_description: No plan for the PE slot today? Use this Irish primary sub's playbook of 14 no-equipment games, each mapped to a PE strand. Read the guide.
-excerpt: Walking into PE with no kit and no plan? Fourteen ready-to-run games, every one tied to the Wellbeing strand of the Primary Curriculum Framework. Plus one Gaelic bonus.
+excerpt: You've just been booked to teach a PE class. No plan, no hall key, and you're not a PE teacher. Fourteen no-equipment and small-kit games for Irish primary subs, every one tied to a PE strand of the Primary Curriculum Framework. Plus a Gaelic-skills bonus that needs no hurley.
 hero_image_alt: Irish primary children playing a no-equipment PE game in the schoolyard
 related_post_slugs: last-minute-lesson-plans-irish-primary-subs, flexible-substitute-teaching-career-ireland, how-to-find-substitute-teaching-work-ireland
 last_updated: 2026-05-28
