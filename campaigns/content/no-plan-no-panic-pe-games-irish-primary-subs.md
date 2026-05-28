@@ -10,7 +10,7 @@ author_role: CEO, ClassCover
 author_slug: ben-grozier
 tags: [Substitute Teachers, Tips, How To, Guide]
 meta_description: No plan for the PE slot today? Use this Irish primary sub's playbook of 14 no-equipment games, each mapped to a PE strand. Read the guide.
-excerpt: You've just been booked to teach a PE class. No plan, no hall key, and you're not a PE teacher. Fourteen no-equipment and small-kit games for Irish primary subs, every one tied to a PE strand of the Primary Curriculum Framework. Plus a Gaelic-skills bonus that needs no hurley.
+excerpt: You've just been booked to teach a PE class. No plan, no hall key, and you're not a PE teacher. Fourteen no-equipment and small-kit games for Irish primary subs, every one tied to a PE strand of the Primary Curriculum Framework. Plus a Gaelic football warm-up.
 hero_image_alt: Irish primary children playing a no-equipment PE game in the schoolyard
 related_post_slugs: last-minute-lesson-plans-irish-primary-subs, flexible-substitute-teaching-career-ireland, how-to-find-substitute-teaching-work-ireland
 last_updated: 2026-05-28
@@ -95,9 +95,9 @@ Children line up behind a line, hands cupped together. One child holds a small *
 
 Set pairs or groups of four a challenge. Invent a new game using one cone, one ball and a chalk line. They have ten minutes to plan, then they teach it to another group. Each group plays the other's game for five minutes. Hits the Wellbeing strand of the PCF directly because it asks children to negotiate rules, take turns and respect another group's design. Twenty to thirty minutes.
 
-## One Gaelic bonus: the basic skills warm-up
+## A Gaelic football warm-up
 
-### 14. Solo, catch, pass (games, athletics, GAA basics)
+### 14. Solo, catch, pass (games, athletics, Gaelic football basics)
 
 You do not need a hurley or even a sliotar for this. Use any soft ball, beach ball or foam ball that is safe for the space.
 
