@@ -54,16 +54,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* ---- Page layout ---- */
     .ty-hero {
       background: linear-gradient(180deg, var(--white) 0%, var(--purple-light) 100%);
-      padding: calc(var(--nav-h) + 72px) 20px 80px;
+      padding: calc(var(--nav-h) + 24px) 20px 52px;
       text-align: center;
     }
-    .ty-hero .eyebrow { margin-bottom: 32px; }
-    .ty-hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; margin-bottom: 18px; }
-    .ty-hero p { font-size: clamp(16px, 1.8vw, 19px); color: var(--text-body); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+    .ty-hero h1 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; margin-bottom: 8px; }
+    .ty-hero > .container > p { font-size: clamp(15px, 1.6vw, 17px); color: var(--text-body); max-width: 480px; margin: 0 auto 28px; line-height: 1.6; }
 
     /* ---- Animated checkmark ---- */
-    .ty-check { display: flex; justify-content: center; margin-bottom: 36px; }
-    .ty-check svg { width: 88px; height: 88px; }
+    .ty-check { display: flex; justify-content: center; margin-bottom: 14px; }
+    .ty-check svg { width: 56px; height: 56px; }
     .ty-check-circle {
       fill: none;
       stroke: var(--purple);
@@ -84,6 +83,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     @keyframes drawCircle { to { stroke-dashoffset: 0; } }
     @keyframes drawTick   { to { stroke-dashoffset: 0; } }
+
+    /* ---- Webinar promo card ---- */
+    .ty-webinar-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      max-width: 540px;
+      margin: 0 auto;
+      box-shadow: 0 16px 56px rgba(58,12,163,0.16);
+      border: 1px solid rgba(58,12,163,0.06);
+    }
+    .ty-webinar-card img.ty-webinar-banner { display: block; width: 100%; height: auto; }
+    .ty-webinar-card-body { padding: 28px 36px 36px; text-align: center; }
+    .ty-webinar-eyebrow {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--purple); margin-bottom: 8px;
+    }
+    .ty-webinar-card-body h3 { font-size: 22px; font-weight: 800; line-height: 1.25; margin-bottom: 10px; color: var(--text-dark); }
+    .ty-webinar-card-body p { font-size: 15px; color: var(--text-body); line-height: 1.6; margin-bottom: 12px; }
+    .ty-webinar-when { font-size: 16px; color: var(--text-dark); margin-bottom: 20px; }
+    .ty-webinar-card-body .btn { width: 100%; justify-content: center; }
 
     /* ---- Mailchimp subscribe section ---- */
     .ty-subscribe {
@@ -196,8 +216,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ============================================================ -->
     <section class="ty-hero">
       <div class="container">
-        <span class="eyebrow">Confirmation</span>
-
         <div class="ty-check" aria-hidden="true">
           <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle class="ty-check-circle" cx="44" cy="44" r="42" />
@@ -206,8 +224,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <h1>You're on the list!</h1>
-        <p>Thanks for registering your interest in ClassCover Ireland. We'll be in touch as we get closer to launch — watch this space.</p>
-        <a href="index.html" class="btn btn-outline">Back to home</a>
+        <p>Thanks for registering your interest in ClassCover Ireland. We'll be in touch soon — but there's one more thing 👇</p>
+
+        <div class="ty-webinar-card">
+          <a href="https://classcover.webinargeek.com/classcover-ireland-launch-info-session-for-schools-subs-and-snas" target="_blank" rel="noopener">
+            <img class="ty-webinar-banner" src="images/webinar-launch-session.png" alt="ClassCover Ireland Launch Information Session" />
+          </a>
+          <div class="ty-webinar-card-body">
+            <p class="ty-webinar-eyebrow">Free live session</p>
+            <h3>Join us live: a first look at ClassCover for Ireland</h3>
+            <p class="ty-webinar-when"><strong>Thursday 25 June, 8pm IST</strong></p>
+            <a href="https://classcover.webinargeek.com/classcover-ireland-launch-info-session-for-schools-subs-and-snas" target="_blank" rel="noopener" class="btn">Register free</a>
+          </div>
+        </div>
       </div>
     </section>
 

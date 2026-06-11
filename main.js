@@ -155,6 +155,7 @@
   var WEBINAR_EXPIRY = Date.UTC(2026, 5, 25, 20, 0, 0);
 
   if (!localStorage.getItem('webinar-popup-dismissed') &&
+      !document.querySelector('.ty-webinar-card') &&
       new Date().getTime() < WEBINAR_EXPIRY) {
     setTimeout(showWebinarPopup, 10000);
   }
