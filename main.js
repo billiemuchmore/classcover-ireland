@@ -333,8 +333,21 @@
     }
   }
 
+  // --- Typeform popup CSS. The next/embed SDK does NOT auto-inject its
+  //     popup stylesheet when invoked programmatically (createPopup). Without
+  //     it the popup opens as a tiny unstyled iframe while still locking page
+  //     scroll — i.e. an invisible form on a frozen page. Load it explicitly. ---
+  function ensurePopupCss() {
+    if (document.querySelector('link[href*="embed.typeform.com/next/css/popup.css"]')) return;
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'https://embed.typeform.com/next/css/popup.css';
+    document.head.appendChild(l);
+  }
+
   // --- Typeform embed SDK loader (don't double-load: infopack/calculator already use it) ---
   function withEmbedSdk(cb) {
+    ensurePopupCss();
     if (window.tf && window.tf.createPopup) return cb();
     var existing = document.querySelector('script[src*="embed.typeform.com/next/embed.js"]');
     if (existing) {
