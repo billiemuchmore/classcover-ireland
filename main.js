@@ -18,6 +18,23 @@
   }
 })();
 
+// ----------------------------------------------------------
+// CookieYes consent — auto-inject if not already in page (fallback).
+// The hardcoded head snippet is preferred (it loads earlier and gates
+// GTM/GA from first paint); this is a safety net so a page that forgets
+// it still surfaces a consent banner.
+// ----------------------------------------------------------
+(function () {
+  if (!document.getElementById('cookieyes')) {
+    var s = document.createElement('script');
+    s.id = 'cookieyes';
+    s.type = 'text/javascript';
+    s.src = 'https://cdn-cookieyes.com/client_data/10929c6c8f533925aae98aa2a8da772b/script.js';
+    var first = document.getElementsByTagName('script')[0];
+    first.parentNode.insertBefore(s, first);
+  }
+})();
+
 (function () {
   'use strict';
 
@@ -218,4 +235,146 @@
     setTimeout(function () { popup.remove(); }, 300);
   }
 
+})();
+
+// ----------------------------------------------------------
+// Conversion tracking — EOI Typeform popups + GA4 + Meta Pixel
+// Fires ONE conversion per genuine EOI completion, on the page
+// where the visitor (and their ad UTMs) actually are — not on a
+// thank-you-page view. Meta Pixel is consent-gated via CookieYes;
+// GA4 rides the existing CookieYes Consent Mode setup.
+// ----------------------------------------------------------
+(function () {
+  'use strict';
+
+  var META_PIXEL_ID = '2735393030169285';
+
+  // Live Typeform vanity IDs (as linked in the HTML) -> embed form id + segment.
+  // Only these two EOI forms are turned into popups; other Typeforms
+  // (contact message, data-rights, infopack, calculator) are left alone.
+  var FORMS = {
+    EHewmpE4: { id: '01KV9G213X0BZ7EN6Q1XF92A64', type: 'school_pilot', name: 'Ireland Schools Pilot' },
+    ipkaJI47: { id: '01KV9HGRZ6HYRX9NXEAZD1BF4G', type: 'waitlist',     name: 'Ireland Waitlist' }
+  };
+
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+  // --- Capture UTMs, persist across internal navigation (sessionStorage) ---
+  function captureUtms() {
+    var params = new URLSearchParams(window.location.search);
+    var stored = {};
+    try { stored = JSON.parse(sessionStorage.getItem('cc_utms') || '{}'); } catch (e) {}
+    var out = {}, found = false;
+    UTM_KEYS.forEach(function (k) {
+      var v = params.get(k);
+      if (v) { out[k] = v; found = true; }
+    });
+    if (found) {
+      try { sessionStorage.setItem('cc_utms', JSON.stringify(out)); } catch (e) {}
+      return out;
+    }
+    return stored;
+  }
+  var UTMS = captureUtms();
+
+  // --- Consent: has the visitor accepted the "advertisement" category? ---
+  function adConsentGranted() {
+    var m = document.cookie.match(/cookieyes-consent=([^;]+)/);
+    return !!m && /advertisement:yes/.test(decodeURIComponent(m[1]));
+  }
+
+  // --- Meta Pixel: load + base PageView only once ad consent exists ---
+  var pixelLoaded = false;
+  function loadPixel() {
+    if (pixelLoaded || !adConsentGranted()) return;
+    pixelLoaded = true;
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () { n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', META_PIXEL_ID);
+    window.fbq('track', 'PageView');
+  }
+  if (adConsentGranted()) loadPixel();
+  document.addEventListener('cookieyes_consent_update', loadPixel);
+
+  // --- Fire the conversion once, to GA4 + Meta, with a shared event id ---
+  function newEventId() {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'eoi-' + Date.now() + '-' + Math.round(Math.random() * 1e9);
+  }
+  function fireConversion(cfg) {
+    var eventId = newEventId();
+
+    // GA4 — keep the event name "conversion" (the dashboard keys on it).
+    // CookieYes Consent Mode adjusts cookie use automatically.
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        event_category: 'form',
+        event_label: 'eoi_' + cfg.type,
+        signup_type: cfg.type,
+        event_id: eventId
+      });
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'eoi_conversion', signup_type: cfg.type, event_id: eventId });
+
+    // Meta — only when the advertisement category is consented.
+    if (adConsentGranted()) {
+      loadPixel();
+      if (window.fbq) {
+        window.fbq('track', 'CompleteRegistration',
+          { content_name: cfg.name },
+          { eventID: eventId });
+      }
+    }
+  }
+
+  // --- Typeform embed SDK loader (don't double-load: infopack/calculator already use it) ---
+  function withEmbedSdk(cb) {
+    if (window.tf && window.tf.createPopup) return cb();
+    var existing = document.querySelector('script[src*="embed.typeform.com/next/embed.js"]');
+    if (existing) {
+      var poll = setInterval(function () {
+        if (window.tf && window.tf.createPopup) { clearInterval(poll); cb(); }
+      }, 100);
+      return;
+    }
+    var s = document.createElement('script');
+    s.src = 'https://embed.typeform.com/next/embed.js';
+    s.async = true;
+    s.onload = cb;
+    document.head.appendChild(s);
+  }
+
+  // --- Rewire EOI links into popups that fire the conversion on submit ---
+  function wirePopups() {
+    var links = document.querySelectorAll('a[href*="typeform.com/to/"]');
+    Array.prototype.forEach.call(links, function (a) {
+      var m = (a.getAttribute('href') || '').match(/typeform\.com\/to\/([A-Za-z0-9]+)/);
+      var cfg = m && FORMS[m[1]];
+      if (!cfg) return; // only our two EOI forms
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        withEmbedSdk(function () {
+          if (!a._ccPopup) {
+            a._ccPopup = window.tf.createPopup(cfg.id, {
+              hidden: UTMS,
+              onSubmit: function () { fireConversion(cfg); }
+            });
+          }
+          a._ccPopup.open();
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wirePopups);
+  } else {
+    wirePopups();
+  }
 })();

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-IE">
 <head>
+<!-- Start cookieyes banner -->
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/10929c6c8f533925aae98aa2a8da772b/script.js"></script>
+<!-- End cookieyes banner -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -21,34 +24,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- ============================================================
-    TRACKING — fires on every visit to this page (= confirmed form submission)
-    Uncomment and replace with your real tracking IDs when ready.
-  ============================================================ -->
-
-  <!-- Google Analytics 4 — Conversion Event -->
+  <!-- Google Analytics 4 — page_view only.
+       The EOI conversion now fires once, on the page where the visitor
+       completes the Typeform popup (see main.js), NOT on this page view —
+       so the GA4 `conversion` count tracks real signups, not thank-you reloads. -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP5RJJQYV0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-NP5RJJQYV0');
-    gtag('event', 'conversion', { event_category: 'form', event_label: 'thank_you_page' });
   </script>
-
-  <!-- Meta / Facebook Pixel — Lead Event
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
-    fbq('track', 'Lead');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=Lead&noscript=1"/></noscript>
-  -->
 
   <style>
     /* ---- Page layout ---- */
@@ -173,6 +159,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .mc-privacy a { color: var(--purple); text-decoration: underline; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
   </style>
+  <meta name="facebook-domain-verification" content="v8a7px9he8pv0dts1qvvg1dwryitva" />
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
