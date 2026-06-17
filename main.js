@@ -252,9 +252,12 @@
   // Live Typeform vanity IDs (as linked in the HTML) -> embed form id + segment.
   // Only these two EOI forms are turned into popups; other Typeforms
   // (contact message, data-rights, infopack, calculator) are left alone.
+  // NOTE: createPopup() needs the FORM id (the vanity id in the form URL,
+  // rtcon.typeform.com/to/<id>), NOT the long data-tf-live embed id — the
+  // latter loads Typeform's marketing page instead of the form.
   var FORMS = {
-    EHewmpE4: { id: '01KV9G213X0BZ7EN6Q1XF92A64', type: 'school_pilot', name: 'Ireland Schools Pilot' },
-    ipkaJI47: { id: '01KV9HGRZ6HYRX9NXEAZD1BF4G', type: 'waitlist',     name: 'Ireland Waitlist' }
+    EHewmpE4: { id: 'EHewmpE4', type: 'school_pilot', name: 'Ireland Schools Pilot' },
+    ipkaJI47: { id: 'ipkaJI47', type: 'waitlist',     name: 'Ireland Waitlist' }
   };
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
