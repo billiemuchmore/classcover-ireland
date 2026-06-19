@@ -194,7 +194,7 @@
     popup.innerHTML =
       '<div class="webinar-popup-box">' +
         '<button class="webinar-popup-close" aria-label="Close">&#x2715;</button>' +
-        '<a href="' + WEBINAR_URL + '" target="_blank" rel="noopener" class="webinar-popup-img">' +
+        '<a href="' + WEBINAR_URL + '" class="webinar-popup-img">' +
           '<img src="/images/webinar-launch-session.png" alt="ClassCover Ireland Launch Information Session" loading="lazy" />' +
         '</a>' +
         '<div class="webinar-popup-body">' +
@@ -202,7 +202,7 @@
           '<h3>Join us live: a first look at ClassCover for Ireland</h3>' +
           '<p>Peek inside ClassCover, see what we\'re building for Irish schools, subs and SNAs, and ask us anything live.</p>' +
           '<p class="webinar-popup-when"><strong>Thursday 25 June, 8pm IST</strong></p>' +
-          '<a href="' + WEBINAR_URL + '" target="_blank" rel="noopener" class="btn">Register free</a>' +
+          '<a href="' + WEBINAR_URL + '" class="btn">Register free</a>' +
         '</div>' +
       '</div>';
     document.body.appendChild(popup);
@@ -256,7 +256,7 @@
         '<strong>Free live session &middot; Thu 25 June, 8pm</strong>' +
         '<span>A first look at ClassCover for Ireland</span>' +
       '</div>' +
-      '<a href="' + WEBINAR_URL + '" target="_blank" rel="noopener" class="webinar-banner-btn">Register free</a>' +
+      '<a href="' + WEBINAR_URL + '" class="webinar-banner-btn">Register free</a>' +
       '<button class="webinar-banner-close" aria-label="Dismiss">&#x2715;</button>';
     document.body.appendChild(banner);
 
