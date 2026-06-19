@@ -167,7 +167,7 @@
   // Thurs 25 June 2026, 8pm IST. Fires 10s after load, once per
   // visitor (until dismissed), and stops showing after the event.
   // ----------------------------------------------------------
-  var WEBINAR_URL = 'https://classcover.webinargeek.com/classcover-ireland-launch-info-session-for-schools-subs-and-snas';
+  var WEBINAR_URL = 'https://www.classcoverapp.ie/info-session/';
   // Event ends 25 Jun 2026 21:00 IST (IST = UTC+1) → 20:00 UTC
   var WEBINAR_EXPIRY = Date.UTC(2026, 5, 25, 20, 0, 0);
 
