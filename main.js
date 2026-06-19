@@ -175,7 +175,11 @@
       !document.querySelector('.ty-webinar-card') &&
       !/^\/info-session(\/|$)/.test(location.pathname) &&
       new Date().getTime() < WEBINAR_EXPIRY) {
-    setTimeout(showWebinarPopup, 10000);
+    if (localStorage.getItem('webinar-popup-minimized')) {
+      showWebinarBanner();
+    } else {
+      setTimeout(showWebinarPopup, 10000);
+    }
   }
 
   function showWebinarPopup() {
@@ -207,33 +211,72 @@
       popup.classList.add('is-visible');
     });
 
+    // Closing the popup (X, backdrop, Escape, or clicking through to register)
+    // minimises it to a small banner rather than dismissing it for good.
     popup.querySelector('.webinar-popup-close').addEventListener('click', function () {
-      dismissWebinarPopup(popup);
+      minimizeWebinarPopup(popup);
     });
 
-    // Dismiss when the register link is clicked too
     popup.querySelectorAll('a[href^="https"]').forEach(function (link) {
       link.addEventListener('click', function () {
-        dismissWebinarPopup(popup);
+        minimizeWebinarPopup(popup);
       });
     });
 
     popup.addEventListener('click', function (e) {
-      if (e.target === popup) dismissWebinarPopup(popup);
+      if (e.target === popup) minimizeWebinarPopup(popup);
     });
 
     document.addEventListener('keydown', function onKey(e) {
       if (e.key === 'Escape') {
-        dismissWebinarPopup(popup);
+        minimizeWebinarPopup(popup);
         document.removeEventListener('keydown', onKey);
       }
     });
   }
 
-  function dismissWebinarPopup(popup) {
+  function minimizeWebinarPopup(popup) {
     popup.classList.remove('is-visible');
+    localStorage.setItem('webinar-popup-minimized', '1');
+    setTimeout(function () {
+      popup.remove();
+      showWebinarBanner();
+    }, 300);
+  }
+
+  function showWebinarBanner() {
+    if (document.querySelector('.webinar-banner')) return;
+
+    var banner = document.createElement('div');
+    banner.className = 'webinar-banner';
+    banner.setAttribute('role', 'complementary');
+    banner.setAttribute('aria-label', 'ClassCover Ireland launch information session');
+    banner.innerHTML =
+      '<div class="webinar-banner-text">' +
+        '<strong>Free live session &middot; Thu 25 June, 8pm</strong>' +
+        '<span>A first look at ClassCover for Ireland</span>' +
+      '</div>' +
+      '<a href="' + WEBINAR_URL + '" target="_blank" rel="noopener" class="webinar-banner-btn">Register free</a>' +
+      '<button class="webinar-banner-close" aria-label="Dismiss">&#x2715;</button>';
+    document.body.appendChild(banner);
+
+    setTimeout(function () {
+      banner.classList.add('is-visible');
+    }, 50);
+
+    banner.querySelector('.webinar-banner-close').addEventListener('click', function () {
+      dismissWebinarBanner(banner);
+    });
+    banner.querySelector('.webinar-banner-btn').addEventListener('click', function () {
+      dismissWebinarBanner(banner);
+    });
+  }
+
+  function dismissWebinarBanner(banner) {
+    banner.classList.remove('is-visible');
     localStorage.setItem('webinar-popup-dismissed', '1');
-    setTimeout(function () { popup.remove(); }, 300);
+    localStorage.removeItem('webinar-popup-minimized');
+    setTimeout(function () { banner.remove(); }, 400);
   }
 
 })();

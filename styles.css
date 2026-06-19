@@ -1314,6 +1314,68 @@ p {
 }
 .webinar-popup-body .btn { width: 100%; }
 
+/* Minimised webinar banner — shown after the popup is closed */
+.webinar-banner {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%) translateY(180%);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  max-width: calc(100vw - 32px);
+  background: var(--purple);
+  color: #fff;
+  border-radius: 16px;
+  padding: 12px 14px 12px 22px;
+  box-shadow: 0 16px 44px rgba(58, 12, 163, 0.4);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.webinar-banner.is-visible { transform: translateX(-50%) translateY(0); }
+.webinar-banner-text { font-size: 14px; line-height: 1.35; }
+.webinar-banner-text strong { display: block; font-weight: 700; font-size: 14.5px; }
+.webinar-banner-text span { color: rgba(255, 255, 255, 0.8); }
+.webinar-banner-btn {
+  flex: none;
+  background: #fff;
+  color: var(--purple);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 99px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.webinar-banner-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18); }
+.webinar-banner-close {
+  flex: none;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.webinar-banner-close:hover { background: rgba(255, 255, 255, 0.3); }
+@media (max-width: 540px) {
+  .webinar-banner {
+    left: 16px;
+    right: 16px;
+    transform: translateY(180%);
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    padding: 14px 16px;
+  }
+  .webinar-banner.is-visible { transform: translateY(0); }
+  .webinar-banner-btn { flex: 1; text-align: center; }
+}
+
 /* ============================================================
    BLOG — SHARED
    ============================================================ */
