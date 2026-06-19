@@ -1390,7 +1390,7 @@ p {
 /* ============================================================
    INFOPACK LEAD-MAGNET CTA  (schools + pricing pages)
    ============================================================ */
-.infopack-cta { background: #F6F3FC; }
+.infopack-cta { background: #F6F6F9; }
 .infopack-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1400,11 +1400,11 @@ p {
   background: #fff;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 34px 70px -26px rgba(58, 12, 163, 0.45), 0 0 0 1px rgba(58, 12, 163, 0.08);
+  box-shadow: 0 34px 70px -26px rgba(17, 17, 17, 0.22), 0 0 0 1px rgba(17, 17, 17, 0.05);
 }
 .infopack-media {
-  background: linear-gradient(135deg, #efe9fb 0%, #e6ddf8 100%);
-  padding: 30px;
+  background: #ffffff;
+  padding: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
