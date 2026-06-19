@@ -191,7 +191,7 @@
       '<div class="webinar-popup-box">' +
         '<button class="webinar-popup-close" aria-label="Close">&#x2715;</button>' +
         '<a href="' + WEBINAR_URL + '" target="_blank" rel="noopener" class="webinar-popup-img">' +
-          '<img src="images/webinar-launch-session.png" alt="ClassCover Ireland Launch Information Session" loading="lazy" />' +
+          '<img src="/images/webinar-launch-session.png" alt="ClassCover Ireland Launch Information Session" loading="lazy" />' +
         '</a>' +
         '<div class="webinar-popup-body">' +
           '<p class="webinar-popup-eyebrow">Free live session</p>' +
