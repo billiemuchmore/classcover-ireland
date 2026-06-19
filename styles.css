@@ -1390,7 +1390,7 @@ p {
 /* ============================================================
    INFOPACK LEAD-MAGNET CTA  (schools + pricing pages)
    ============================================================ */
-.infopack-cta { background: #F6F6F9; }
+.infopack-cta { background: #ffffff; }
 .infopack-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
