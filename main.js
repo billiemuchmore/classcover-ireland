@@ -437,4 +437,19 @@
   } else {
     wirePopups();
   }
+
+  // --- Webinar registration conversion ---
+  // The /info-session/registered/ page is reached only via WebinarGeek's
+  // post-sign-up redirect, so landing there = a completed registration.
+  // Fire GA4 "conversion" + Meta CompleteRegistration (same fireConversion as
+  // the EOI forms), once per session so a refresh doesn't double-count.
+  function fireWebinarConversion() {
+    if (!/^\/info-session\/registered(\/|$)/.test(location.pathname)) return;
+    try {
+      if (sessionStorage.getItem('cc_webinar_conv')) return;
+      sessionStorage.setItem('cc_webinar_conv', '1');
+    } catch (e) {}
+    fireConversion({ type: 'webinar', name: 'Ireland Info Session' });
+  }
+  fireWebinarConversion();
 })();
