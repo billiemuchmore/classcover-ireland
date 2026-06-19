@@ -830,6 +830,17 @@ p {
   font-size: 16px;
 }
 
+/* On mobile the long pilot button overflows the panel padding — make the
+   panel buttons full-width so they align with the heading and copy. */
+@media (max-width: 767px) {
+  .cta-panel .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+}
+
 /* Inset variant — used inside a blog post body, between sections */
 .cta-band--inset {
   border-radius: 16px;
