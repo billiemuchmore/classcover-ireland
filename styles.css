@@ -757,8 +757,6 @@ p {
 .subs-showcase-visual img {
   width: 100%;
   max-width: 520px;
-  border-radius: 20px;
-  box-shadow: 0 20px 48px rgba(58, 12, 163, 0.14);
   display: block;
   margin: 0 auto;
 }
