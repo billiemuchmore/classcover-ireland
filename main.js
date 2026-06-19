@@ -173,6 +173,7 @@
 
   if (!localStorage.getItem('webinar-popup-dismissed') &&
       !document.querySelector('.ty-webinar-card') &&
+      !/^\/info-session(\/|$)/.test(location.pathname) &&
       new Date().getTime() < WEBINAR_EXPIRY) {
     setTimeout(showWebinarPopup, 10000);
   }
