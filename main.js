@@ -441,15 +441,40 @@
   // --- Webinar registration conversion ---
   // The /info-session/registered/ page is reached only via WebinarGeek's
   // post-sign-up redirect, so landing there = a completed registration.
-  // Fire GA4 "conversion" + Meta CompleteRegistration (same fireConversion as
-  // the EOI forms), once per session so a refresh doesn't double-count.
+  // DELIBERATELY uses its OWN event names (GA4 "webinar_registration", Meta
+  // "Schedule") so webinar regs are NOT lumped into the main EOI sign-up
+  // conversion ("conversion" / "CompleteRegistration"). Fires once per session
+  // so a refresh doesn't double-count. Base Meta PageView already builds the
+  // retargeting audience on this page.
   function fireWebinarConversion() {
     if (!/^\/info-session\/registered(\/|$)/.test(location.pathname)) return;
     try {
       if (sessionStorage.getItem('cc_webinar_conv')) return;
       sessionStorage.setItem('cc_webinar_conv', '1');
     } catch (e) {}
-    fireConversion({ type: 'webinar', name: 'Ireland Info Session' });
+    var eventId = newEventId();
+    // GA4 — distinct event name; mark "webinar_registration" as a key event
+    // in GA4 if you want it counted as a conversion.
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'webinar_registration', {
+        event_category: 'webinar',
+        event_label: 'ireland_info_session',
+        signup_type: 'webinar',
+        event_id: eventId
+      });
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'webinar_registration', signup_type: 'webinar', event_id: eventId });
+    // Meta — "Schedule" (registered for a timed event), distinct from the EOI
+    // "CompleteRegistration". Consent-gated; shares event_id with GA4.
+    if (adConsentGranted()) {
+      loadPixel();
+      if (window.fbq) {
+        window.fbq('track', 'Schedule',
+          { content_name: 'Ireland Info Session' },
+          { eventID: eventId });
+      }
+    }
   }
   fireWebinarConversion();
 })();
