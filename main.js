@@ -301,7 +301,8 @@
   // latter loads Typeform's marketing page instead of the form.
   var FORMS = {
     EHewmpE4: { id: 'EHewmpE4', type: 'school_pilot', name: 'Ireland Schools Pilot' },
-    ipkaJI47: { id: 'ipkaJI47', type: 'waitlist',     name: 'Ireland Waitlist' }
+    ipkaJI47: { id: 'ipkaJI47', type: 'waitlist',     name: 'Ireland Waitlist' },
+    cgg2vCHU: { id: 'cgg2vCHU', type: 'webinar_feedback', name: 'Webinar Feedback' }
   };
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
@@ -421,10 +422,11 @@
         e.preventDefault();
         withEmbedSdk(function () {
           if (!a._ccPopup) {
-            a._ccPopup = window.tf.createPopup(cfg.id, {
-              hidden: UTMS,
-              onSubmit: function () { fireConversion(cfg); }
-            });
+            var opts = { hidden: UTMS };
+            if (cfg.type !== 'webinar_feedback') {
+              opts.onSubmit = function () { fireConversion(cfg); };
+            }
+            a._ccPopup = window.tf.createPopup(cfg.id, opts);
           }
           a._ccPopup.open();
         });
