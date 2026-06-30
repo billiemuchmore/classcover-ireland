@@ -36,6 +36,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gtag('config', 'G-NP5RJJQYV0');
   </script>
 
+  <!-- Meta Pixel — fire CompleteRegistration on thank-you page load -->
+  <script>
+    window.addEventListener('load', function () {
+      if (typeof fbq === 'function') fbq('track', 'CompleteRegistration');
+    });
+  </script>
+
   <style>
     /* ---- Page layout ---- */
     .ty-hero {
