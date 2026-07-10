@@ -232,37 +232,100 @@
   if (adConsentGranted()) loadPixel();
   document.addEventListener('cookieyes_consent_update', loadPixel);
 
-  // --- Fire the conversion once, to GA4 + Meta, with a shared event id ---
+  // --- Cookie reader (for the Meta _fbp / _fbc match keys sent to CAPI) ---
+  function getCookie(name) {
+    var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]+)'));
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  // --- Shared event id so the browser Pixel and the server CAPI event
+  //     deduplicate into ONE conversion (Meta matches on event_id). ---
   function newEventId() {
     if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
     return 'eoi-' + Date.now() + '-' + Math.round(Math.random() * 1e9);
   }
-  function fireConversion(cfg) {
-    var eventId = newEventId();
 
-    // GA4 — keep the event name "conversion" (the dashboard keys on it).
-    // CookieYes Consent Mode adjusts cookie use automatically.
+  // --- EOI submit: stash the pending conversion, then send the visitor to
+  //     the on-site /thank-you page, where the single conversion actually
+  //     fires. Firing on the stable landing page (not mid-redirect) is what
+  //     makes both the Pixel and the CAPI call reliable. Both EOI Typeforms
+  //     (sub waitlist + school pilot) come through here. ---
+  function fireConversion(cfg) {
+    var pending = {
+      type: cfg.type,
+      name: cfg.name,
+      eventId: newEventId(),
+      utms: UTMS,
+      ts: Date.now()
+    };
+    try { sessionStorage.setItem('cc_pending_eoi', JSON.stringify(pending)); } catch (e) {}
+    window.location.assign('/thank-you');
+  }
+
+  // --- Server-side Conversions API. Collects NO PII: matches on the
+  //     _fbp/_fbc cookies plus the IP + User-Agent the server sees. Sends the
+  //     same event_id as the Pixel so Meta dedupes the browser+server pair. ---
+  function sendCapi(payload) {
+    try {
+      payload.fbp = getCookie('_fbp');
+      payload.fbc = getCookie('_fbc');
+      var body = JSON.stringify(payload);
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon('/api/capi', new Blob([body], { type: 'application/json' }));
+      } else {
+        fetch('/api/capi', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: body,
+          keepalive: true
+        });
+      }
+    } catch (e) {}
+  }
+
+  // --- /thank-you: fire the ONE conversion for the EOI just completed.
+  //     Reads the pending marker set at submit, fires once, then clears it so
+  //     a refresh or back-button cannot double-count. A /thank-you visit with
+  //     no pending marker (bookmark, direct hit) fires nothing. ---
+  function fireThankYouConversion() {
+    if (!/^\/thank-you(?:\.html)?(?:\/|$)/.test(location.pathname)) return;
+    var pending = null;
+    try { pending = JSON.parse(sessionStorage.getItem('cc_pending_eoi') || 'null'); } catch (e) {}
+    if (!pending || !pending.eventId) return;
+    try { sessionStorage.removeItem('cc_pending_eoi'); } catch (e) {}
+
+    var eventId = pending.eventId;
+
+    // GA4 — event name stays "conversion" (the dashboard keys on it).
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', {
         event_category: 'form',
-        event_label: 'eoi_' + cfg.type,
-        signup_type: cfg.type,
+        event_label: 'eoi_' + pending.type,
+        signup_type: pending.type,
         event_id: eventId
       });
     }
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'eoi_conversion', signup_type: cfg.type, event_id: eventId });
+    window.dataLayer.push({ event: 'eoi_conversion', signup_type: pending.type, event_id: eventId });
 
     // Meta — only when the advertisement category is consented.
     if (adConsentGranted()) {
       loadPixel();
       if (window.fbq) {
         window.fbq('track', 'CompleteRegistration',
-          { content_name: cfg.name },
+          { content_name: pending.name },
           { eventID: eventId });
       }
+      sendCapi({
+        event_name: 'CompleteRegistration',
+        event_id: eventId,
+        event_source_url: location.href,
+        signup_type: pending.type,
+        utms: pending.utms || {}
+      });
     }
   }
+  fireThankYouConversion();
 
   // --- Typeform popup CSS. The next/embed SDK does NOT auto-inject its
   //     popup stylesheet when invoked programmatically (createPopup). Without

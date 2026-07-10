@@ -36,12 +36,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gtag('config', 'G-NP5RJJQYV0');
   </script>
 
-  <!-- Meta Pixel — fire CompleteRegistration on thank-you page load -->
-  <script>
-    window.addEventListener('load', function () {
-      if (typeof fbq === 'function') fbq('track', 'CompleteRegistration');
-    });
-  </script>
+  <!-- Conversion (GA4 + Meta Pixel + CAPI) fires from main.js on this page,
+       once, from the pending EOI marker set at Typeform submit. Do NOT add a
+       page-level pixel fire here — an un-deduped fire double-counts. -->
 
   <style>
     /* ---- Page layout ---- */
