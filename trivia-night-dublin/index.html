@@ -338,6 +338,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .tn-detail p { font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0; }
     @media (max-width: 720px) { .tn-details-grid { grid-template-columns: 1fr; max-width: 440px; } }
 
+    /* ── MEET THE TEAM ── */
+    .tn-team { background: #ffffff; padding: 64px 0 76px; }
+    .tn-team h2 {
+      font-family: 'Poppins', sans-serif; font-weight: 800; text-align: center;
+      font-size: clamp(24px, 3.2vw, 33px); letter-spacing: -.02em; color: var(--plum); margin: 0 0 8px;
+    }
+    .tn-team-kicker { text-align: center; color: var(--muted); font-size: 16px; margin: 0 auto 40px; max-width: 560px; }
+    .tn-team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; max-width: 1060px; margin: 0 auto; }
+    .tn-person {
+      flex: 1 1 180px; max-width: 198px;
+      background: var(--band); border: 1px solid var(--hair); border-radius: 20px;
+      padding: 26px 18px 24px; text-align: center;
+    }
+    .tn-person-photo {
+      width: 104px; height: 104px; border-radius: 50%;
+      object-fit: cover; object-position: center 25%;
+      display: block; margin: 0 auto 14px;
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+      box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--hair);
+    }
+    .tn-person h3 { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 16.5px; color: var(--plum); margin: 0 0 4px; }
+    .tn-person-role { font-size: 13px; font-weight: 600; color: var(--brand); margin: 0 0 8px; line-height: 1.4; }
+    .tn-person-exp { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.45; }
+    @media (max-width: 720px) { .tn-person { flex: 1 1 44%; max-width: 46%; } }
+    @media (max-width: 430px) { .tn-person { flex: 1 1 100%; max-width: 300px; } }
+
     /* ── CLOSING CTA ── */
     .tn-close { position: relative; background: var(--ink); padding: 76px 0 84px; text-align: center; overflow: hidden; }
     .tn-close .tn-hero-glow { top: auto; bottom: -240px; }
@@ -567,6 +593,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3>Free — just register</h3>
             <p>Not a cent to get in. Spaces are limited, so register yours — and feel free to share the link with colleagues.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         MEET THE TEAM ON THE NIGHT
+    ====================================================== -->
+    <section class="tn-team">
+      <div class="container">
+        <h2>Meet the team on the night</h2>
+        <p class="tn-team-kicker">The Irish team behind ClassCover will be there from the first drink to the last round — come say hello.</p>
+        <div class="tn-team-grid">
+
+          <div class="tn-person">
+            <img class="tn-person-photo" src="/images/team-eva-gallagher.jpg"
+                 alt="Eva Gallagher, Education Partnerships Manager at ClassCover Ireland"
+                 width="104" height="104" loading="lazy" onerror="this.style.opacity=0" />
+            <h3>Eva Gallagher</h3>
+            <p class="tn-person-role">Education Partnerships Manager</p>
+            <p class="tn-person-exp">Teacher &amp; former principal</p>
+          </div>
+
+          <div class="tn-person">
+            <img class="tn-person-photo" src="/images/team-joanna-obyrne.jpg"
+                 alt="Joanna O'Byrne, Demand Generation Lead at ClassCover Ireland"
+                 width="104" height="104" loading="lazy" onerror="this.style.opacity=0" />
+            <h3>Joanna O'Byrne</h3>
+            <p class="tn-person-role">Demand Generation Lead</p>
+            <p class="tn-person-exp">Administrative Officer, INTO Head Office</p>
+          </div>
+
+          <div class="tn-person">
+            <img class="tn-person-photo" src="/images/team-declan-wildes.jpg"
+                 alt="Declan Wildes, School Account Executive at ClassCover Ireland"
+                 width="104" height="104" loading="lazy" onerror="this.style.opacity=0" />
+            <h3>Declan Wildes</h3>
+            <p class="tn-person-role">School Account Executive</p>
+            <p class="tn-person-exp">Primary school teacher</p>
+          </div>
+
+          <div class="tn-person">
+            <img class="tn-person-photo" src="/images/team-kyran-nolan.jpg"
+                 alt="Kyran Nolan, Strategic Account Executive at ClassCover Ireland"
+                 width="104" height="104" loading="lazy" onerror="this.style.opacity=0" />
+            <h3>Kyran Nolan</h3>
+            <p class="tn-person-role">Strategic Account Executive</p>
+            <p class="tn-person-exp">Primary school teacher</p>
+          </div>
+
+          <div class="tn-person">
+            <img class="tn-person-photo" src="/images/team-suzanne-feighery.jpg"
+                 alt="Suzanne Feighery, Administrator at ClassCover Ireland"
+                 width="104" height="104" loading="lazy" onerror="this.style.opacity=0" />
+            <h3>Suzanne Feighery</h3>
+            <p class="tn-person-role">Administrator</p>
+            <p class="tn-person-exp">Co-director, Coastal Ballet School</p>
+          </div>
+
         </div>
       </div>
     </section>
