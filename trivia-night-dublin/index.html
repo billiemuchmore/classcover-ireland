@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta property="og:url" content="https://www.classcoverapp.ie/trivia-night-dublin/" />
   <meta property="og:locale" content="en_IE" />
   <meta property="og:site_name" content="ClassCover Ireland" />
-  <meta property="og:image" content="https://www.classcoverapp.ie/images/trivia-night-dublin.png?v=2" />
+  <meta property="og:image" content="https://www.classcoverapp.ie/images/trivia-night-dublin.png?v=3" />
   <link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/trivia-night-dublin/" />
   <link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie" />
   <script type="application/ld+json">
@@ -52,7 +52,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "endDate": "2026-08-06T22:00:00+01:00",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
-    "image": "https://www.classcoverapp.ie/images/trivia-night-dublin.png?v=2",
+    "image": "https://www.classcoverapp.ie/images/trivia-night-dublin.png?v=3",
     "location": {
       "@type": "Place",
       "name": "The Teachers Club",
@@ -294,19 +294,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       text-wrap: balance;
     }
     .tn-who-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      max-width: 880px; margin: 0 auto; text-align: left;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      max-width: 1000px; margin: 0 auto; text-align: left;
     }
-    .tn-who-col { padding: 4px 28px; }
+    .tn-who-col { padding: 4px 22px; }
     .tn-who-col + .tn-who-col { border-left: 1px solid #e7e3f0; }
-    .tn-who-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 18px; color: var(--plum); margin: 0 0 8px; }
-    .tn-who-desc { font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0; }
-    @media (max-width: 760px) {
+    .tn-who-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 17px; color: var(--plum); margin: 0 0 8px; }
+    .tn-who-desc { font-size: 14.5px; line-height: 1.55; color: var(--muted); margin: 0; }
+    @media (max-width: 860px) {
+      .tn-who-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 0; max-width: 560px; }
+      .tn-who-col { padding: 0 22px; }
+      .tn-who-col + .tn-who-col { border-left: 1px solid #e7e3f0; }
+      .tn-who-col:nth-child(odd) { border-left: none; }
+    }
+    @media (max-width: 560px) {
       .tn-who { padding: 56px 0 54px; }
       .tn-who-card { padding: 38px 26px 34px; border-radius: 22px; }
       .tn-who-grid { grid-template-columns: 1fr; gap: 24px; max-width: 380px; }
-      .tn-who-col { padding: 0; }
-      .tn-who-col + .tn-who-col { border-left: none; border-top: 1px solid #e7e3f0; padding-top: 24px; }
+      .tn-who-col { padding: 0; border-left: none !important; }
+      .tn-who-col + .tn-who-col { border-top: 1px solid #e7e3f0; padding-top: 24px; }
     }
 
     /* ── WHAT'S ON (perks) ── */
@@ -455,7 +461,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <div class="tn-hero-inner">
 
-          <img class="tn-hero-banner" src="/images/trivia-night-dublin.png?v=2"
+          <img class="tn-hero-banner" src="/images/trivia-night-dublin.png?v=3"
                alt="ClassCover Ireland Trivia Night, Thursday 6 August, 7 to 10pm, The Teachers Club, Parnell Square West, Dublin. For schools, subs and SNAs."
                width="2400" height="1260" loading="eager" fetchpriority="high" />
 
@@ -528,16 +534,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="tn-who-line">Know ClassCover already, or hearing about us for the first time? Either way, you're welcome. Come along on your own or bring colleagues. Just register everyone so we can save the seats.</p>
         <div class="tn-who-grid">
           <div class="tn-who-col">
-            <p class="tn-who-name">Substitute teachers</p>
+            <p class="tn-who-name">Principals &amp; Deputy Principals</p>
+            <p class="tn-who-desc">School leaders who want to connect with the subs and SNAs supporting their schools.</p>
+          </div>
+          <div class="tn-who-col">
+            <p class="tn-who-name">Classroom Teachers</p>
+            <p class="tn-who-desc">Full-time teachers keen to meet the wider community building around them.</p>
+          </div>
+          <div class="tn-who-col">
+            <p class="tn-who-name">Substitute Teachers</p>
             <p class="tn-who-desc">Meet other subs, swap stories, and find your people beyond the staffroom.</p>
           </div>
           <div class="tn-who-col">
             <p class="tn-who-name">SNAs</p>
             <p class="tn-who-desc">Special Needs Assistants, front and centre in this community from day one.</p>
-          </div>
-          <div class="tn-who-col">
-            <p class="tn-who-name">Principals &amp; deputies</p>
-            <p class="tn-who-desc">School leaders who want to connect with the subs and SNAs supporting their schools.</p>
           </div>
         </div>
         </div>
@@ -601,7 +611,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="tn-detail">
             <div class="tn-detail-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
             <h3>Free, just register</h3>
-            <p>Not a cent to get in. Spaces are limited, so register yours. And feel free to share the link with colleagues.</p>
+            <p>Spaces are limited, so register yours. And feel free to share the link with colleagues.</p>
           </div>
         </div>
       </div>
