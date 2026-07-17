@@ -249,11 +249,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .tn-ticket-item { padding: 9px 14px; font-size: 13.5px; }
     }
 
-    /* ── ABOUT ── */
+    /* ── ABOUT (text + toast photo) ── */
     .tn-about { background: var(--paper); padding: 76px 0; }
     .tn-about-grid {
-      display: grid; grid-template-columns: 0.42fr 0.58fr; gap: 56px;
-      max-width: 1000px; margin: 0 auto; align-items: start;
+      display: grid; grid-template-columns: 0.56fr 0.44fr; gap: 56px;
+      max-width: 1040px; margin: 0 auto; align-items: center;
     }
     .tn-label { font-size: 12.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--brand); }
     .tn-about-head h2 {
@@ -261,11 +261,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: clamp(26px, 3.4vw, 36px); line-height: 1.1; letter-spacing: -.02em;
       color: var(--plum); margin: 14px 0 0;
     }
+    .tn-about-body { margin-top: 22px; }
     .tn-about-body p { margin: 0 0 18px; font-size: 19px; line-height: 1.6; color: var(--plum); }
     .tn-about-body p:last-child { margin-bottom: 0; }
     .tn-about-body strong { color: var(--brand); font-weight: 700; }
+    .tn-about-photo {
+      width: 100%; height: 100%; max-height: 480px; object-fit: cover; object-position: center 32%;
+      border-radius: 22px; display: block;
+      box-shadow: 0 30px 60px -28px rgba(32,19,58,.45), 0 0 0 1px var(--hair);
+    }
     @media (max-width: 760px) {
-      .tn-about-grid { grid-template-columns: 1fr; gap: 22px; }
+      .tn-about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .tn-about-photo { max-height: 300px; }
     }
 
     /* ── WHO THIS IS FOR ── */
@@ -499,11 +506,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="tn-about-head">
             <span class="tn-label">The night</span>
             <h2>Meet. Connect. Belong.</h2>
+            <div class="tn-about-body">
+              <p>Teaching runs on connection. But subbing can mean a new school every week and a staffroom full of strangers — and on the school side, there's rarely a spare minute to properly get to know the <strong>subs and SNAs</strong> who keep the day running.</p>
+              <p>This night fixes that. Subs, SNAs and school leaders in one room — drinks in hand, quiz on, prizes worth staying for. ClassCover is coming to Ireland, and this is <strong>the community's first night out</strong>. Be able to say you were there.</p>
+            </div>
           </div>
-          <div class="tn-about-body">
-            <p>Teaching runs on connection. But subbing can mean a new school every week and a staffroom full of strangers — and on the school side, there's rarely a spare minute to properly get to know the <strong>subs and SNAs</strong> who keep the day running.</p>
-            <p>This night fixes that. Subs, SNAs and school leaders in one room — drinks in hand, quiz on, prizes worth staying for. ClassCover is coming to Ireland, and this is <strong>the community's first night out</strong>. Be able to say you were there.</p>
-          </div>
+          <img class="tn-about-photo" src="/images/trivia-cheers.jpg"
+               alt="Champagne glasses raised in a toast against a gold tinsel backdrop"
+               width="960" height="1200" loading="lazy" />
         </div>
       </div>
     </section>
@@ -613,15 +623,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3>Eva Gallagher</h3>
             <p class="tn-person-role">Education Partnerships Manager</p>
             <p class="tn-person-exp">Teacher &amp; former principal</p>
-          </div>
-
-          <div class="tn-person">
-            <img class="tn-person-photo" src="/images/team-joanna-obyrne.jpg"
-                 alt="Joanna O'Byrne, Demand Generation Lead at ClassCover Ireland"
-                 width="104" height="104" loading="lazy" onerror="this.style.opacity=0" />
-            <h3>Joanna O'Byrne</h3>
-            <p class="tn-person-role">Demand Generation Lead</p>
-            <p class="tn-person-exp">Administrative Officer, INTO Head Office</p>
           </div>
 
           <div class="tn-person">
