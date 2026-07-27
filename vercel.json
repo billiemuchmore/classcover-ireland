@@ -20,6 +20,16 @@
       "source": "/blog/substitute-teacher-booking-platform-ireland",
       "destination": "/blog/substitute-teacher-booking-platform-vs-jobs-board-ireland",
       "permanent": true
+    },
+    {
+      "source": "/trivia-night-dublin",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/trivia-night-dublin/:path*",
+      "destination": "/",
+      "permanent": false
     }
   ],
   "headers": [
