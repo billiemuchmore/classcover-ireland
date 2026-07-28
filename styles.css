@@ -1881,6 +1881,16 @@ p {
   vertical-align: top;
 }
 .post-body tr:last-child td { border-bottom: none; }
+/* Highlighted cell — marks the winning figure in a data table */
+.post-body td.cell-highlight {
+  background: var(--purple-card);
+  font-weight: 700;
+  color: var(--purple);
+}
+/* Small caption sitting directly above a table */
+.post-body .table-caption {
+  margin-bottom: 8px;
+}
 
 /* Citations block */
 .post-citations {
