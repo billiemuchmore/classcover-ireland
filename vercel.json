@@ -2,6 +2,11 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/download",
+      "destination": "/subs/download",
+      "permanent": true
+    },
+    {
       "source": "/returning-teachers",
       "destination": "/reviews/subs",
       "permanent": true
