@@ -301,13 +301,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .press-strip { background: #F6F3FD; border-top: 1px solid #E3DAF6; border-bottom: 1px solid #E3DAF6; padding: 30px 0; }
       .press-strip .container { text-align: center; }
       .press-strip .press-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #7B5CC1; margin: 0 0 10px; }
-      .press-strip .press-logos { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 26px 46px; background: #ffffff; border-radius: 18px; padding: 26px 46px; box-shadow: 0 8px 26px rgba(58,12,163,.10); max-width: 940px; }
-      .press-strip .press-logos a, .press-strip .press-logos span { display: inline-flex; line-height: 0; }
-      .press-strip .press-logos img { height: 30px; width: auto; max-width: 210px; display: block; transition: opacity .12s ease; }
+      .press-strip .press-logos { display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; justify-items: center; gap: 30px 44px; background: #ffffff; border-radius: 18px; padding: 30px 46px; box-shadow: 0 8px 26px rgba(58,12,163,.10); max-width: 820px; margin: 0 auto; }
+      .press-strip .press-logos a, .press-strip .press-logos span { display: flex; align-items: center; justify-content: center; width: 100%; line-height: 0; }
+      .press-strip .press-logos img { max-height: 30px; max-width: 100%; width: auto; height: auto; display: block; transition: opacity .12s ease; }
       .press-strip .press-logos a:hover img { opacity: .6; }
-      .press-strip .press-all { display: inline-block; margin-top: 18px; font-size: 14px; font-weight: 700; color: #3A0CA3; text-decoration: none; }
+      .press-strip .press-all { display: block; margin: 18px auto 0; text-align: center; font-size: 14px; font-weight: 700; color: #3A0CA3; text-decoration: none; }
       .press-strip .press-all:hover { text-decoration: underline; }
-      @media (max-width: 520px) { .press-strip .press-logos { gap: 20px 30px; padding: 22px 26px; } .press-strip .press-logos img { height: 24px; } }
+      @media (max-width: 560px) { .press-strip .press-logos { grid-template-columns: repeat(2, 1fr); gap: 22px 24px; padding: 24px 22px; max-width: 360px; } .press-strip .press-logos img { max-height: 24px; } }
       .press-strip .press-cta:hover { text-decoration: underline; }
     </style>
     <section class="press-strip" aria-label="Press coverage">
