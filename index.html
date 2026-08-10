@@ -301,19 +301,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .press-strip { background: #F6F3FD; border-top: 1px solid #E3DAF6; border-bottom: 1px solid #E3DAF6; padding: 30px 0; }
       .press-strip .container { text-align: center; }
       .press-strip .press-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #7B5CC1; margin: 0 0 10px; }
-      .press-strip .press-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; }
-      .press-strip .press-outlet { display: inline-block; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(58,12,163,.10); line-height: 0; transition: transform .12s ease, box-shadow .12s ease; }
-      .press-strip .press-outlet:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(58,12,163,.16); }
-      .press-strip .press-outlet img { height: 86px; width: auto; max-width: 100%; display: block; }
-      @media (max-width: 520px) { .press-strip .press-outlet img { height: 56px; } }
+      .press-strip .press-logos { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 26px 46px; background: #ffffff; border-radius: 18px; padding: 26px 46px; box-shadow: 0 8px 26px rgba(58,12,163,.10); max-width: 940px; }
+      .press-strip .press-logos a, .press-strip .press-logos span { display: inline-flex; line-height: 0; }
+      .press-strip .press-logos img { height: 30px; width: auto; max-width: 210px; display: block; transition: opacity .12s ease; }
+      .press-strip .press-logos a:hover img { opacity: .6; }
+      .press-strip .press-all { display: inline-block; margin-top: 18px; font-size: 14px; font-weight: 700; color: #3A0CA3; text-decoration: none; }
+      .press-strip .press-all:hover { text-decoration: underline; }
+      @media (max-width: 520px) { .press-strip .press-logos { gap: 20px 30px; padding: 22px 26px; } .press-strip .press-logos img { height: 24px; } }
       .press-strip .press-cta:hover { text-decoration: underline; }
     </style>
     <section class="press-strip" aria-label="Press coverage">
       <div class="container">
         <span class="press-label">As featured in</span>
         <div class="press-logos">
-          <a class="press-outlet" href="https://www.independent.ie/business/irish-business/classcover-an-australian-based-platform-for-booking-substitute-teachers-set-for-irish-expansion/a/159745827.html" target="_blank" rel="noopener" aria-label="Read the ClassCover feature in the Irish Independent"><img src="/images/irish-independent-logo.png" alt="Irish Independent" width="1590" height="320" /></a>
+          <a href="https://www.independent.ie/business/irish-business/classcover-an-australian-based-platform-for-booking-substitute-teachers-set-for-irish-expansion/a/159745827.html" target="_blank" rel="noopener" aria-label="ClassCover in the Irish Independent"><img src="/images/press/irish-independent.png" alt="Irish Independent" width="1537" height="200" /></a>
+          <a href="https://www.rte.ie/news/business/2026/0810/1587218-classcover-online-platform-enters-irish-market/" target="_blank" rel="noopener" aria-label="ClassCover on RTÉ"><img src="/images/press/rte.png" alt="RTÉ" width="372" height="200" /></a>
+          <a href="https://www.businesspost.ie/tech/australian-edtech-classcover-makes-e3m-irish-push/" target="_blank" rel="noopener" aria-label="ClassCover in the Business Post"><img src="/images/press/business-post.png" alt="Business Post" width="633" height="200" /></a>
+          <a href="https://www.siliconrepublic.com/jobs-news/classcover-investment-irish-expansion-jobs-ireland-australia-careers" target="_blank" rel="noopener" aria-label="ClassCover in Silicon Republic"><img src="/images/press/silicon-republic.png" alt="Silicon Republic" width="1524" height="200" /></a>
+          <a href="https://www.thinkbusiness.ie/articles/classcover-ireland-expansion-e3m-investment-20-jobs/" target="_blank" rel="noopener" aria-label="ClassCover on ThinkBusiness"><img src="/images/press/thinkbusiness.png" alt="ThinkBusiness" width="508" height="200" /></a>
+          <span aria-label="Irish Examiner (print)"><img src="/images/press/irish-examiner.png" alt="Irish Examiner" width="1379" height="200" /></span>
         </div>
+        <a class="press-all" href="/media/">See all coverage →</a>
       </div>
     </section>
 
@@ -792,6 +800,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3>Company</h3>
             <ul>
               <li><a href="/about.html">About</a></li>
+              <li><a href="/media/">In the media</a></li>
               <li><a href="/contact.html">Contact us</a></li>
               <li><a href="/blog/">Blog</a></li>
               <li><a href="https://classcover.com.au" target="_blank" rel="noopener">ClassCover Australia</a></li>
