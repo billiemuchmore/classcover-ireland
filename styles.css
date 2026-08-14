@@ -2547,3 +2547,36 @@ p {
   color: var(--text-body);
   line-height: 1.65;
 }
+
+/* --- "Just released" pill on download-app CTAs ---
+   Matches the site pill convention (white chip, purple text,
+   #D3C7F2 border, accent dot) used on /subs/launch/ and pricing. --- */
+.btn-pill { position: relative; }
+.btn-pill .pill-new {
+  position: absolute;
+  top: -13px;
+  right: -8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  color: var(--purple);
+  border: 1.5px solid #D3C7F2;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 5px 11px;
+  border-radius: 99px;
+  box-shadow: 0 2px 6px rgba(58, 12, 163, 0.14);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.btn-pill .pill-new::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #BE76F4;
+}
