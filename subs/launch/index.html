@@ -40,8 +40,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "ClassCover is Coming to Ireland — Get Ready",
-      "description": "The free app for substitute teachers and SNAs is live in Ireland. Download it and set up your profile ahead of the new school year.",
+      "name": "ClassCover is Live in Ireland",
+      "description": "The free app for substitute teachers and SNAs is live in Ireland. Download it, set up your profile and set your availability, wherever you are in Ireland.",
       "url": "https://www.classcoverapp.ie/subs/launch/",
       "isPartOf": { "@type": "WebSite", "name": "ClassCover Ireland", "url": "https://www.classcoverapp.ie" },
       "publisher": {
@@ -66,8 +66,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
-        { "@type": "Question", "name": "Can I join if I am not in Dublin?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, absolutely. ClassCover is open to every substitute teacher and SNA in Ireland. Set up your profile when the app is ready, and you are set for when schools come on board. In Dublin, Kildare, Meath, Wicklow and Louth, schools will be able to find and book you directly. Elsewhere, schools will start on ClassCover Lite, so you will get onto a school's list by emailing them directly to ask, or by being invited, and every sub who joins brings Full Access closer for your area." } },
-        { "@type": "Question", "name": "How do I connect with a school?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on how the school uses ClassCover. Schools with Full Access can find you on the network, and you can send a request to join in the app. Schools on Lite cannot see the network, so you email the school directly to ask to be added to their list. Either way, or if a school invites you, once you are connected they can book you for work." } },
+        { "@type": "Question", "name": "What do I need to do right now?", "acceptedAnswer": { "@type": "Answer", "text": "Four things. Download the app, create your profile, complete it, and set your availability. That is everything. As schools come on board you can start requesting to join the ones you want to work with." } },
+        { "@type": "Question", "name": "Can I join if I am not in Dublin?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. ClassCover is open to every substitute teacher and SNA in Ireland, and requesting to join schools works the same wherever you are, so send your requests as soon as the schools you want come on board. The difference is what a school can do at its end. In the pilot areas of Dublin, Kildare, Meath, Wicklow and Louth, schools have Full Access, so they can also search the network and add you to their list themselves. Everywhere else, schools start on ClassCover Lite: they can accept as many requests to join as they receive, they just cannot search the network yet." } },
+        { "@type": "Question", "name": "How do I connect with a school?", "acceptedAnswer": { "@type": "Answer", "text": "In the app. Once a school is on ClassCover, you send it a request to join and the school accepts, and this works the same anywhere in Ireland. You can also invite the local schools you already work with, and schools on Full Access can find you on the network and add you themselves. Once you are connected, the school can book you for work." } },
+        { "@type": "Question", "name": "When will the schools near me be on ClassCover?", "acceptedAnswer": { "@type": "Answer", "text": "The first schools come on board in the coming weeks, and more will keep joining right through the new school year. Some will be on early in the term and others later, so keep an eye out for the schools you want to work with and send your request to join as soon as they are on." } },
         { "@type": "Question", "name": "What's the difference between ClassCover and EducationPosts.ie?", "acceptedAnswer": { "@type": "Answer", "text": "EducationPosts.ie is a jobs board, where you find schools advertising for SNAs, apply and wait to be picked. ClassCover is a booking platform, where local schools send booking requests straight to you and you accept with a tap. A jobs board waits. A booking platform confirms." } },
         { "@type": "Question", "name": "Can SNAs get booked on EducationPosts.ie?", "acceptedAnswer": { "@type": "Answer", "text": "You can use the EducationPosts.ie job board to find schools advertising for SNAs, but it is a noticeboard, not a booking system: you apply and wait. Its booking tool, Sub Seeker, is open only to registered teachers, so it does not book SNAs. ClassCover books SNAs directly, the same as substitute teachers." } },
         { "@type": "Question", "name": "Do SNAs need Garda vetting for every school?", "acceptedAnswer": { "@type": "Answer", "text": "In most cases, yes. A Garda vetting disclosure is issued to the specific organisation that requested it and is not transferable between organisations by default, so an SNA usually has to be vetted again by each school or patron body that employs them. Registered teachers are the exception: they are vetted once through the Teaching Council and recognised nationally." } },
@@ -121,9 +123,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #lp .lp-pill .lp-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
     #lp .lp-hero-reassure {
       display: inline-block; margin-top: 26px; font-size: 14.5px; color: var(--brand-2);
-      background: rgba(190,118,244,.1); border: 1px solid var(--line); padding: 12px 20px; border-radius: 12px; max-width: 560px;
+      background: rgba(190,118,244,.1); border: 1px solid var(--line); padding: 12px 20px; border-radius: 12px; max-width: 600px;
+      text-wrap: balance;
     }
-    #lp .lp-reassure-lead { display: block; font-weight: 700; font-size: 15.5px; color: var(--brand); margin-bottom: 4px; }
+    #lp .lp-reassure-lead { display: block; font-weight: 700; font-size: 15.5px; color: var(--brand); margin-bottom: 4px; text-wrap: balance; }
 
     /* APP STORE BUTTONS (matches /subs/download/) */
     #lp .dl-store-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 28px; }
@@ -171,25 +174,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #lp .lp-card h3 { font-size: 19px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
     #lp .lp-card p { font-size: 15.5px; color: var(--muted); line-height: 1.62; margin: 0; }
 
-    /* AREAS (Dublin / rest) */
+    /* AREAS (pilot / everywhere else) */
     #lp .lp-areas { background: #ffffff; }
-    #lp .lp-areas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 980px; margin: 0 auto; }
+    #lp .lp-areas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 980px; margin: 0 auto 26px; }
     #lp .lp-area {
-      border-radius: 20px; padding: 32px 30px; border: 1.5px solid var(--line);
+      border-radius: 20px; padding: 26px 26px; border: 1.5px solid var(--line);
     }
-    #lp .lp-area.is-dublin { background: linear-gradient(160deg, #EEE9FA 0%, #ffffff 90%); border-color: #C9B8F0; }
-    #lp .lp-area.is-rest { background: #ffffff; }
-    #lp .lp-area .lp-area-tag {
-      display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700;
-      letter-spacing: .05em; text-transform: uppercase; padding: 5px 12px; border-radius: 99px; margin-bottom: 16px;
+    #lp .lp-area.is-pilot { background: linear-gradient(160deg, #EEE9FA 0%, #ffffff 90%); border-color: #C9B8F0; }
+    #lp .lp-area.is-lite { background: #ffffff; }
+    #lp .lp-area-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    #lp .lp-area .lp-area-tag, #lp .lp-area .lp-area-tier {
+      display: inline-flex; align-items: center; font-size: 12px; font-weight: 700;
+      letter-spacing: .05em; text-transform: uppercase; padding: 5px 12px; border-radius: 99px;
     }
-    #lp .lp-area.is-dublin .lp-area-tag { background: var(--brand); color: #fff; }
-    #lp .lp-area.is-rest .lp-area-tag { background: var(--wash); color: var(--brand); }
-    #lp .lp-area h3 { font-size: 21px; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
-    #lp .lp-area p { font-size: 15.5px; color: var(--muted); line-height: 1.65; margin: 0; }
+    #lp .lp-area.is-pilot .lp-area-tag { background: var(--brand); color: #fff; }
+    #lp .lp-area.is-lite .lp-area-tag { background: var(--wash); color: var(--brand); }
+    #lp .lp-area .lp-area-tier { background: #ffffff; border: 1.5px solid #C9B8F0; color: var(--brand); }
+    #lp .lp-area h3 { font-size: 20px; font-weight: 700; color: var(--ink); margin: 0 0 10px; line-height: 1.3; }
+    #lp .lp-area p { font-size: 15.5px; color: var(--muted); line-height: 1.62; margin: 0; }
+    #lp .lp-area p strong { color: var(--brand); font-weight: 700; }
+    #lp .lp-areas-note {
+      max-width: 660px; margin: 0 auto; background: var(--wash); border: 1px solid var(--line);
+      border-radius: 14px; padding: 18px 24px; text-align: center; font-size: 15.5px; color: #3D3550; line-height: 1.55;
+    }
+    #lp .lp-areas-note-h { display: block; font-size: 17px; font-weight: 700; color: var(--brand); margin-bottom: 6px; }
 
     /* PHASES */
-    #lp .lp-phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1000px; margin: 0 auto 34px; }
+    #lp .lp-phases { display: grid; grid-template-columns: repeat(auto-fit, minmax(178px, 1fr)); gap: 14px; max-width: 1040px; margin: 0 auto 34px; }
     #lp .lp-phase { background: linear-gradient(165deg, #F6F3FD 0%, #ffffff 85%); border: 1.5px solid var(--line); border-radius: 16px; padding: 22px 20px; }
     #lp .lp-phase.is-now { border-color: var(--brand-2); box-shadow: 0 10px 26px rgba(58,12,163,.12); }
     #lp .lp-phase-when { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #ffffff; background: var(--brand); padding: 4px 11px; border-radius: 99px; margin-bottom: 12px; }
@@ -197,8 +208,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #lp .lp-phase p { font-size: 13.8px; color: var(--muted); line-height: 1.5; margin: 0; }
     #lp .lp-phase-note { text-align: center; max-width: 640px; margin: -6px auto 34px; font-size: 14.5px; color: var(--muted); line-height: 1.5; }
     #lp .lp-phase-note strong { color: var(--brand); font-weight: 700; }
-    #lp .lp-areas-intro { text-align: center; max-width: 640px; margin: 6px auto 24px; font-size: clamp(19px, 2.6vw, 24px); font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
-    #lp .lp-area p strong { color: var(--brand); font-weight: 700; }
 
     /* WHY (reassurance) */
     #lp .lp-why { background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%); color: #fff; }
@@ -208,19 +217,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #lp .lp-why .lp-why-inner { max-width: 760px; margin: 0 auto; text-align: center; }
     #lp .lp-why .lp-why-punch { font-weight: 700; color: #fff; }
 
-    /* LITE vs FULL */
+    /* HOW YOU GET ON A SCHOOL'S LIST */
     #lp .lp-tiers { background: #F8F6FE; }
-    #lp .lp-tiers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 980px; margin: 0 auto 26px; }
-    #lp .lp-tier { background: #fff; border: 1.5px solid var(--line); border-radius: 18px; padding: 30px 28px; }
-    #lp .lp-tier.is-full { border-color: var(--brand-2); background: linear-gradient(160deg, #F4F0FB 0%, #ffffff 80%); }
-    #lp .lp-tier h3 { font-size: 20px; font-weight: 700; color: var(--brand); margin: 0 0 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    #lp .lp-tier .lp-tier-cost { font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; background: var(--wash); color: var(--brand); }
-    #lp .lp-tier.is-full .lp-tier-cost { background: var(--brand); color: #fff; }
-    #lp .lp-tier p { font-size: 15.5px; color: var(--muted); line-height: 1.65; margin: 0; }
-    #lp .lp-tiers-note { text-align: center; font-size: 15.5px; color: #444; max-width: 720px; margin: 0 auto 18px; line-height: 1.65; }
-    #lp .lp-tiers-link { text-align: center; }
-    #lp .lp-tiers-link a { color: var(--brand); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
-    #lp .lp-tiers-link a:hover { color: #2A0880; }
+    #lp .lp-tiers-note { text-align: center; font-size: 15.5px; color: #444; max-width: 720px; margin: 0 auto; line-height: 1.65; }
+    #lp .lp-tiers-note a { color: var(--brand); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px; white-space: nowrap; }
+    #lp .lp-tiers-note a:hover { color: #2A0880; }
 
     /* GET READY checklist */
     #lp .lp-ready { background: #ffffff; }
@@ -287,7 +288,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (max-width: 900px) {
       #lp .lp-ben-card { grid-template-columns: 1fr; gap: 26px; padding: 28px; }
       #lp .lp-ben-photo { max-width: 360px; margin: 0 auto; }
-      #lp .lp-cards-3, #lp .lp-areas-grid, #lp .lp-tiers-grid { grid-template-columns: 1fr; }
+      #lp .lp-cards-3, #lp .lp-areas-grid { grid-template-columns: 1fr; }
       #lp .lp-posts-grid { grid-template-columns: repeat(2, 1fr); }
       #lp .lp-phases { grid-template-columns: repeat(2, 1fr); }
     }
@@ -390,8 +391,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="lp-cards-3">
           <div class="lp-card">
             <div class="lp-card-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <h3>Connect with the schools you want</h3>
-            <p>Once schools are on board, you'll ask to join the schools you'd like to work with, or get invited by the schools that need you. Once you're connected, they can book you for work.</p>
+            <h3>Request to join any school</h3>
+            <p>As schools come on board, you send a request to join the ones you'd like to work with, anywhere in Ireland. You can invite your local schools too. Once you're connected, they can book you for work.</p>
           </div>
           <div class="lp-card">
             <div class="lp-card-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
@@ -418,40 +419,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="lp-phases">
           <div class="lp-phase is-now">
-            <span class="lp-phase-when">Now</span>
+            <span class="lp-phase-when">Step 1</span>
             <h3>Create your profile</h3>
-            <p>Download the app, create your profile and set your availability.</p>
+            <p>Download the app, complete your profile and set your availability.</p>
           </div>
           <div class="lp-phase">
-            <span class="lp-phase-when">From 17 Aug</span>
+            <span class="lp-phase-when">Step 2</span>
             <h3>Schools come on board</h3>
-            <p>Schools across Ireland sign up and build their profiles.</p>
+            <p>The first schools sign up and build their profiles, with more joining all year.</p>
           </div>
           <div class="lp-phase">
-            <span class="lp-phase-when">From 24 Aug</span>
-            <h3>Booking goes live</h3>
-            <p>Schools start finding and booking subs and SNAs.</p>
+            <span class="lp-phase-when">Step 3</span>
+            <h3>Get on their lists</h3>
+            <p>Request to join the schools you want, or invite the local schools you already work with.</p>
           </div>
           <div class="lp-phase">
-            <span class="lp-phase-when">From September</span>
+            <span class="lp-phase-when">Step 4</span>
+            <h3>Bookings go live</h3>
+            <p>Schools start sending booking requests to the subs and SNAs on their lists.</p>
+          </div>
+          <div class="lp-phase">
+            <span class="lp-phase-when">Step 5</span>
             <h3>More to come</h3>
             <p>In-app messaging and more features roll out.</p>
           </div>
         </div>
-        <p class="lp-phase-note">To start, ClassCover is a <strong>mobile app</strong> for subs and SNAs. A web version for teachers is coming later in the roll-out.</p>
-        <p class="lp-areas-intro">Schools book from a list. How you get on it depends on your area.</p>
+        <p class="lp-areas-note"><strong class="lp-areas-note-h">Bear with us while we build out your school network</strong>Schools come on board over the new school year, some early in the term and some later. Keep an eye out for the ones you want to work with and request to join as soon as they're on.</p>
+      </div>
+    </section>
+
+    <!-- HOW YOU GET ON A SCHOOL'S LIST -->
+    <section class="lp-tiers" id="how-you-connect">
+      <div class="lp-wrap">
+        <div class="lp-center">
+          <h2 class="lp-h">How you get on a school's list</h2>
+          <p class="lp-sub">Request to join the schools you want, and invite your local ones. Same everywhere in Ireland.</p>
+        </div>
         <div class="lp-areas-grid">
-          <div class="lp-area is-dublin">
-            <span class="lp-area-tag">Full Access · Dublin &amp; surrounding counties</span>
-            <h3>Schools can find you and add you</h3>
-            <p>In Dublin, Kildare, Meath, Wicklow and Louth, schools can search the network, <strong>find you and add you to their list</strong>. Once you're on their list, they can book you for work. Set up your profile and you're findable straight away.</p>
+          <div class="lp-area is-pilot">
+            <div class="lp-area-tags">
+              <span class="lp-area-tag">Pilot areas</span>
+              <span class="lp-area-tier">Full Access</span>
+            </div>
+            <h3>Schools can find you too</h3>
+            <p><strong>Dublin, Kildare, Meath, Wicklow and Louth.</strong> Schools accept your request to join their list, and can also search the network and add you themselves.</p>
           </div>
-          <div class="lp-area is-rest">
-            <span class="lp-area-tag">ClassCover Lite · Everywhere else</span>
-            <h3>You get onto the list yourself</h3>
-            <p><strong>Schools here can't see your profile automatically yet.</strong> They book from their own list, so to get on it you contact the school directly, a quick email or call, and ask to be added. A school that already knows you can also invite you. Once you're on their list, they book you in the app. As more subs and SNAs join your area, it moves to Full Access, and joining early brings that closer.</p>
+          <div class="lp-area is-lite">
+            <div class="lp-area-tags">
+              <span class="lp-area-tag">Everywhere else</span>
+              <span class="lp-area-tier">ClassCover Lite</span>
+            </div>
+            <h3>Schools accept your request to join</h3>
+            <p><strong>The rest of Ireland.</strong> Schools accept as many requests to join their list as they get, they just can't search the network yet.</p>
           </div>
         </div>
+        <p class="lp-tiers-note">Both are free for schools during the Ireland pilot. The more subs and SNAs who sign up in an area, the sooner its schools move to Full Access, so joining now brings that closer for your community. <a href="/schools#pilot">See how it works for schools →</a></p>
       </div>
     </section>
 
@@ -459,34 +481,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="lp-why">
       <div class="lp-wrap">
         <div class="lp-why-inner">
-          <span class="lp-eyebrow">Why we're doing it this way</span>
+          <span class="lp-eyebrow">Why it rolls out this way</span>
           <h2>We build the network first, then switch schools on</h2>
-          <p>Full Access only works when there are enough subs and SNAs in an area for schools to rely on it. If we switched every school on at once, they would post absences into a network that isn't ready, find no one, and go back to phone calls. Nobody wins.</p>
-          <p>So we build the network of subs and SNAs first, then schools move to Full Access as their area fills up. It means when schools near you get Full Access, they find a ready network, not an empty one. <span class="lp-why-punch">Being early is the advantage.</span></p>
+          <p>Searching the network only works when there are enough subs and SNAs nearby to make it worth a school's while. So we build the network in an area first, then switch its schools on. It means when schools near you get Full Access, they find a ready network, not an empty one.</p>
+          <p><span class="lp-why-punch">Being early is the advantage.</span> Your profile is live from day one, and every sub and SNA who joins brings Full Access closer for your area.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- LITE vs FULL ACCESS -->
-    <section class="lp-tiers">
-      <div class="lp-wrap">
-        <div class="lp-center">
-          <span class="lp-eyebrow">Lite vs Full Access</span>
-          <h2 class="lp-h">Why some schools can connect with you and some can't yet</h2>
-          <p class="lp-sub">Schools choose how they use ClassCover, and it changes how you connect.</p>
-        </div>
-        <div class="lp-tiers-grid">
-          <div class="lp-tier is-lite">
-            <h3>ClassCover Lite <span class="lp-tier-cost">Free</span></h3>
-            <p>Schools book from their own list. They can't discover new people on the network, so to get onto a Lite school's list you email the school directly, outside ClassCover, and ask to be added, or they invite you. Once you're on their list, they can book you through the app.</p>
-          </div>
-          <div class="lp-tier is-full">
-            <h3>Full Access <span class="lp-tier-cost">Paid</span></h3>
-            <p>Schools can discover subs and SNAs on the network and invite you directly in the app, on top of the requests you send them.</p>
-          </div>
-        </div>
-        <p class="lp-tiers-note">Schools in Dublin, Kildare, Meath, Wicklow and Louth will be on Full Access. Elsewhere in Ireland, they'll start on Lite, so emailing a school directly to ask to be added is how you'll get on their list.</p>
-        <p class="lp-tiers-link"><a href="/schools#pilot">See how it works for schools →</a></p>
       </div>
     </section>
 
@@ -516,12 +515,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="lp-faq-list">
           <div class="lp-faq-item">
+            <button class="lp-faq-q" aria-expanded="false">What do I need to do right now?<span class="lp-faq-icon" aria-hidden="true">+</span></button>
+            <div class="lp-faq-a"><p>Four things. Download the app, create your profile, complete it, and set your availability. That's everything. As schools come on board you can start requesting to join the ones you want to work with.</p></div>
+          </div>
+          <div class="lp-faq-item">
             <button class="lp-faq-q" aria-expanded="false">Can I join if I'm not in Dublin?<span class="lp-faq-icon" aria-hidden="true">+</span></button>
-            <div class="lp-faq-a"><p>Yes, absolutely. ClassCover is open to every substitute teacher and SNA in Ireland. Set up your profile when the app is ready, and you're set for when schools come on board. In Dublin, Kildare, Meath, Wicklow and Louth, schools will be able to find and book you directly. Elsewhere, schools will start on Lite, so you'll get onto a school's list by emailing them directly to ask, or by being invited, and every sub who joins brings Full Access closer for your area.</p></div>
+            <div class="lp-faq-a"><p>Yes. ClassCover is open to every substitute teacher and SNA in Ireland, and requesting to join schools works the same wherever you are, so send your requests as soon as the schools you want come on board. The difference is what a school can do at its end. In the pilot areas of Dublin, Kildare, Meath, Wicklow and Louth, schools have Full Access, so they can also search the network and add you to their list themselves. Everywhere else, schools start on ClassCover Lite: they can accept as many requests to join as they receive, they just can't search the network yet.</p></div>
           </div>
           <div class="lp-faq-item">
             <button class="lp-faq-q" aria-expanded="false">How do I connect with a school?<span class="lp-faq-icon" aria-hidden="true">+</span></button>
-            <div class="lp-faq-a"><p>It depends on how the school uses ClassCover. Schools with Full Access can find you on the network, and you can send a request to join in the app. Schools on Lite can't see the network, so you email the school directly to ask to be added to their list. Either way, or if a school invites you, once you're connected they can book you for work.</p></div>
+            <div class="lp-faq-a"><p>In the app. Once a school is on ClassCover, you send it a request to join and the school accepts, and this works the same anywhere in Ireland. You can also invite the local schools you already work with, and schools on Full Access can find you on the network and add you themselves. Once you're connected, the school can book you for work.</p></div>
+          </div>
+          <div class="lp-faq-item">
+            <button class="lp-faq-q" aria-expanded="false">When will the schools near me be on ClassCover?<span class="lp-faq-icon" aria-hidden="true">+</span></button>
+            <div class="lp-faq-a"><p>The first schools come on board in the coming weeks, and more will keep joining right through the new school year. Some will be on early in the term and others later, so keep an eye out for the schools you want to work with and send your request to join as soon as they're on.</p></div>
           </div>
           <div class="lp-faq-item">
             <button class="lp-faq-q" aria-expanded="false">What's the difference between ClassCover and EducationPosts.ie?<span class="lp-faq-icon" aria-hidden="true">+</span></button>
@@ -575,7 +582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="lp-wrap">
         <div class="lp-center">
           <span class="lp-eyebrow">From the blog</span>
-          <h2 class="lp-h">Worth a read while you wait</h2>
+          <h2 class="lp-h">Worth a read while you set up</h2>
           <p class="lp-sub">Guides for substitute teachers and SNAs on getting booked, building a career, and how ClassCover fits in.</p>
         </div>
         <div class="lp-posts-grid">
