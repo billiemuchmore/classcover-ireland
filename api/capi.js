@@ -54,6 +54,7 @@ module.exports = async (req, res) => {
 
   const customData = {};
   if (body.signup_type) customData.signup_type = body.signup_type;
+  if (body.store) customData.store = body.store;
   if (body.utms && typeof body.utms === 'object') Object.assign(customData, body.utms);
 
   const payload = {

@@ -425,4 +425,60 @@
     }
   }
   fireWebinarConversion();
+
+  // --- App-store click-out conversion (subs/SNA download CTA) ---
+  // The subs waitlist Typeform is retired; the measurable subs conversion is
+  // now a click-out to the App Store / Google Play (links on /subs/download/
+  // and /subs/launch/). Fires GA4 "app_store_click" (mark it a key event in
+  // GA4 to import into Google Ads) and Meta "Lead" + CAPI with a shared
+  // event_id for dedupe. Counted once per store per session so repeat taps
+  // don't inflate numbers. sendBeacon survives the same-tab navigation to
+  // the store. iOS strips referrer/params at the store door, so this click
+  // is the last attributable moment on the web side.
+  function wireStoreClicks() {
+    document.addEventListener('click', function (e) {
+      if (!e.target || !e.target.closest) return;
+      var a = e.target.closest('a[href*="apps.apple.com"], a[href*="play.google.com"]');
+      if (!a) return;
+      var store = /apps\.apple\.com/.test(a.href) ? 'ios' : 'android';
+      var onceKey = 'cc_store_click_' + store;
+      var repeat = false;
+      try {
+        repeat = !!sessionStorage.getItem(onceKey);
+        sessionStorage.setItem(onceKey, '1');
+      } catch (err) {}
+      if (repeat) return;
+      var eventId = newEventId();
+      // GA4 — distinct event name, one per store per session.
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'app_store_click', {
+          event_category: 'app',
+          event_label: store,
+          store: store,
+          signup_type: 'sub_app_download',
+          event_id: eventId
+        });
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'app_store_click', store: store, event_id: eventId });
+      // Meta — "Lead" (intent), distinct from the schools "CompleteRegistration".
+      if (adConsentGranted()) {
+        loadPixel();
+        if (window.fbq) {
+          window.fbq('track', 'Lead',
+            { content_name: 'ClassCover app ' + (store === 'ios' ? 'App Store' : 'Google Play') + ' click', content_category: 'app_download' },
+            { eventID: eventId });
+        }
+        sendCapi({
+          event_name: 'Lead',
+          event_id: eventId,
+          event_source_url: location.href,
+          signup_type: 'sub_app_download',
+          store: store,
+          utms: UTMS
+        });
+      }
+    }, true); // capture phase: fires even if another handler stops propagation
+  }
+  wireStoreClicks();
 })();
