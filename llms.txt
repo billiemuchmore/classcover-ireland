@@ -6,9 +6,9 @@
 ClassCover Ireland (https://www.classcoverapp.ie) is the Irish launch site for ClassCover,
 a SaaS platform that connects schools with substitute teachers and SNAs (Special Needs Assistants).
 
-ClassCover is already used by 1 in 2 schools in Australia and New Zealand. It is launching in
-Ireland in 2026. Schools can pre-register to get founding member pricing. Substitute teachers
-and SNAs can pre-register for free.
+ClassCover is already used by 1 in 2 schools in Australia and New Zealand. It is now rolling out
+across Ireland. Schools can pre-register to get founding member pricing. Substitute teachers
+and SNAs can download the free app at https://www.classcoverapp.ie/subs/download/.
 
 ## Key Facts
 
