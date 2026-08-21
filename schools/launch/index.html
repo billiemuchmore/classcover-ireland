@@ -282,7 +282,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #lp .lp-loop { background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%); color: #fff; text-align: center; }
     #lp .lp-loop h2 { color: #fff; font-size: clamp(24px, 4vw, 34px); font-weight: 800; margin: 0 0 14px; letter-spacing: -.01em; }
     #lp .lp-loop p { font-size: 17px; color: rgba(255,255,255,.9); line-height: 1.6; margin: 0 auto 12px; max-width: 580px; }
-    #lp .lp-loop-contact { font-size: 15px; color: rgba(255,255,255,.85); margin-top: 24px; }
+    #lp .lp-loop p.lp-loop-contact { font-size: 15px; color: rgba(255,255,255,.85); margin: 32px auto 0; }
     #lp .lp-loop-contact a { color: #fff; text-decoration: underline; }
     #lp .lp-loop-socials { display: flex; justify-content: center; gap: 14px; margin: 26px 0 4px; }
     #lp .lp-loop-socials a { width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,.14); display: flex; align-items: center; justify-content: center; transition: background .15s, transform .1s; }
@@ -360,6 +360,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="lp-cta-ghost" href="#rollout">How the roll-out works ↓</a>
           <a class="lp-cta-ghost" href="#tiers">Lite and Standard ↓</a>
         </div>
+      </div>
+    </section>
+
+
+    <!-- PRESS / AS FEATURED IN -->
+    <style>
+      .press-strip { background: #F6F3FD; border-top: 1px solid #E3DAF6; border-bottom: 1px solid #E3DAF6; padding: 30px 0; }
+      .press-strip .container { text-align: center; }
+      .press-strip .press-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #7B5CC1; margin: 0 0 10px; }
+      .press-strip .press-logos { display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; justify-items: center; gap: 30px 44px; background: #ffffff; border-radius: 18px; padding: 30px 46px; box-shadow: 0 8px 26px rgba(58,12,163,.10); max-width: 820px; margin: 0 auto; }
+      .press-strip .press-logos a, .press-strip .press-logos span { display: flex; align-items: center; justify-content: center; width: 100%; line-height: 0; }
+      .press-strip .press-logos img { max-height: 30px; max-width: 100%; width: auto; height: auto; display: block; transition: opacity .12s ease; }
+      .press-strip .press-logos a:hover img { opacity: .6; }
+      .press-strip .press-all { display: block; margin: 18px auto 0; text-align: center; font-size: 14px; font-weight: 700; color: #3A0CA3; text-decoration: none; }
+      .press-strip .press-all:hover { text-decoration: underline; }
+      @media (max-width: 560px) { .press-strip .press-logos { grid-template-columns: repeat(2, 1fr); gap: 22px 24px; padding: 24px 22px; max-width: 360px; } .press-strip .press-logos img { max-height: 24px; } }
+      .press-strip .press-cta:hover { text-decoration: underline; }
+    </style>
+    <section class="press-strip" aria-label="Press coverage">
+      <div class="container">
+        <span class="press-label">As featured in</span>
+        <div class="press-logos">
+          <a href="https://www.independent.ie/business/irish-business/classcover-an-australian-based-platform-for-booking-substitute-teachers-set-for-irish-expansion/a/159745827.html" target="_blank" rel="noopener" aria-label="ClassCover in the Irish Independent"><img src="/images/press/irish-independent.png" alt="Irish Independent" width="1537" height="200" /></a>
+          <a href="https://www.rte.ie/news/business/2026/0810/1587218-classcover-online-platform-enters-irish-market/" target="_blank" rel="noopener" aria-label="ClassCover on RTÉ"><img src="/images/press/rte.png" alt="RTÉ" width="372" height="200" /></a>
+          <a href="https://www.businesspost.ie/tech/australian-edtech-classcover-makes-e3m-irish-push/" target="_blank" rel="noopener" aria-label="ClassCover in the Business Post"><img src="/images/press/business-post.png" alt="Business Post" width="633" height="200" /></a>
+          <a href="https://www.siliconrepublic.com/jobs-news/classcover-investment-irish-expansion-jobs-ireland-australia-careers" target="_blank" rel="noopener" aria-label="ClassCover in Silicon Republic"><img src="/images/press/silicon-republic.png" alt="Silicon Republic" width="1524" height="200" /></a>
+          <a href="https://www.thinkbusiness.ie/articles/classcover-ireland-expansion-e3m-investment-20-jobs/" target="_blank" rel="noopener" aria-label="ClassCover on ThinkBusiness"><img src="/images/press/thinkbusiness.png" alt="ThinkBusiness" width="508" height="200" /></a>
+          <span aria-label="Irish Examiner (print)"><img src="/images/press/irish-examiner.png" alt="Irish Examiner" width="1379" height="200" /></span>
+        </div>
+        <a class="press-all" href="/media/">See all coverage →</a>
       </div>
     </section>
 
@@ -700,7 +730,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="lp-cta-row">
           <a class="lp-cta-btn is-white" href="/schools/infopack/">Get the infopack</a>
         </div>
-        <p class="lp-loop-contact">Questions in the meantime? Email <a href="mailto:hello@classcoverhq.com">hello@classcoverhq.com</a> or call <a href="tel:+35319038866">+353 1 903 8866</a></p>
+        <p class="lp-loop-contact">Questions in the meantime? Email <a href="mailto:support.ie@classcoverhq.com">support.ie@classcoverhq.com</a> or call <a href="tel:+35319038866">+353 1 903 8866</a></p>
         <div class="lp-loop-socials">
           <a href="https://instagram.com/classcoverapp/" target="_blank" rel="noopener" aria-label="ClassCover on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
           <a href="https://facebook.com/classcover" target="_blank" rel="noopener" aria-label="ClassCover on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/></svg></a>
