@@ -12,3 +12,6 @@
 # Local environment
 .env
 .env.local
+
+# Claude Code local session files (incl. worktree copies of the site)
+.claude/

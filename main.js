@@ -482,3 +482,122 @@
   }
   wireStoreClicks();
 })();
+
+// ------------------------------------------------------------
+// Reviews carousel
+// ------------------------------------------------------------
+(function () {
+  'use strict';
+
+  const carousels = document.querySelectorAll('.reviews-carousel');
+  if (!carousels.length) return;
+
+  carousels.forEach(function (root) {
+    const track = root.querySelector('.rc-track');
+    const prev = root.querySelector('.rc-prev');
+    const next = root.querySelector('.rc-next');
+    const card = track && track.querySelector('.review-card');
+    if (!track || !card) return;
+
+    const dots = root.parentElement.querySelector('.rc-dots');
+    const cards = track.querySelectorAll('.review-card');
+
+    // How many cards are on show at the current breakpoint. Measured off the
+    // track's content box, not clientWidth, which includes the inline padding
+    // that holds the card shadow.
+    function perPage() {
+      const cs = getComputedStyle(track);
+      const gap = parseFloat(cs.columnGap || '20') || 20;
+      const w = card.getBoundingClientRect().width + gap;
+      const inner = track.clientWidth
+        - (parseFloat(cs.paddingLeft) || 0)
+        - (parseFloat(cs.paddingRight) || 0);
+      return Math.max(1, Math.round(inner / w));
+    }
+
+    // Advance by exactly the number of cards on show, so each click or dot
+    // turns a clean page and cards always come to rest on the content edge.
+    function step() {
+      const gap = parseFloat(getComputedStyle(track).columnGap || '20') || 20;
+      return perPage() * (card.getBoundingClientRect().width + gap);
+    }
+
+    function buildDots() {
+      if (!dots) return;
+      const per = perPage();
+      const total = Math.ceil(cards.length / per);
+      if (dots.childElementCount === total) return;
+      dots.textContent = '';
+      for (let i = 0; i < total; i++) {
+        const first = i * per + 1;
+        const last = Math.min(cards.length, (i + 1) * per);
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'rc-dot';
+        dot.setAttribute('aria-label',
+          first === last ? 'Show review ' + first
+                         : 'Show reviews ' + first + ' to ' + last);
+        dot.addEventListener('click', function () {
+          track.scrollTo({ left: i * step(), behavior: 'smooth' });
+        });
+        dots.appendChild(dot);
+      }
+    }
+
+    function syncDots() {
+      if (!dots || !dots.childElementCount) return;
+      const active = Math.min(
+        dots.childElementCount - 1,
+        Math.round(track.scrollLeft / step())
+      );
+      Array.prototype.forEach.call(dots.children, function (dot, i) {
+        if (i === active) {
+          dot.setAttribute('aria-current', 'true');
+        } else {
+          dot.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    function syncButtons() {
+      // scroll-snap parks the first card just past the track's side padding,
+      // so compare with a tolerance rather than against an exact 0.
+      const EPS = 12;
+      const max = track.scrollWidth - track.clientWidth;
+      if (prev) prev.disabled = track.scrollLeft <= EPS;
+      if (next) next.disabled = track.scrollLeft >= max - EPS;
+    }
+
+    if (prev) prev.addEventListener('click', function () {
+      track.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+    if (next) next.addEventListener('click', function () {
+      track.scrollBy({ left: step(), behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', function () {
+      syncButtons();
+      syncDots();
+    }, { passive: true });
+    window.addEventListener('resize', function () {
+      buildDots();
+      syncButtons();
+      syncDots();
+    });
+
+    // Keyboard support when the track has focus
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        track.scrollBy({ left: step(), behavior: 'smooth' });
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        track.scrollBy({ left: -step(), behavior: 'smooth' });
+      }
+    });
+
+    buildDots();
+    syncButtons();
+    syncDots();
+  });
+})();
