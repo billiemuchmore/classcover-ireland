@@ -203,11 +203,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p>Tell us who you are and we will take you straight there.</p>
 
               <!-- Interim Typeform, standing in until the HubSpot form is ready.
-                   main.js turns any known typeform.com/to/ link into a popup, passes
-                   the UTMs through, and redirects to the videos page on submit.
-                   Swap TRAINING_FORM_ID here and in main.js for the real form id. -->
+                   main.js turns this into a popup, passes the UTMs through, and
+                   redirects the parent window to the videos page on submit. It
+                   deliberately does not fire the Pixel/GA4 conversion: this gates
+                   training, it is not an expression of interest. -->
               <a id="tp-access" class="tp-btn tp-btn-block"
-                 href="https://rtcon.typeform.com/to/TRAINING_FORM_ID">Get access</a>
+                 href="https://rtcon.typeform.com/to/KLkgh47M">Get access</a>
 
               <p class="tp-form-note">We use these details to send you setup help and to record who has been trained. See our <a href="/privacy">privacy policy</a>.</p>
             </div>
@@ -277,18 +278,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
   </main>
-
-  <script>
-    (function () {
-      // Until the real form id is in place, send schools straight to the
-      // training rather than opening a Typeform that does not exist yet.
-      var a = document.getElementById('tp-access');
-      if (a && a.getAttribute('href').indexOf('TRAINING_' + 'FORM_ID') !== -1) {
-        a.setAttribute('href', '/schools/how-to/videos/');
-        a.textContent = 'Watch the training';
-      }
-    })();
-  </script>
 
 <footer class="site-footer" role="contentinfo">
     <div class="container">

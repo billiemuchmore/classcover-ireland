@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Refuse to commit oversized files.
+#
+# GitHub hard-rejects any file over 100MB, and warns past 50MB. A rejected
+# push happens after the commit, so without this the mistake is only caught
+# once it is already in history and has to be rewritten out.
+#
+# This repo sits in a folder that also holds working assets: infopack render
+# tests, event photos, source illustrations. A stray `git add -A` sweeps them
+# in. .gitignore covers the ones we know about; this covers the rest.
+#
+# Bypass for a genuinely needed large file:  git commit --no-verify
+#
+# bash, not sh: the NUL-safe read loop below uses process substitution,
+# which dash and other /bin/sh implementations do not support.
+
+WARN_KB=5120      # 5MB  - unusual for a static site, worth a look
+BLOCK_KB=51200    # 50MB - GitHub's warning threshold, hard stop here
+
+blocked=""
+warned=""
+
+# -z / read -d handles the spaces in filenames this repo has plenty of
+while IFS= read -r -d '' file; do
+    [ -f "$file" ] || continue
+    kb=$(du -k "$file" 2>/dev/null | cut -f1)
+    [ -z "$kb" ] && continue
+    if [ "$kb" -ge "$BLOCK_KB" ]; then
+        blocked="$blocked  $(($kb / 1024))MB  $file\n"
+    elif [ "$kb" -ge "$WARN_KB" ]; then
+        warned="$warned  $(($kb / 1024))MB  $file\n"
+    fi
+done < <(git diff --cached --name-only -z --diff-filter=ACM)
+
+if [ -n "$warned" ]; then
+    printf "\nLarge files staged (allowed, but check they belong):\n"
+    printf "$warned"
+fi
+
+if [ -n "$blocked" ]; then
+    printf "\nCommit blocked. These files are too big for the repo:\n\n"
+    printf "$blocked"
+    printf "\nGitHub rejects anything over 100MB, so the push would fail after\n"
+    printf "the commit and the file would need rewriting out of history.\n\n"
+    printf "Unstage them:      git restore --staged <file>\n"
+    printf "Or ignore them:    add the path to .gitignore\n"
+    printf "Genuinely needed:  git commit --no-verify\n\n"
+    exit 1
+fi
+
+exit 0

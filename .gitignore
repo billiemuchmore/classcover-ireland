@@ -18,3 +18,36 @@
 
 # Local video working files (not for deploy)
 video-work/
+
+# ---------------------------------------------------------------------------
+# Source assets and working files. None of these are referenced by the site.
+# What the site actually serves lives in images/ under a web-ready name, e.g.
+# "images/Press Logos/" is the source folder and images/press/ is what ships.
+# Keeping them out matters: infopack-passthrough.pdf alone is 360MB, well past
+# GitHub's 100MB per-file limit, so committing one would break the push.
+# ---------------------------------------------------------------------------
+Product Illustrations/
+Team Pictures/
+Trivia Night/
+info-session/Assets/
+images/Press Logos/
+images/Updated Images - More Irish/
+
+# Infopack exports (the shipped copy is images/infopack-cover.jpg + the
+# hosted PDF, these are render tests at various compression settings)
+infopack-*.pdf
+ClassCover Infopack for Schools in Ireland*.pdf
+
+# Loose working images dropped in the repo root. Site assets belong in images/.
+/*.png
+/*.jpg
+/*.jpeg
+!/favicon.png
+
+# Anything big and binary that has no business in a static site repo
+*.mp4
+*.mov
+*.zip
+*.psd
+*.ai
+*.sketch

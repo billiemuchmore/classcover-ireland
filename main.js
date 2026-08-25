@@ -189,7 +189,7 @@
     // School training access. Interim stand-in for a HubSpot form. Deliberately
     // NOT a conversion: it gates training, it is not an expression of interest,
     // so firing the Pixel/GA4 conversion here would pollute the EOI numbers.
-    TRAINING_FORM_ID: { id: 'TRAINING_FORM_ID', type: 'school_training', name: 'School Training Access',
+    KLkgh47M: { id: 'KLkgh47M', type: 'school_training', name: 'School Training Access',
                        redirectTo: '/schools/how-to/videos/' }
   };
 
