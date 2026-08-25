@@ -185,7 +185,12 @@
   var FORMS = {
     EHewmpE4: { id: 'EHewmpE4', type: 'school_pilot', name: 'Ireland Schools Pilot' },
     ipkaJI47: { id: 'ipkaJI47', type: 'waitlist',     name: 'Ireland Waitlist' },
-    cgg2vCHU: { id: 'cgg2vCHU', type: 'webinar_feedback', name: 'Webinar Feedback' }
+    cgg2vCHU: { id: 'cgg2vCHU', type: 'webinar_feedback', name: 'Webinar Feedback' },
+    // School training access. Interim stand-in for a HubSpot form. Deliberately
+    // NOT a conversion: it gates training, it is not an expression of interest,
+    // so firing the Pixel/GA4 conversion here would pollute the EOI numbers.
+    TRAINING_FORM_ID: { id: 'TRAINING_FORM_ID', type: 'school_training', name: 'School Training Access',
+                       redirectTo: '/schools/how-to/videos/' }
   };
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
@@ -369,7 +374,11 @@
         withEmbedSdk(function () {
           if (!a._ccPopup) {
             var opts = { hidden: UTMS };
-            if (cfg.type !== 'webinar_feedback') {
+            if (cfg.redirectTo) {
+              // Redirect the parent window, not the popup iframe. Typeform's own
+              // "redirect on completion" would navigate inside the iframe.
+              opts.onSubmit = function () { window.location.href = cfg.redirectTo; };
+            } else if (cfg.type !== 'webinar_feedback') {
               opts.onSubmit = function () { fireConversion(cfg); };
             }
             a._ccPopup = window.tf.createPopup(cfg.id, opts);
@@ -600,4 +609,41 @@
     syncButtons();
     syncDots();
   });
+})();
+
+// ------------------------------------------------------------
+// Tawk.to live chat
+// Consent-gated behind the CookieYes "functional" category, the same way
+// the Meta Pixel is gated behind "advertisement". Tawk drops cookies to
+// keep a chat session alive, so on an EU site it cannot load before the
+// visitor has accepted. Loads immediately once consent is given, without
+// needing a page reload.
+// ------------------------------------------------------------
+(function () {
+  'use strict';
+
+  var TAWK_SRC = 'https://embed.tawk.to/6a5875d00380e71d525229cf/1jtkooe1p';
+  var loaded = false;
+
+  function functionalConsentGranted() {
+    var m = document.cookie.match(/cookieyes-consent=([^;]+)/);
+    return !!m && /functional:yes/.test(decodeURIComponent(m[1]));
+  }
+
+  function loadTawk() {
+    if (loaded || !functionalConsentGranted()) return;
+    loaded = true;
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = TAWK_SRC;
+    s.charset = 'UTF-8';
+    s.setAttribute('crossorigin', '*');
+    var first = document.getElementsByTagName('script')[0];
+    first.parentNode.insertBefore(s, first);
+  }
+
+  loadTawk();
+  document.addEventListener('cookieyes_consent_update', loadTawk);
 })();

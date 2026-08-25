@@ -40,7 +40,7 @@ out in Ireland.
 
 - / — Homepage
 - /about — About ClassCover Ireland
-- /contact — Contact
+- /support — Help centre, live chat, training and contact details
 - /media/ — Press coverage
 
 For schools
@@ -48,10 +48,11 @@ For schools
 - /schools/pricing/ — ClassCover Lite and ClassCover Standard pricing
 - /schools/time-saving-calculator/ — Calculator: time a school spends arranging cover
 - /schools/infopack/ — School information pack
+- /schools/how-to/ — ClassCover Academy, training for schools
 
 For substitute teachers and SNAs
 - /subs/download/ — Download the app (free)
-- /subs/how-to/ — Video guides
+- /subs/how-to/ — Video guides for subs and SNAs
 - /reviews/subs — Reviews from Irish subs who used ClassCover in Australia
 
 Content

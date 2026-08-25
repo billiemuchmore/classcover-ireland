@@ -15,3 +15,6 @@
 
 # Claude Code local session files (incl. worktree copies of the site)
 .claude/
+
+# Local video working files (not for deploy)
+video-work/

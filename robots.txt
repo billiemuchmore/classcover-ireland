@@ -1,16 +1,38 @@
 User-agent: *
 Disallow:
 
+# Gated school training. Search engines are deliberately still allowed to
+# crawl this path: the page serves noindex via meta tag and X-Robots-Tag, and
+# a crawler blocked here could never read that directive, which is how a
+# blocked URL ends up listed in Google as a bare link with no snippet.
+# The AI crawlers below are blocked outright instead, since they do not
+# reliably honour noindex the way they honour robots.txt.
+
 User-agent: GPTBot
-Disallow:
+Disallow: /schools/how-to/videos/
 
 User-agent: Google-Extended
-Disallow:
+Disallow: /schools/how-to/videos/
 
 User-agent: PerplexityBot
-Disallow:
+Disallow: /schools/how-to/videos/
 
 User-agent: ClaudeBot
-Disallow:
+Disallow: /schools/how-to/videos/
+
+User-agent: CCBot
+Disallow: /schools/how-to/videos/
+
+User-agent: anthropic-ai
+Disallow: /schools/how-to/videos/
+
+User-agent: Applebot-Extended
+Disallow: /schools/how-to/videos/
+
+User-agent: Bytespider
+Disallow: /schools/how-to/videos/
+
+User-agent: meta-externalagent
+Disallow: /schools/how-to/videos/
 
 Sitemap: https://www.classcoverapp.ie/sitemap.xml

@@ -53,13 +53,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
   </url>
   <url>
-    <loc>https://www.classcoverapp.ie/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/contact" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
-  </url>
-  <url>
     <loc>https://www.classcoverapp.ie/reviews/subs</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -237,4 +230,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
   </url>
 
+  <url>
+    <loc>https://www.classcoverapp.ie/support</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/support" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
+  </url>
+  <url>
+    <loc>https://www.classcoverapp.ie/schools/how-to/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/schools/how-to/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
+  </url>
 </urlset>
