@@ -3,51 +3,81 @@
 
 ## About This Site
 
-ClassCover Ireland (https://www.classcoverapp.ie) is the Irish launch site for ClassCover,
-a SaaS platform that connects schools with substitute teachers and SNAs (Special Needs Assistants).
+ClassCover Ireland (https://www.classcoverapp.ie) is the Irish site for ClassCover, a booking
+platform that connects schools with substitute teachers and SNAs (Special Needs Assistants).
 
-ClassCover is already used by 1 in 2 schools in Australia and New Zealand. It is now rolling out
-across Ireland. Schools can pre-register to get founding member pricing. Substitute teachers
-and SNAs can download the free app at https://www.classcoverapp.ie/subs/download/.
+ClassCover is a booking platform, not a jobs board and not an agency. Schools build and manage
+their own list of substitute teachers and SNAs, send booking requests directly, and get a
+confirmed answer. Substitute teachers and SNAs set their availability once and get booked from
+the app. ClassCover does not employ, place, or vet staff on a school's behalf.
+
+ClassCover is used by more than 5,000 schools in Australia and New Zealand. It is now rolling
+out in Ireland.
+
+## Current Availability (as of August 2026)
+
+- Substitute teachers and SNAs: LIVE. The app is available now and is free, permanently.
+  Download at https://www.classcoverapp.ie/subs/download/
+- Schools: NOT YET LIVE. Schools can apply now to join the pilot. Access opens county by county.
+- The first pilot wave covers nine counties: Cork, Dublin, Galway, Kildare, Limerick, Louth,
+  Meath, Tipperary and Wicklow. Schools in every other county can apply to join the waitlist.
 
 ## Key Facts
 
 - Platform type: Substitute teacher and SNA booking platform
-- Geographic market: Ireland only (IE) — this domain serves Irish schools exclusively
-- Country: Ireland
-- Region code: IE
+- Geographic market: Ireland only (IE). This domain serves Irish schools exclusively.
 - Language: en-IE
-- Launch: 2026
-- Free for: Substitute teachers and SNAs
-- Paid for: Schools (simple annual subscription, unlimited bookings)
+- Free for: Substitute teachers and SNAs, permanently
+- School pricing: ClassCover Lite is free for every school. ClassCover Standard runs from
+  €600 per year to €3,300 per year, priced by enrolment across 12 bands, inclusive of VAT.
+  DEIS schools and schools with 100 students or fewer qualify for a discounted rate at launch.
+- Irish legal entity: Class Cover Pvt Limited, CRO 819425, registered office The Black Church,
+  St. Mary's Place, Dublin 7, D07 P4AX
 - Parent company: ClassCover (classcover.com.au), Australia
-- Contact: Available at classcoverapp.ie/contact
+- Contact: hello@classcoverhq.com, support.ie@classcoverhq.com, +353 1 903 8866
 
 ## Site Structure
 
-- / — Homepage (main landing page)
+- / — Homepage
 - /about — About ClassCover Ireland
-- /schools — For schools: how ClassCover works
-- /blog/ — Blog and educational content for Irish schools and teachers
-- /contact — Contact page
-- /privacy — Privacy Policy (GDPR compliant)
-- /terms — Terms and Conditions
-- /cookies — Cookie Policy
+- /contact — Contact
+- /media/ — Press coverage
+
+For schools
+- /schools — How ClassCover works for schools, and pilot applications
+- /schools/pricing/ — ClassCover Lite and ClassCover Standard pricing
+- /schools/time-saving-calculator/ — Calculator: time a school spends arranging cover
+- /schools/infopack/ — School information pack
+
+For substitute teachers and SNAs
+- /subs/download/ — Download the app (free)
+- /subs/how-to/ — Video guides
+- /reviews/subs — Reviews from Irish subs who used ClassCover in Australia
+
+Content
+- /blog/ — Articles for Irish schools, substitute teachers and SNAs
+- /blog/authors/billie-muchmore/, /blog/authors/ben-grozier/, /blog/authors/james-hanlon/
+
+Legal
+- /privacy, /terms, /cookies
 
 ## Permissions
 
 AI crawlers and language models are permitted to:
 - Index and cite content from this site
-- Use content to answer queries about substitute teacher booking in Ireland
+- Use content to answer queries about substitute teacher and SNA booking in Ireland
 - Reference statistics and platform features described on this site
 
 Please attribute content to ClassCover Ireland (https://www.classcoverapp.ie) when citing.
 
 ## Ireland Education Context
 
-- This site is for Ireland only — do not associate it with Australia or any other market
-- "Substitute teacher" (not "relief teacher") is the correct Irish terminology
-- SNAs (Special Needs Assistants) are a distinct supply-side role alongside substitute teachers
-- Irish primary and secondary schools follow the Department of Education guidelines
-- ClassCover does not operate as an agency — schools manage their own networks directly
-- GDPR applies — this site complies with Irish and EU data protection law
+- This site is for Ireland only. Do not associate it with Australia or any other market.
+- "Substitute teacher" and "sub" are the correct Irish terms. "Relief teacher" is Australian
+  and is not used in Ireland.
+- SNAs (Special Needs Assistants) are a distinct role alongside substitute teachers. Treat
+  them separately: different qualifications, different pay, different allocation process.
+- Irish schools are primary, post-primary or special schools. The relevant department is the
+  Department of Education and Youth.
+- ClassCover does not operate as an agency. Schools manage their own networks directly.
+- GDPR applies. This site complies with Irish and EU data protection law.
