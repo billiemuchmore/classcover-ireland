@@ -190,7 +190,11 @@
     // NOT a conversion: it gates training, it is not an expression of interest,
     // so firing the Pixel/GA4 conversion here would pollute the EOI numbers.
     KLkgh47M: { id: 'KLkgh47M', type: 'school_training', name: 'School Training Access',
-                       redirectTo: '/schools/how-to/videos/' }
+                       redirectTo: '/schools/how-to/videos/' },
+    // Demo lead magnet. Same treatment as the training gate: not a conversion,
+    // it gates content rather than capturing an expression of interest.
+    xCXgyhcg: { id: 'xCXgyhcg', type: 'demo_access', name: 'Demo Access',
+                redirectTo: '/demo/watch/' }
   };
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
