@@ -148,6 +148,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #dp .dp-help p { color: rgba(255,255,255,.86); font-size: 16.5px; line-height: 1.65; margin: 0 auto 26px; max-width: 520px; }
     #dp .dp-help .dp-btn { background: #fff; color: var(--brand) !important; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
     #dp .dp-help .dp-btn:hover { background: #F6F3FD; }
+
+    /* Demo hero: text on the left, a clickable video thumbnail on the right.
+       No card box around the CTA, it made the column feel boxed in while the
+       other half sat empty. */
+    #dp .dp-hero-grid { align-items: center; }
+    @media (min-width: 900px) { #dp .dp-hero-grid { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 56px; } }
+    #dp .dp-hero h1 { font-size: clamp(32px, 4.6vw, 48px); }
+    #dp .dp-hero-sub { margin-bottom: 30px; max-width: 42ch; }
+    #dp .dp-cta-row { display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: center; }
+    #dp .dp-meta { font-size: 14.5px; color: var(--muted); font-weight: 600; }
+
+    #dp .dp-thumb { display: block; position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 44px rgba(58,12,163,.22); line-height: 0; transition: transform .18s ease, box-shadow .18s ease; }
+    #dp .dp-thumb:hover { transform: translateY(-3px); box-shadow: 0 22px 54px rgba(58,12,163,.28); }
+    #dp .dp-thumb img { width: 100%; height: auto; display: block; }
+    #dp .dp-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    #dp .dp-play span { width: 78px; height: 78px; border-radius: 50%; background: rgba(255,255,255,.94); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 26px rgba(17,17,17,.28); transition: transform .18s ease, background .18s ease; }
+    #dp .dp-thumb:hover .dp-play span { transform: scale(1.08); background: #fff; }
+    #dp .dp-play svg { width: 26px; height: 26px; fill: var(--brand); margin-left: 4px; }
+    #dp .dp-thumb-tag { position: absolute; left: 14px; bottom: 14px; background: rgba(17,17,17,.76); color: #fff; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; padding: 5px 12px; border-radius: 99px; }
+    @media (max-width: 899px) { #dp .dp-play span { width: 62px; height: 62px; } }
+
+    /* Sign-up band: the main action on every demo screen */
+    #dp .dp-signup { background: var(--brand); color: #fff; text-align: center; }
+    #dp .dp-signup h2 { color: #fff; font-size: clamp(25px, 3.4vw, 34px); font-weight: 800; margin: 0 0 12px; }
+    #dp .dp-signup p { color: rgba(255,255,255,.88); font-size: 17px; line-height: 1.65; margin: 0 auto 28px; max-width: 560px; }
+    #dp .dp-signup .dp-btn { background: #fff; color: var(--brand) !important; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    #dp .dp-signup .dp-btn:hover { background: #F6F3FD; }
+    #dp .dp-signup-note { margin-top: 16px; font-size: 14px; color: rgba(255,255,255,.75); }
   </style>
 </head>
 <body>
@@ -193,20 +221,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div>
             <span class="dp-pill"><span class="dp-dot" aria-hidden="true"></span>For schools</span>
             <h1>See ClassCover in four minutes</h1>
-            <p class="dp-hero-sub">A short walkthrough of how an Irish school books a substitute teacher or SNA, from request to confirmed.</p>
-            <div class="dp-form-card">
-              <h2>Watch the demo</h2>
-              <p>Tell us who you are and we will take you straight to it.</p>
-
-              <!-- Typeform gate. main.js turns this into a popup, passes the UTMs
-                   through, and redirects the parent window to the demo on submit. -->
-              <a id="dp-access" class="dp-btn dp-btn-block"
-                 href="https://rtcon.typeform.com/to/DEMO_FORM_ID">Watch the demo</a>
-
-              <p class="dp-form-note">We use these details to follow up about ClassCover for your school. See our <a href="/privacy">privacy policy</a>.</p>
+            <p class="dp-hero-sub">How an Irish school books a substitute teacher or SNA, from request to confirmed.</p>
+            <div class="dp-cta-row">
+              <a id="dp-access" class="dp-btn" href="https://rtcon.typeform.com/to/DEMO_FORM_ID">Watch the demo</a>
+              <span class="dp-meta">4 min</span>
             </div>
           </div>
-          <img class="dp-hero-illo" src="/images/illustration-booking-request.png" alt="" width="900" height="506" fetchpriority="high" />
+          <a class="dp-thumb" id="dp-thumb" href="https://rtcon.typeform.com/to/DEMO_FORM_ID" aria-label="Watch the ClassCover demo, 4 minutes"><img src="/images/demo-thumbnail.jpg" alt="ClassCover demo: book a sub in minutes" width="1280" height="720" fetchpriority="high" /><span class="dp-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span></span></a>
         </div>
       </div>
     </section>
@@ -249,11 +270,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <section class="dp-help">
-      <div class="dp-wrap">
-        <h2>Questions as you watch?</h2>
-        <p>The Irish team is on chat, email and phone, and you can book a live walkthrough any time.</p>
-        <a class="dp-btn" href="/support">Go to support</a>
+    <section class="cta-band cta-band--floating">
+      <div class="container">
+        <div class="cta-band-inner">
+          <div class="cta-panel">
+            <span class="eyebrow">Now accepting applications</span>
+            <h2>For schools</h2>
+            <p>Apply for the ClassCover Pilot Program. Selected schools get 2 months of full access free. Every school that applies gets ClassCover Lite at launch.</p>
+            <div>
+              <a href="/schools#pilot" class="btn btn-white">Apply for the Pilot Program</a>
+            </div>
+          </div>
+          <div class="cta-panel">
+            <span class="eyebrow">Want more info?</span>
+            <h2>Download the infopack</h2>
+            <p>A short read for Irish schools. ClassCover's track record across Australia, the substitute shortage we're solving, and how your school can be first in line.</p>
+            <div>
+              <a href="/schools/infopack/" class="btn btn-white">Get the infopack</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -262,10 +298,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     (function () {
       // Until the real form id is in, send schools straight to the demo
       // rather than opening a Typeform that does not exist yet.
-      var a = document.getElementById('dp-access');
-      if (a && a.getAttribute('href').indexOf('DEMO_' + 'FORM_ID') !== -1) {
-        a.setAttribute('href', '/demo/watch/');
-      }
+      var stale = function (a) {
+        return a && a.getAttribute('href').indexOf('DEMO_' + 'FORM_ID') !== -1;
+      };
+      ['dp-access', 'dp-thumb'].forEach(function (id) {
+        var a = document.getElementById(id);
+        if (stale(a)) a.setAttribute('href', '/demo/watch/');
+      });
     })();
   </script>
 

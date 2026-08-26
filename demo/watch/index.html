@@ -44,7 +44,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "name": "ClassCover Quick Demo for Schools",
       "description": "A four minute walkthrough of how an Irish school books a substitute teacher or SNA on ClassCover.",
       "thumbnailUrl": [
-        "https://www.classcoverapp.ie/images/ClassCover%20Ireland%20OG%202.png"
+        "https://www.classcoverapp.ie/images/demo-thumbnail.jpg"
       ],
       "uploadDate": "2026-08-25",
       "duration": "PT4M7S",
@@ -136,6 +136,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #dp .dp-help p { color: rgba(255,255,255,.86); font-size: 16.5px; line-height: 1.65; margin: 0 auto 26px; max-width: 520px; }
     #dp .dp-help .dp-btn { background: #fff; color: var(--brand) !important; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
     #dp .dp-help .dp-btn:hover { background: #F6F3FD; }
+
+    /* Demo hero: text on the left, a clickable video thumbnail on the right.
+       No card box around the CTA, it made the column feel boxed in while the
+       other half sat empty. */
+    #dp .dp-hero-grid { align-items: center; }
+    @media (min-width: 900px) { #dp .dp-hero-grid { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); gap: 56px; } }
+    #dp .dp-hero h1 { font-size: clamp(32px, 4.6vw, 48px); }
+    #dp .dp-hero-sub { margin-bottom: 30px; max-width: 42ch; }
+    #dp .dp-cta-row { display: flex; flex-wrap: wrap; gap: 14px 18px; align-items: center; }
+    #dp .dp-meta { font-size: 14.5px; color: var(--muted); font-weight: 600; }
+
+    #dp .dp-thumb { display: block; position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 44px rgba(58,12,163,.22); line-height: 0; transition: transform .18s ease, box-shadow .18s ease; }
+    #dp .dp-thumb:hover { transform: translateY(-3px); box-shadow: 0 22px 54px rgba(58,12,163,.28); }
+    #dp .dp-thumb img { width: 100%; height: auto; display: block; }
+    #dp .dp-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    #dp .dp-play span { width: 78px; height: 78px; border-radius: 50%; background: rgba(255,255,255,.94); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 26px rgba(17,17,17,.28); transition: transform .18s ease, background .18s ease; }
+    #dp .dp-thumb:hover .dp-play span { transform: scale(1.08); background: #fff; }
+    #dp .dp-play svg { width: 26px; height: 26px; fill: var(--brand); margin-left: 4px; }
+    #dp .dp-thumb-tag { position: absolute; left: 14px; bottom: 14px; background: rgba(17,17,17,.76); color: #fff; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; padding: 5px 12px; border-radius: 99px; }
+    @media (max-width: 899px) { #dp .dp-play span { width: 62px; height: 62px; } }
+
+    /* Sign-up band: the main action on every demo screen */
+    #dp .dp-signup { background: var(--brand); color: #fff; text-align: center; }
+    #dp .dp-signup h2 { color: #fff; font-size: clamp(25px, 3.4vw, 34px); font-weight: 800; margin: 0 0 12px; }
+    #dp .dp-signup p { color: rgba(255,255,255,.88); font-size: 17px; line-height: 1.65; margin: 0 auto 28px; max-width: 560px; }
+    #dp .dp-signup .dp-btn { background: #fff; color: var(--brand) !important; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    #dp .dp-signup .dp-btn:hover { background: #F6F3FD; }
+    #dp .dp-signup-note { margin-top: 16px; font-size: 14px; color: rgba(255,255,255,.75); }
   </style>
 </head>
 <body>
@@ -184,7 +212,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <section class="dp-videos">
-      <div class="dp-wrap" style="max-width: 900px;">
+      <div class="dp-wrap" style="max-width: 940px;">
         <div class="dp-video" id="quick-demo">
           <div class="dp-frame">
             <iframe src="https://player.vimeo.com/video/1221314555?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
@@ -196,25 +224,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <section class="dp-live">
-      <div class="dp-wrap">
-        <div class="dp-live-grid">
-          <img class="dp-live-illo" src="/images/illustration-school-register.png" alt="" width="900" height="506" loading="lazy" />
-          <div>
-            <span class="dp-pill"><span class="dp-dot" aria-hidden="true"></span>Next step</span>
-            <h2>Want to see it on your own school's setup?</h2>
-            <p>Book a live walkthrough with the Irish team, or apply for the pilot and get ClassCover in your school.</p>
-            <a class="dp-btn" href="https://calendly.com/d/ds8c-3gk-my3/classcover-training" target="_blank" rel="noopener">Book a live walkthrough</a>
+    <section class="cta-band cta-band--floating">
+      <div class="container">
+        <div class="cta-band-inner">
+          <div class="cta-panel">
+            <span class="eyebrow">Now accepting applications</span>
+            <h2>For schools</h2>
+            <p>Apply for the ClassCover Pilot Program. Selected schools get 2 months of full access free. Every school that applies gets ClassCover Lite at launch.</p>
+            <div>
+              <a href="/schools#pilot" class="btn btn-white">Apply for the Pilot Program</a>
+            </div>
+          </div>
+          <div class="cta-panel">
+            <span class="eyebrow">Want more info?</span>
+            <h2>Download the infopack</h2>
+            <p>A short read for Irish schools. ClassCover's track record across Australia, the substitute shortage we're solving, and how your school can be first in line.</p>
+            <div>
+              <a href="/schools/infopack/" class="btn btn-white">Get the infopack</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="dp-help">
-      <div class="dp-wrap">
-        <h2>Questions as you watch?</h2>
-        <p>The Irish team is on chat, email and phone, and you can book a live walkthrough any time.</p>
-        <a class="dp-btn" href="/support">Go to support</a>
       </div>
     </section>
   </main>
