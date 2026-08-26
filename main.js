@@ -647,3 +647,44 @@
   loadTawk();
   document.addEventListener('cookieyes_consent_update', loadTawk);
 })();
+
+// ------------------------------------------------------------
+// Reliable on-load anchor jump
+// The site sets `scroll-behavior: smooth` on <html>, which is right for
+// in-page clicks but unreliable for a shared link that arrives with a hash:
+// the smooth scroll starts before images and embeds have settled, layout
+// shifts under it, and the browser often lands short or not at all. Re-apply
+// the jump once after load, instantly, so links like
+// /subs/how-to/#set-up-your-profile land on the right video every time.
+// ------------------------------------------------------------
+(function () {
+  'use strict';
+
+  if (!window.location.hash || window.location.hash.length < 2) return;
+
+  var settled = false;
+
+  function jump() {
+    if (settled) return;
+    var id = decodeURIComponent(window.location.hash.slice(1));
+    var target = document.getElementById(id);
+    if (!target) return;
+    settled = true;
+    // 'instant' deliberately: the browser has already tried and failed to
+    // animate this, a second animation from a half-scrolled position is worse.
+    try {
+      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+    } catch (e) {
+      target.scrollIntoView(true);
+    }
+  }
+
+  // Give layout a moment to settle, then correct the position.
+  window.addEventListener('load', function () {
+    setTimeout(jump, 60);
+  });
+
+  // If the visitor scrolls first, leave them alone.
+  window.addEventListener('wheel', function () { settled = true; }, { passive: true, once: true });
+  window.addEventListener('touchstart', function () { settled = true; }, { passive: true, once: true });
+})();

@@ -81,6 +81,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* VIDEO */
     #hp .hp-videos { padding: 64px 0 72px; background: #ffffff; }
+    /* Anchor targets: clear the fixed 72px nav so a linked heading is not
+       hidden underneath it when someone lands on #<video-slug>. */
+    #hp [id] { scroll-margin-top: 88px; }
     #hp .hp-guide { max-width: 860px; margin: 0 auto; }
     #hp .hp-guide-head { text-align: center; margin: 0 auto 30px; max-width: 620px; }
     #hp .hp-guide-head h2 { font-size: clamp(24px, 3.8vw, 32px); font-weight: 700; color: var(--ink); margin: 0 0 12px; letter-spacing: -.01em; }
@@ -159,9 +162,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- VIDEO -->
-    <section class="hp-videos">
+    <section class="hp-videos" id="videos">
       <div class="hp-wrap">
-        <div class="hp-guide">
+        <div class="hp-guide" id="set-up-your-profile">
           <div class="hp-guide-head">
             <h2>Set up your profile and set your availability</h2>
             <p>Your first two steps on ClassCover. This short walkthrough shows you how to build your profile and tell schools when you are free to work.</p>
