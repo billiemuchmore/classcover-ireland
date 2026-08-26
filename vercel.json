@@ -85,6 +85,15 @@
           "value": "noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none"
         }
       ]
+    },
+    {
+      "source": "/demo/watch(/.*)?",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet, noimageindex, max-snippet:0, max-image-preview:none"
+        }
+      ]
     }
   ]
 }

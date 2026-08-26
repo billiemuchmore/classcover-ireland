@@ -244,4 +244,11 @@
     <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/schools/how-to/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
   </url>
+  <url>
+    <loc>https://www.classcoverapp.ie/demo/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/demo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie/" />
+  </url>
 </urlset>

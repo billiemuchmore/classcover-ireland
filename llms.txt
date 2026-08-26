@@ -49,6 +49,7 @@ For schools
 - /schools/time-saving-calculator/ — Calculator: time a school spends arranging cover
 - /schools/infopack/ — School information pack
 - /schools/how-to/ — ClassCover Academy, training for schools
+- /demo/ — Watch a four minute demo of ClassCover for schools
 
 For substitute teachers and SNAs
 - /subs/download/ — Download the app (free)

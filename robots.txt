@@ -10,29 +10,38 @@ Disallow:
 
 User-agent: GPTBot
 Disallow: /schools/how-to/videos/
+Disallow: /demo/watch/
 
 User-agent: Google-Extended
 Disallow: /schools/how-to/videos/
+Disallow: /demo/watch/
 
 User-agent: PerplexityBot
 Disallow: /schools/how-to/videos/
+Disallow: /demo/watch/
 
 User-agent: ClaudeBot
 Disallow: /schools/how-to/videos/
+Disallow: /demo/watch/
 
 User-agent: CCBot
 Disallow: /schools/how-to/videos/
+Disallow: /demo/watch/
 
 User-agent: anthropic-ai
 Disallow: /schools/how-to/videos/
+Disallow: /demo/watch/
 
 User-agent: Applebot-Extended
 Disallow: /schools/how-to/videos/
+Disallow: /demo/watch/
 
 User-agent: Bytespider
 Disallow: /schools/how-to/videos/
+Disallow: /demo/watch/
 
 User-agent: meta-externalagent
 Disallow: /schools/how-to/videos/
+Disallow: /demo/watch/
 
 Sitemap: https://www.classcoverapp.ie/sitemap.xml
