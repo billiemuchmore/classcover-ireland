@@ -88,11 +88,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* THREE BEATS */
     #dc .dc-steps { padding: 0 0 40px; }
-    #dc .dc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    #dc .dc-step { background: #ffffff; border: 1.5px solid var(--line); border-radius: 20px; padding: 28px 24px; box-shadow: 0 10px 28px rgba(58,12,163,.08); }
-    #dc .dc-step-n { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--brand); color: #fff; font-size: 15px; font-weight: 800; margin-bottom: 16px; }
-    #dc .dc-step h2 { font-size: 18.5px; font-weight: 800; color: var(--ink); line-height: 1.3; margin: 0 0 8px; letter-spacing: -.01em; }
-    #dc .dc-punch { font-size: 16px; font-weight: 700; color: var(--brand); line-height: 1.4; margin: 0 0 8px; }
+    #dc .dc-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    #dc .dc-step { background: #ffffff; border: 1.5px solid var(--line); border-radius: 20px; padding: 26px 30px; box-shadow: 0 10px 28px rgba(58,12,163,.08);
+      display: grid; grid-template-columns: 232px 1fr; column-gap: 30px; align-items: start; }
+    #dc .dc-step-head { grid-column: 1; grid-row: 1 / span 2; }
+    #dc .dc-step p.dc-punch { grid-column: 2; grid-row: 1; }
+    #dc .dc-step p:not(.dc-punch) { grid-column: 2; grid-row: 2; }
+    #dc .dc-step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    #dc .dc-step-n { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--brand); color: #fff; font-size: 15px; font-weight: 800; flex-shrink: 0; }
+    #dc .dc-step h2 { font-size: 18.5px; font-weight: 800; color: var(--ink); line-height: 1.25; margin: 0; letter-spacing: -.01em; }
+    #dc .dc-step p.dc-punch { font-size: 17px; font-weight: 700; color: var(--brand); line-height: 1.45; margin: 0 0 8px; }
     #dc .dc-step p { font-size: 15.5px; color: #3D3D46; line-height: 1.6; margin: 0; }
 
     /* COUNTIES */
@@ -106,7 +111,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* MEANWHILE */
     #dc .dc-now { padding: 0 0 44px; }
     #dc .dc-now-inner { background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%); border-radius: 20px; padding: 30px 32px; text-align: center; }
-    #dc .dc-now-inner h2 { font-size: clamp(19px, 2.6vw, 23px); font-weight: 800; color: #fff; margin: 0 0 10px; letter-spacing: -.01em; }
+    #dc .dc-now-inner h2 { font-size: clamp(19px, 2.6vw, 23px); font-weight: 800; color: #fff; margin: 0 0 10px; letter-spacing: -.01em; text-wrap: balance; max-width: 620px; margin-inline: auto; }
     #dc .dc-now-inner p { font-size: 16px; color: rgba(255,255,255,.92); line-height: 1.6; margin: 0 auto; max-width: 520px; }
 
     /* FOOT LINK */
@@ -115,7 +120,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #dc .dc-foot a:hover { color: #2A0880; }
 
     @media (max-width: 780px) {
-      #dc .dc-grid { grid-template-columns: 1fr; }
+      #dc .dc-step { grid-template-columns: 1fr; row-gap: 10px; padding: 24px 22px; }
+      #dc .dc-step-head { grid-column: 1; grid-row: 1; }
+      #dc .dc-step p.dc-punch { grid-column: 1; grid-row: 2; }
+      #dc .dc-step p:not(.dc-punch) { grid-column: 1; grid-row: 3; }
       #dc .dc-hero { padding: 28px 0 34px; }
     }
   </style>
@@ -143,22 +151,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="dc-grid">
 
           <div class="dc-step">
-            <span class="dc-step-n">1</span>
-            <h2>What it does</h2>
+            <div class="dc-step-head">
+              <span class="dc-step-n">1</span>
+              <h2>What it does</h2>
+            </div>
             <p class="dc-punch">Find more of the right people for your school.</p>
             <p>Search your county for substitute teachers and SNAs who are not yet on your school's list, and invite them to join your ClassCover network.</p>
           </div>
 
           <div class="dc-step">
-            <span class="dc-step-n">2</span>
-            <h2>Why the wait?</h2>
+            <div class="dc-step-head">
+              <span class="dc-step-n">2</span>
+              <h2>Why the wait?</h2>
+            </div>
             <p class="dc-punch">A bigger local network means a more useful service for schools.</p>
             <p>ClassCover Standard works best when there is a strong pool of local substitute teachers and SNAs to connect with. That's why we're building the network county by county, ensuring there are enough people to find when the service opens.</p>
           </div>
 
           <div class="dc-step">
-            <span class="dc-step-n">3</span>
-            <h2>When will it be available?</h2>
+            <div class="dc-step-head">
+              <span class="dc-step-n">3</span>
+              <h2>When will it be available?</h2>
+            </div>
             <p class="dc-punch">As soon as your county has the numbers.</p>
             <p>We're opening ClassCover Standard county by county across Ireland as the local network grows.</p>
           </div>
@@ -182,7 +196,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="dc-chip">Tipperary</span>
             <span class="dc-chip">Wicklow</span>
           </div>
-          <p>Every other county follows as its numbers grow.</p>
+          <p>Every other county follows as its local network grows.</p>
         </div>
       </div>
     </section>
