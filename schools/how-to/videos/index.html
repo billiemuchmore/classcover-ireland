@@ -63,6 +63,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* ── Training pages ── */
     #tp { --ink:#1A1A1A; --muted:#555; --brand:#3A0CA3; --brand-2:#7B5CC1; --accent:#BE76F4; --wash:#EBE7F6; --line:#E3DAF6; }
     #tp .tp-wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    #tp .tp-webinar { padding: 0; background: linear-gradient(to bottom, #F8F6FE 50%, #ffffff 50%); }
+    #tp .tp-webinar-inner { max-width: 880px; margin: 0 auto; background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%); border-radius: 20px; padding: 26px 30px; display: grid; grid-template-columns: 1fr auto; gap: 26px; align-items: center; box-shadow: 0 12px 32px rgba(58,12,163,.22); }
+    #tp .tp-webinar-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: transparent; border: 1.5px solid rgba(255,255,255,.5); border-radius: 99px; padding: 6px 14px; margin-bottom: 14px; }
+    #tp .tp-webinar-tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(190,118,244,.3); }
+    #tp .tp-dates { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin: 16px 0 0; }
+    #tp .tp-date { font-size: 14px; font-weight: 700; color: #fff; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.28); border-radius: 10px; padding: 8px 13px; white-space: nowrap; }
+    #tp .tp-when { font-size: 14px; color: rgba(255,255,255,.82); margin-left: 4px; }
+    #tp .tp-webinar h2 { font-size: clamp(19px, 2.4vw, 23px); font-weight: 800; color: #fff; margin: 0 0 8px; letter-spacing: -.01em; }
+    #tp .tp-webinar p { font-size: 15px; color: rgba(255,255,255,.92); line-height: 1.6; margin: 0; }
+    #tp .tp-webinar-btn { white-space: nowrap; background: #fff; color: var(--brand); font-size: 16px; font-weight: 700; text-decoration: none; padding: 14px 28px; border-radius: 99px; box-shadow: 0 8px 22px rgba(0,0,0,.16); transition: transform .12s, background .12s; }
+    #tp .tp-webinar-btn:hover { background: #F6F3FD; transform: translateY(-1px); }
+    @media (max-width: 780px) { #tp .tp-webinar-inner { grid-template-columns: 1fr; } #tp .tp-webinar-btn { text-align: center; } }
     #tp section { padding: 72px 0; scroll-margin-top: 88px; }
     /* Individual videos are linkable, so they need the same nav clearance. */
     #tp [id] { scroll-margin-top: 88px; }
@@ -123,7 +135,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #tp .tp-split p { font-size: 15px; color: var(--muted); line-height: 1.6; margin: 0; }
     #tp .tp-dur { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--brand); background: var(--wash); border-radius: 99px; padding: 3px 10px; margin-left: 8px; vertical-align: middle; }
     #tp .tp-pick { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto 34px; }
-    #tp .tp-tile { display: block; text-decoration: none; color: inherit; background: #fff; border-radius: 22px; padding: 30px 30px 28px; box-shadow: 0 10px 30px rgba(58,12,163,.09); transition: transform .14s ease, box-shadow .14s ease; }
+    #tp .tp-tile { position: relative; display: block; text-decoration: none; color: inherit; background: #fff; border-radius: 22px; padding: 30px 30px 28px; box-shadow: 0 10px 30px rgba(58,12,163,.09); transition: transform .14s ease, box-shadow .14s ease; }
     #tp .tp-tile:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(58,12,163,.16); }
     #tp .tp-tile.is-soon { pointer-events: none; opacity: .72; box-shadow: 0 6px 18px rgba(58,12,163,.06); }
     #tp .tp-tile img { display: block; width: 132px; height: auto; margin: 0 0 18px; }
@@ -132,8 +144,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     #tp .tp-tile ul { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 7px; }
     #tp .tp-tile li { font-size: 14.5px; color: #3D3D46; line-height: 1.5; padding-left: 18px; position: relative; }
     #tp .tp-tile li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-    #tp .tp-tile .tp-go { font-size: 15.5px; font-weight: 700; color: var(--brand); }
-    #tp .tp-tile.is-soon .tp-go { color: var(--muted); }
+    #tp .tp-tile .tp-go { display: inline-block; background: var(--brand); color: #fff; font-size: 15.5px; font-weight: 700; text-decoration: none; padding: 12px 26px; border-radius: 99px; box-shadow: 0 8px 20px rgba(58,12,163,.22); transition: background .12s ease, transform .12s ease; }
+    #tp .tp-tile .tp-go:hover { background: #2A0880; transform: translateY(-1px); }
+    #tp .tp-tile .tp-go::after { content: ""; position: absolute; inset: 0; border-radius: 22px; }
+    #tp .tp-tile-aside { position: relative; z-index: 1; display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--brand-2); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
+    #tp .tp-tile-aside:hover { color: var(--brand); }
+    #tp .tp-tile.is-soon .tp-go { background: var(--wash); color: var(--muted); box-shadow: none; }
     #tp .tp-why { max-width: 640px; margin: 0 auto; text-align: center; font-size: 14.5px; color: var(--muted); line-height: 1.6; }
     #tp .tp-why a { color: var(--brand); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
     @media (max-width: 780px) { #tp .tp-pick { grid-template-columns: 1fr; } }
@@ -200,12 +216,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+    <!-- LIVE WEBINARS: three one-off sessions. Remove this block after 17 Sep 2026. -->
+    <section class="tp-webinar">
+      <div class="tp-wrap">
+        <div class="tp-webinar-inner">
+          <div>
+            <span class="tp-webinar-tag">Limited time live webinar</span>
+            <h2>Three one-off live sessions</h2>
+            <p>Due to strong demand during our waitlist period, we want to make sure all schools get trained in a timely manner. Three group sessions, September only.</p>
+            <div class="tp-dates">
+              <span class="tp-date">Thu 3 Sep</span>
+              <span class="tp-date">Thu 10 Sep</span>
+              <span class="tp-date">Thu 17 Sep</span>
+              <span class="tp-when">9.30am Irish time</span>
+            </div>
+          </div>
+          <a class="tp-webinar-btn" href="https://us02web.zoom.us/webinar/register/WN_TV6aJtEDTdeC3i179b5fMQ#/registration" target="_blank" rel="noopener">Register free</a>
+        </div>
+      </div>
+    </section>
+
+
     <section class="tp-videos">
       <div class="tp-wrap">
 
         <div class="tp-pick">
 
-          <a class="tp-tile" href="/schools/how-to/standard/">
+          <div class="tp-tile">
             <img src="/images/illustration-school-register.png" alt="" width="900" height="506" />
             <h2>ClassCover Standard</h2>
             <p class="tp-who">For schools in Cork, Dublin, Galway, Kildare, Limerick, Louth, Meath, Tipperary and Wicklow.</p>
@@ -214,19 +251,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <li>Six short videos, 2 to 6 minutes each</li>
               <li>Includes Find New</li>
             </ul>
-            <span class="tp-go">Start training &rarr;</span>
-          </a>
+            <a class="tp-go" href="/schools/how-to/standard/">Start training &rarr;</a>
+          </div>
 
-          <a class="tp-tile" href="/schools/how-to/lite/">
+          <div class="tp-tile">
             <img src="/images/illustration-booking-request.png" alt="" width="900" height="506" />
             <h2>ClassCover Lite</h2>
             <p class="tp-who">For schools everywhere else in Ireland.</p>
             <ul>
               <li>Full walkthrough, 14 minutes</li>
-              <li>Short videos on each feature, coming soon</li>
+              <li>Six short videos, 2 to 4 minutes each</li>
             </ul>
-            <span class="tp-go">Start training &rarr;</span>
-          </a>
+            <a class="tp-go" href="/schools/how-to/lite/">Start training &rarr;</a>
+            <br /><a class="tp-tile-aside" href="/schools/lite-rollout/">When does Standard open for us?</a>
+          </div>
 
         </div>
 

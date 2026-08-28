@@ -63,6 +63,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* ── Training pages ── */
     #tp { --ink:#1A1A1A; --muted:#555; --brand:#3A0CA3; --brand-2:#7B5CC1; --accent:#BE76F4; --wash:#EBE7F6; --line:#E3DAF6; }
     #tp .tp-wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    #tp .tp-ondemand { max-width: 820px; margin: 0 auto 26px; text-align: center; }
+    #tp .tp-ondemand .tp-od-tag { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--brand); background: var(--wash); border-radius: 99px; padding: 5px 12px; margin-bottom: 12px; }
+    #tp .tp-ondemand h2 { font-size: clamp(21px, 2.8vw, 26px); font-weight: 800; margin: 0 0 8px; letter-spacing: -.01em; }
+    #tp .tp-ondemand p { font-size: 15.5px; color: var(--muted); line-height: 1.6; margin: 0; }
+    #tp .tp-webinar { padding: 0; background: linear-gradient(to bottom, #F8F6FE 50%, #ffffff 50%); }
+    #tp .tp-webinar-inner { max-width: 880px; margin: 0 auto; background: linear-gradient(135deg, #3A0CA3 0%, #7B5CC1 100%); border-radius: 20px; padding: 26px 30px; display: grid; grid-template-columns: 1fr auto; gap: 26px; align-items: center; box-shadow: 0 12px 32px rgba(58,12,163,.22); }
+    #tp .tp-webinar-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: transparent; border: 1.5px solid rgba(255,255,255,.5); border-radius: 99px; padding: 6px 14px; margin-bottom: 14px; }
+    #tp .tp-webinar-tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(190,118,244,.3); }
+    #tp .tp-dates { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin: 16px 0 0; }
+    #tp .tp-date { font-size: 14px; font-weight: 700; color: #fff; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.28); border-radius: 10px; padding: 8px 13px; white-space: nowrap; }
+    #tp .tp-when { font-size: 14px; color: rgba(255,255,255,.82); margin-left: 4px; }
+    #tp .tp-webinar h2 { font-size: clamp(19px, 2.4vw, 23px); font-weight: 800; color: #fff; margin: 0 0 8px; letter-spacing: -.01em; }
+    #tp .tp-webinar p { font-size: 15px; color: rgba(255,255,255,.92); line-height: 1.6; margin: 0; }
+    #tp .tp-webinar-btn { white-space: nowrap; background: #fff; color: var(--brand); font-size: 16px; font-weight: 700; text-decoration: none; padding: 14px 28px; border-radius: 99px; box-shadow: 0 8px 22px rgba(0,0,0,.16); transition: transform .12s, background .12s; }
+    #tp .tp-webinar-btn:hover { background: #F6F3FD; transform: translateY(-1px); }
+    @media (max-width: 780px) { #tp .tp-webinar-inner { grid-template-columns: 1fr; } #tp .tp-webinar-btn { text-align: center; } }
     #tp section { padding: 72px 0; scroll-margin-top: 88px; }
     /* Individual videos are linkable, so they need the same nav clearance. */
     #tp [id] { scroll-margin-top: 88px; }
@@ -184,10 +200,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+    <!-- LIVE WEBINARS: three one-off sessions. Remove this block after 17 Sep 2026. -->
+    <section class="tp-webinar">
+      <div class="tp-wrap">
+        <div class="tp-webinar-inner">
+          <div>
+            <span class="tp-webinar-tag">Limited time live webinar</span>
+            <h2>Three one-off live sessions</h2>
+            <p>Due to strong demand during our waitlist period, we want to make sure all schools get trained in a timely manner. Three group sessions, September only.</p>
+            <div class="tp-dates">
+              <span class="tp-date">Thu 3 Sep</span>
+              <span class="tp-date">Thu 10 Sep</span>
+              <span class="tp-date">Thu 17 Sep</span>
+              <span class="tp-when">9.30am Irish time</span>
+            </div>
+          </div>
+          <a class="tp-webinar-btn" href="https://us02web.zoom.us/webinar/register/WN_TV6aJtEDTdeC3i179b5fMQ#/registration" target="_blank" rel="noopener">Register free</a>
+        </div>
+      </div>
+    </section>
+
+
     <section class="tp-videos">
       <div class="tp-wrap" style="max-width: 820px;">
 
 
+
+        <nav class="tp-jump" aria-label="Jump to a video">
+          <a href="#full-walkthrough">Full walkthrough</a>
+          <a href="#set-your-school-up">1. Set your school up</a>
+          <a href="#build-your-list">2. Build your list</a>
+          <a href="#create-a-booking">3. Create a booking</a>
+          <a href="#pre-confirmed-booking">4. Pre-confirmed booking</a>
+          <a href="#your-school-calendar">5. Your school calendar</a>
+          <a href="#your-school-settings">6. School settings</a>
+        </nav>
+
+        <div class="tp-ondemand">
+          <span class="tp-od-tag">On demand</span>
+          <h2>Or train at your own pace</h2>
+          <p>Short videos you can watch whenever suits, and come back to any time.</p>
+        </div>
 
         <div class="tp-full" id="full-walkthrough">
           <h2>Full walkthrough<span class="tp-dur">14 min</span></h2>
@@ -201,7 +254,102 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
+        <div class="tp-split">
+          <h2>One feature at a time</h2>
+          <p>The same walkthrough, cut into short pieces. Watch the one you need, or work through them in order.</p>
+        </div>
 
+        <div class="tp-video" id="set-your-school-up">
+          <div class="tp-frame">
+            <iframe src="https://player.vimeo.com/video/1222011678?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+              title="ClassCover Lite: create your school account"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="tp-video-body">
+            <div class="tp-num">1</div>
+            <div>
+              <h3>Set your school up<span class="tp-dur">3 min</span></h3>
+              <p>Add your school, invite the staff who book, and choose who gets notified when a request goes out.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-video" id="build-your-list">
+          <div class="tp-frame">
+            <iframe src="https://player.vimeo.com/video/1222013577?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+              title="ClassCover Lite: my list and adding your known subs and SNAs"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="tp-video-body">
+            <div class="tp-num">2</div>
+            <div>
+              <h3>Build your list<span class="tp-dur">4 min</span></h3>
+              <p>Add the subs and SNAs you already work with into My List, so you can book them in two taps.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-video" id="create-a-booking">
+          <div class="tp-frame">
+            <iframe src="https://player.vimeo.com/video/1222014297?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+              title="ClassCover Lite: create a booking"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="tp-video-body">
+            <div class="tp-num">3</div>
+            <div>
+              <h3>Create a booking<span class="tp-dur">4 min</span></h3>
+              <p>Post the absence to your list, see who is free, and get the booking confirmed in writing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-video" id="pre-confirmed-booking">
+          <div class="tp-frame">
+            <iframe src="https://player.vimeo.com/video/1222015200?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+              title="ClassCover Lite: pre-confirmed booking"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="tp-video-body">
+            <div class="tp-num">4</div>
+            <div>
+              <h3>Make a pre-confirmed booking<span class="tp-dur">2 min</span></h3>
+              <p>Already agreed the day with someone? Book them straight in, without sending a request and waiting on a reply.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-video" id="your-school-calendar">
+          <div class="tp-frame">
+            <iframe src="https://player.vimeo.com/video/1222015901?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+              title="ClassCover Lite: your school calendar"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="tp-video-body">
+            <div class="tp-num">5</div>
+            <div>
+              <h3>Your school calendar<span class="tp-dur">2 min</span></h3>
+              <p>See every booking and absence in one view, and who is covering what on any given day.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-video" id="your-school-settings">
+          <div class="tp-frame">
+            <iframe src="https://player.vimeo.com/video/1222016324?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1"
+              title="ClassCover Lite: your school settings"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="tp-video-body">
+            <div class="tp-num">6</div>
+            <div>
+              <h3>Your school settings<span class="tp-dur">3 min</span></h3>
+              <p>Change your school details, manage who has access, and set who gets notified when a request goes out.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <section class="tp-live">
@@ -210,7 +358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <img class="tp-live-illo" src="/images/illustration-school-register.png" alt="" width="900" height="506" loading="lazy" />
           <div>
             <span class="tp-pill"><span class="tp-dot" aria-hidden="true"></span>Live training</span>
-            <h2>Rather talk to someone?</h2>
+            <h2>Rather a one on one session?</h2>
             <p>Book a session with the Irish team and bring whoever else needs to be there. We will walk your school through setup and answer questions as they come up.</p>
             <a class="tp-btn" href="https://calendly.com/d/ds8c-3gk-my3/classcover-training" target="_blank" rel="noopener">Book a live session</a>
           </div>
