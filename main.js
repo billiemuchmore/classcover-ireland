@@ -692,3 +692,93 @@
   window.addEventListener('wheel', function () { settled = true; }, { passive: true, once: true });
   window.addEventListener('touchstart', function () { settled = true; }, { passive: true, once: true });
 })();
+
+// ---------------------------------------------------------------------------
+// Vimeo video engagement -> GA4
+// ---------------------------------------------------------------------------
+// The Academy gate counts Typeform submissions, which is who asked for
+// training, not who did any. These events measure the watching: a start, then
+// 25/50/75% milestones, then a completion. Together they answer "did schools
+// actually train" and "which feature do people re-watch", which the gate
+// cannot.
+//
+// GA4's recommended video schema is used (video_start / video_progress /
+// video_complete with video_title, video_provider, video_percent), so the
+// events slot into GA4 reporting without custom definitions. Mark video_start
+// as a key event if you want it in Google Ads.
+//
+// Runs on any page with a Vimeo embed: the training tracks, /demo/watch/,
+// /subs/how-to/ and the homepage. The player.js SDK is only fetched when the
+// page actually has an embed. Titles come from Vimeo itself, falling back to
+// the iframe title attribute, so a renamed video reports its new name without
+// a code change. Milestones fire once each per player per page view, so
+// scrubbing back does not inflate the counts.
+(function () {
+  var frames = document.querySelectorAll('iframe[src*="player.vimeo.com"]');
+  if (!frames.length) return;
+
+  var sdk = document.createElement('script');
+  sdk.src = 'https://player.vimeo.com/api/player.js';
+  sdk.async = true;
+  sdk.onload = function () {
+    if (!window.Vimeo || !window.Vimeo.Player) return;
+    Array.prototype.forEach.call(frames, wire);
+  };
+  document.head.appendChild(sdk);
+
+  function send(name, params) {
+    if (typeof window.gtag === 'function') window.gtag('event', name, params);
+    window.dataLayer = window.dataLayer || [];
+    var payload = { event: name };
+    for (var k in params) { if (params.hasOwnProperty(k)) payload[k] = params[k]; }
+    window.dataLayer.push(payload);
+  }
+
+  function wire(frame) {
+    var player;
+    try { player = new window.Vimeo.Player(frame); } catch (err) { return; }
+
+    var title = frame.getAttribute('title') || 'Untitled video';
+    var duration = 0;
+    var started = false;
+    var hit = {};
+
+    player.getVideoTitle().then(function (t) { if (t) title = t; }).catch(function () {});
+    player.getDuration().then(function (d) { duration = Math.round(d); }).catch(function () {});
+
+    function base() {
+      return {
+        video_title: title,
+        video_provider: 'vimeo',
+        video_duration: duration,
+        page_path: window.location.pathname
+      };
+    }
+
+    player.on('play', function () {
+      if (started) return;
+      started = true;
+      send('video_start', base());
+    });
+
+    player.on('timeupdate', function (data) {
+      var pct = Math.floor((data.percent || 0) * 100);
+      [25, 50, 75].forEach(function (m) {
+        if (pct >= m && !hit[m]) {
+          hit[m] = true;
+          var p = base();
+          p.video_percent = m;
+          send('video_progress', p);
+        }
+      });
+    });
+
+    player.on('ended', function () {
+      if (hit.done) return;
+      hit.done = true;
+      var p = base();
+      p.video_percent = 100;
+      send('video_complete', p);
+    });
+  }
+})();

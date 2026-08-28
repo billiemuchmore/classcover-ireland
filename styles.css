@@ -200,6 +200,19 @@ p {
 .nav-links a:hover { color: var(--purple); }
 
 /* Ensure the nav CTA button always has white text regardless of link colour cascade */
+.nav-login {
+  font-weight: 600;
+  color: #3A0CA3;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 99px;
+  border: 1.5px solid #D3C7F2;
+  transition: background .12s ease, border-color .12s ease;
+  white-space: nowrap;
+}
+.nav-login:hover { background: #F6F3FD; border-color: #B9A3E8; }
+.nav-drawer .nav-login { display: inline-block; margin: 6px 0; text-align: center; }
+
 .nav-links .btn,
 .nav-links .btn:hover {
   color: var(--white);
