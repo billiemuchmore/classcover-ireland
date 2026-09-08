@@ -492,6 +492,7 @@ p {
 
 .for-schools-intro h2 { margin-top: 12px; }
 .for-schools-intro p { margin-top: 12px; }
+.for-schools-intro p a { color: var(--purple); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .for-schools-intro .btn { margin-top: 24px; display: inline-block; }
 
 /* Two-column layout: text + image */
