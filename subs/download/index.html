@@ -251,7 +251,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .dl-section-head p { font-size: 17px; color: #555; line-height: 1.6; margin: 0; }
     .dl-steps-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
     .dl-step {
@@ -348,8 +348,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .dl-hero-inner { grid-template-columns: 1fr; gap: 36px; }
       .dl-hero-media { order: -1; }
       .dl-hero-media img { max-width: 300px; }
-      .dl-steps-grid, .dl-why-grid { grid-template-columns: 1fr; }
+      .dl-steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .dl-why-grid { grid-template-columns: 1fr; }
       .dl-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .dl-steps-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 520px) {
       .dl-store-btn { flex: 1 1 100%; justify-content: flex-start; }
@@ -397,11 +401,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <main>
 
-    <!-- ===== TEMPORARY LAUNCH ANNOUNCEMENT — full-width bar. To remove once schools are live: (1) delete this block, (2) delete the matching styles in <style>, (3) restore .dl-hero padding-top to 104px (see note there). ===== -->
+    <!-- ===== TEMPORARY LAUNCH ANNOUNCEMENT — full-width bar. To remove once the early-days framing is no longer needed: (1) delete this block, (2) delete the matching styles in <style>, (3) restore .dl-hero padding-top to 104px (see note there). ===== -->
     <div class="dl-announce" role="note">
       <div class="dl-announce-inner">
         <p class="dl-announce-lead"><span class="dl-wave" aria-hidden="true">👋</span>You are one of the first to join ClassCover in Ireland</p>
-        <p class="dl-announce-sub">Set up your profile now. Schools come on board soon and will start booking substitute teachers and SNAs.</p>
+        <p class="dl-announce-sub">Schools are starting to join ClassCover and booking substitute teachers and SNAs. Set up your profile and get on their lists.</p>
       </div>
     </div>
     <!-- ===== END TEMPORARY ANNOUNCEMENT ===== -->
@@ -412,7 +416,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="dl-hero-copy">
           <span class="eyebrow">For substitute teachers &amp; SNAs</span>
           <h1>Get started with ClassCover</h1>
-          <p class="lead">Download the free ClassCover app, create your profile, and set your availability. That is all you need to do for now. Schools come on board soon, so get yourself set up now.</p>
+          <p class="lead">Download the free ClassCover app, create your profile, and set your availability. Schools are starting to join ClassCover, so get set up and request to join the ones you want to work with.</p>
 
           <p class="dl-download-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Download the app</p>
           <p class="dl-reco-tag" id="dl-reco-tag" aria-live="polite"></p>
@@ -473,8 +477,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="dl-steps">
       <div class="dl-steps-inner">
         <div class="dl-section-head">
-          <h2>Get ready for the new school year on ClassCover in three steps</h2>
-          <p>Download the app, build your profile, and set your availability. You will be ready the moment schools come on board.</p>
+          <h2>Get set up on ClassCover in four steps</h2>
+          <p>Download the app, build your profile, set your availability, and request to join the schools you want to work with. Schools are starting to join, so get on their lists.</p>
         </div>
         <div class="dl-steps-grid">
           <div class="dl-step">
@@ -490,7 +494,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="dl-step">
             <span class="dl-step-num">3</span>
             <h3>Set your availability</h3>
-            <p>Tell ClassCover when you can work. Set it once, with no weekly re-registering and no expiry. You are ready for when schools come on board.</p>
+            <p>Tell ClassCover when you can work. Set it once, with no weekly re-registering and no expiry.</p>
+          </div>
+          <div class="dl-step">
+            <span class="dl-step-num">4</span>
+            <h3>Request to join school lists</h3>
+            <p>Find the schools you want to work with in the app and send a request to join their list. Once a school accepts, it can book you.</p>
           </div>
         </div>
       </div>
@@ -550,7 +559,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="dl-cta">
       <div class="dl-cta-inner">
         <h2>Get the ClassCover app</h2>
-        <p>Free to download. Free to use. Create your profile and set your availability so you are ready when schools come on board.</p>
+        <p>Free to download. Free to use. Create your profile, set your availability, and request to join the schools you want to work with.</p>
         <div class="dl-store-row">
           <a class="dl-store-btn" href="https://apps.apple.com/ie/app/classcover/id543437097" aria-label="Download ClassCover on the App Store">
             <svg class="dl-store-glyph" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
@@ -561,7 +570,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="dl-store-text"><small>Get it on</small><strong>Google Play</strong></span>
           </a>
         </div>
-        <p class="dl-cta-sub">Schools come on board soon. Create your profile now so you are ready the moment they do.</p>
+        <p class="dl-cta-sub">Schools are starting to join ClassCover. Create your profile now and get on their lists.</p>
       </div>
     </section>
 
