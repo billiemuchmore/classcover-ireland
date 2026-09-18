@@ -2,6 +2,26 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/schools/infopack-into",
+      "destination": "/morning-scramble",
+      "permanent": true
+    },
+    {
+      "source": "/schools/infopack-into/:path*",
+      "destination": "/morning-scramble",
+      "permanent": true
+    },
+    {
+      "source": "/scramble",
+      "destination": "/morning-scramble",
+      "permanent": false
+    },
+    {
+      "source": "/study",
+      "destination": "/morning-scramble",
+      "permanent": false
+    },
+    {
       "source": "/contact",
       "destination": "/support",
       "permanent": true

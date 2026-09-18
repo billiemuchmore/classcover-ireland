@@ -51,3 +51,6 @@ ClassCover Infopack for Schools in Ireland*.pdf
 *.psd
 *.ai
 *.sketch
+
+# Campaign source artwork — web-ready copies live in /images
+/The Great Morning Scramble Study Assets/
