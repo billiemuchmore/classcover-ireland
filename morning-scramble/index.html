@@ -507,6 +507,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: var(--ms-lavender);
       margin-bottom: 7px;
     }
+    /* Without a date label the marker needs nudging to sit on the
+       heading's cap height rather than above it. */
+    .ms-nov-step-undated::before { top: 9px; }
     .ms-nov-step h3 {
       color: #ffffff;
       font-size: clamp(19px, 2.4vw, 23px);
@@ -838,8 +841,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>One school is drawn at random from every valid entry, under independent supervision. We contact the winner within seven days and publish the winning school's name and county.</p>
           </div>
 
-          <div class="ms-nov-step">
-            <span class="ms-nov-date">Late November</span>
+          <!-- No date on this one, deliberately. We are not committing
+               to a publication week. -->
+          <div class="ms-nov-step ms-nov-step-undated">
             <h3>The findings</h3>
             <p>We publish what the study found, and every school that took part gets the full results.</p>
           </div>
