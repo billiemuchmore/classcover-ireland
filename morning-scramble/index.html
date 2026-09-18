@@ -17,9 +17,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="geo.country" content="Ireland" />
   <meta name="ICBM" content="53.3498,-6.2603" />
   <title>The Great Morning Scramble Study | ClassCover Ireland</title>
-  <meta name="description" content="The 8am ring-around. The split class. The training day nobody could cover. We are asking principals, teachers and SNAs across Ireland what the morning scramble looks like in their school, and what it costs when no sub can be found. Take part and your school goes into the draw for €1,000." />
+  <meta name="description" content="The 8am ring-around. The split class. The CPD day nobody could cover. We are asking principals, teachers and SNAs across Ireland what the morning scramble looks like in their school, and what it costs when no sub can be found. Take part and your school goes into the draw for €1,000." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="theme-color" content="#3A0CA3" />
+  <meta name="theme-color" content="#250564" />
   <link rel="canonical" href="https://www.classcoverapp.ie/morning-scramble/" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
@@ -109,7 +109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --ms-ink:         #1B0E3D;
     }
 
-    body { background: var(--ms-purple); }
+    body { background: var(--ms-purple-deep); }
 
     /* ── Shared type ────────────────────────────────────────── */
     .ms-kicker {
@@ -157,7 +157,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* ── Hero ───────────────────────────────────────────────── */
     .ms-hero {
-      background: var(--ms-purple);
+      background: var(--ms-purple-deep);
       padding: calc(var(--nav-h) + 44px) 0 72px;
       position: relative;
       overflow: hidden;
@@ -276,7 +276,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* ── Prize ──────────────────────────────────────────────── */
     /* The page's one scale moment, and its one colour inversion. */
     .ms-prize {
-      background: var(--ms-purple-deep);
+      background: var(--ms-purple);
       padding: 84px 0;
       text-align: center;
     }
@@ -301,7 +301,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-size: clamp(17px, 2vw, 20px);
       font-weight: 500;
       line-height: 1.5;
-      margin: 0 auto 40px;
+      margin: 0 auto 26px;
+    }
+    /* White chip so the charcoal wordmark reads on the dark ground,
+       sized to be legible rather than a token. */
+    .ms-prize-logo {
+      display: inline-block;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 14px 22px;
+      margin: 0 0 40px;
+    }
+    .ms-prize-logo img {
+      width: 168px;
+      height: auto;
+      display: block;
     }
     /* Second prize, below the rule rather than in a box of its own */
     .ms-prize-second {
@@ -455,7 +469,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* ── November ───────────────────────────────────────────── */
-    .ms-nov { background: var(--ms-purple); padding: 84px 0; }
+    .ms-nov { background: var(--ms-purple-deep); padding: 84px 0; }
     /* Timeline stays left-read, but the block is centred on the page
        so it does not sit hard against the gutter. */
     .ms-nov h2 {
@@ -507,7 +521,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* ── Terms, collapsed ───────────────────────────────────── */
     .ms-terms {
-      background: var(--ms-purple-deep);
+      background: var(--ms-purple);
       padding: 76px 0 0;
       scroll-margin-top: var(--nav-h);
     }
@@ -579,7 +593,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* ── Byline ─────────────────────────────────────────────── */
     .ms-byline {
-      background: var(--ms-purple-deep);
+      background: var(--ms-purple);
       padding: 56px 0 84px;
     }
     .ms-byline-inner {
@@ -720,7 +734,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="ms-fragments ms-anim ms-anim-4">
               <span>The 8am ring-around.</span>
               <span>The split class.</span>
-              <span>The training day nobody could cover.</span>
+              <span>The CPD day nobody could cover.</span>
             </p>
             <p class="ms-hero-sub ms-anim ms-anim-4">We are asking principals, teachers and SNAs across Ireland what the morning scramble looks like in their school, and what it costs when no sub can be found. Takes a couple of minutes.</p>
             <!-- SURVEY LINK: replace with <a href="SURVEY_URL" class="ms-btn ms-anim ms-anim-5">Take part</a> -->
@@ -740,7 +754,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ms-prize-block">
           <span class="ms-kicker">The prize</span>
           <p class="ms-prize-figure">€1,000</p>
-          <p class="ms-prize-lead">For your school.</p>
+          <p class="ms-prize-lead">For your school, given as a CleverCards voucher.</p>
+
+          <div class="ms-prize-logo">
+            <img src="/images/clevercards-logo.png" alt="CleverCards" width="600" height="133" loading="lazy" />
+          </div>
 
           <div class="ms-prize-second">
             <strong>Plus a full year of ClassCover Standard</strong>
@@ -841,7 +859,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><strong>Eligibility:</strong> Open to staff members (including teachers, principals, deputy principals, and SNAs) of a recognised primary or post-primary school in the <strong>Republic of Ireland</strong>, aged 18+. The prize draw is <strong>not open to schools or entrants outside the Republic of Ireland</strong>. Employees of ClassCover, its group companies, and their immediate families are excluded.</li>
                 <li><strong>How to enter:</strong> Complete and submit the survey linked from https://www.classcoverapp.ie/morning-scramble/ during the promotion period. One entry per person. Where more than one staff member from the same school enters, each entry is valid, but a school may win only once. ClassCover reserves the right to disregard incomplete, duplicate or fraudulent entries.</li>
                 <li><strong>Promotion period:</strong> Opens 00:01 on Monday 21 September 2026 and closes 23:59 on Sunday 22 November 2026 (the "Closing Date"), Irish time. Entries received after the Closing Date will not be counted.</li>
-                <li><strong>Prize:</strong> One (1) prize consisting of €1,000 issued as a CleverCards prepaid card, and twelve (12) months of ClassCover Standard free of charge, awarded to the winner's nominated <strong>Republic of Ireland</strong> school and <strong>not</strong> to the individual entrant. The prize is non-transferable and there is no cash alternative.</li>
+                <li><strong>Prize:</strong> One (1) prize consisting of a €1,000 CleverCards voucher, issued as a prepaid card, and twelve (12) months of ClassCover Standard free of charge, awarded to the winner's nominated <strong>Republic of Ireland</strong> school and <strong>not</strong> to the individual entrant. The prize is non-transferable and there is no cash alternative.</li>
                 <li><strong>The ClassCover Standard element:</strong> twelve months of ClassCover Standard for the nominated school, running from November 2026 to November 2027. It does not roll into a paid subscription at the end of the twelve months unless the school separately chooses to continue. A school already subscribed to ClassCover receives twelve months credited to its existing subscription instead.</li>
                 <li><strong>The CleverCards element:</strong> the card is issued by CleverCards subject to the card issuer's own terms and conditions, including any expiry date and any restrictions on where it can be used. ClassCover is not responsible for the card once it has been issued.</li>
                 <li>The winner is responsible for confirming that their school's policies permit acceptance of the prize. The card will be issued in the name of the nominated school.</li>
