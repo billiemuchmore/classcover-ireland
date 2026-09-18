@@ -319,6 +319,141 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .ms-prize-drawn { margin: 36px 0 0; }
     .ms-prize-cta { margin-top: 26px; }
 
+    /* ── Last winner ────────────────────────────────────────── */
+    /* The congratulations moment, and quiet proof the last draw paid
+       out, sitting directly under the prize figure where the question
+       occurs to the reader. Their school, their crest, their words.
+       Lilac ground so it reads as the page's one warm spot. */
+    .ms-winner { background: var(--ms-purple); padding: 84px 0 0; }
+    .ms-winner-card {
+      max-width: 880px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(194,145,252,.34);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    /* Their school across the top, full bleed. A side column made the
+       card 900px tall and cropped the sign to a strip; a banner gives
+       the photo its width back and keeps the card in proportion. */
+    .ms-winner-media img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      /* Starts just below the crest on the sign itself, so the badge
+         below is the only one on the card and nothing is half-cut. */
+      object-position: center 41%;
+      display: block;
+    }
+    .ms-winner-body { padding: 0 48px 46px; }
+
+    /* Crest laps up over the photo edge, the way a school badge sits
+       on a letterhead. Corners are masked out of the asset, so no
+       white chip is needed behind it. */
+    .ms-winner-crest {
+      width: 92px;
+      height: 92px;
+      display: block;
+      margin: -46px 0 20px;
+      position: relative;
+      border-radius: 50%;
+      box-shadow: 0 8px 24px -6px rgba(0,0,0,.5);
+    }
+    .ms-winner-body h2 {
+      color: #ffffff;
+      font-size: clamp(26px, 3.4vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+      margin: 0 0 18px;
+    }
+    .ms-winner-lead {
+      color: rgba(255,255,255,.80);
+      font-size: 16.5px;
+      line-height: 1.68;
+      margin: 0;
+      max-width: 62ch;
+    }
+    /* The school's own words, set off by the lavender rule the
+       timeline already uses for its spine. */
+    .ms-winner-quote {
+      border-left: 2px solid var(--ms-lavender);
+      padding-left: 22px;
+      margin: 28px 0 0;
+      max-width: 62ch;
+    }
+    .ms-winner-quote p {
+      color: #ffffff;
+      font-size: clamp(16.5px, 2vw, 19px);
+      font-weight: 500;
+      line-height: 1.55;
+      margin: 0 0 13px;
+    }
+    .ms-winner-quote cite {
+      display: block;
+      font-style: normal;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ms-lavender);
+    }
+
+    /* No white chip here. "the company teachers trust" is set in pure
+       white in the artwork, so a light background erases it. The mark
+       is built for a dark ground, and the purple is exactly that. */
+    .ms-winner-partner {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 30px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.18);
+    }
+    .ms-winner-partner span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ms-lavender);
+    }
+    .ms-winner-partner a {
+      display: block;
+      line-height: 0;
+      transition: opacity .18s ease;
+    }
+    .ms-winner-partner a:hover { opacity: .8; }
+    .ms-winner-partner img {
+      display: block;
+      width: 200px;
+      height: auto;
+      filter: none;
+    }
+    /* Held for when the winner blog post goes live. To restore, add
+       <a href="/blog/scoil-carmel-jns-wins-school-prize-draw/"
+          class="ms-winner-link">Read the full story</a>
+       as the last child of .ms-winner-body. */
+    .ms-winner-link {
+      display: inline-block;
+      margin-top: 28px;
+      color: var(--ms-lavender);
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .ms-winner-link:hover { color: #ffffff; }
+
+    @media (max-width: 640px) {
+      .ms-winner { padding-top: 64px; }
+      .ms-winner-media img { height: 205px; }
+      .ms-winner-body { padding: 0 26px 36px; }
+      .ms-winner-crest { width: 74px; height: 74px; margin: -37px 0 18px; }
+      .ms-winner-quote { padding-left: 18px; }
+      .ms-winner-partner img { width: 174px; }
+    }
+
     /* ── November ───────────────────────────────────────────── */
     .ms-nov { background: var(--ms-purple); padding: 84px 0; }
     /* Timeline stays left-read, but the block is centred on the page
@@ -614,6 +749,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="ms-kicker ms-prize-drawn">Drawn 23 November</span>
         <!-- SURVEY LINK: replace with <a href="SURVEY_URL" class="ms-btn ms-prize-cta">Take part</a> -->
         <span class="ms-btn ms-btn-soon ms-prize-cta">Survey coming soon</span>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         LAST WINNER
+    ====================================================== -->
+    <section class="ms-winner">
+      <div class="container">
+        <div class="ms-winner-card">
+
+          <div class="ms-winner-media">
+            <img src="/images/scoil-carmel-jns-sign.webp"
+                 alt="The Scoil Carmel JNS sign at the school entrance on Firhouse Road, Dublin 24."
+                 width="1200" height="1252" loading="lazy" />
+          </div>
+
+          <div class="ms-winner-body">
+            <img class="ms-winner-crest"
+                 src="/images/scoil-carmel-jns-crest.png"
+                 alt="Scoil Carmel JNS school crest"
+                 width="512" height="512" loading="lazy" />
+            <span class="ms-kicker">Our INTO newsletter competition winner</span>
+            <h2>Congratulations, Scoil Carmel JNS</h2>
+            <p class="ms-winner-lead">Maria Jones, deputy principal, entered our competition in the INTO newsletter and won €500 for her school in Firhouse, Dublin 24. ABC School Supplies then offered to match it. That gives Scoil Carmel €1,000 for new reading books, and we are proud to be able to support them.</p>
+
+            <blockquote class="ms-winner-quote">
+              <p>“We are thrilled with our voucher. ABC School Supplies have agreed to match it, so we will be investing in some literacy resources.”</p>
+              <cite>Maria Jones, Deputy Principal, Scoil Carmel JNS</cite>
+            </blockquote>
+
+            <div class="ms-winner-partner">
+              <span>Prize matched by</span>
+              <a href="https://abcschoolsupplies.ie/" target="_blank" rel="noopener"
+                 aria-label="ABC School Supplies (opens in a new tab)">
+                <img src="/images/abc-school-supplies-logo.webp"
+                     alt="ABC School Supplies"
+                     width="579" height="159" loading="lazy" />
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
