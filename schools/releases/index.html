@@ -142,6 +142,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .rl-status.is-in-design { background: #F6F1FD; color: #7A4FC4; }
     .rl-status.is-planned { background: #F3F3F6; color: #767489; }
     .rl-status.is-released { background: #E8F6EE; color: #147A4B; }
+    .rl-card-top { flex-wrap: wrap; }
+    .rl-origin { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 99px; line-height: 1.35; }
+    .rl-origin.is-planned { border: 1px solid var(--line); color: var(--muted); }
+    .rl-origin.is-feedback { background: #FBF0FE; color: #8A3FC0; }
+    .rl-origin.is-feedback::before { content: "\2726"; font-size: 11px; }
+    .rl-card.is-featured .rl-origin.is-feedback { background: rgba(255,255,255,.14); color: #F1DDFF; }
+    .rl-card.is-featured .rl-origin.is-planned { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.85); }
 
     /* Up next: the anchor card */
     .rl-card.is-featured {
@@ -360,6 +367,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   Released items are sorted newest first automatically.
 
   status: "up-next" | "in-development" | "in-testing" | "in-design" | "planned" | "released"
+  origin: "planned" (was already on our roadmap) | "feedback" (new, based on school feedback) | leave out for no tag
   icon:   "doc" | "msg" | "shield" | "filter" | "phone" | "school" | "desktop"
   ================================================================
   -->
@@ -367,6 +375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   [
     {
       "title": "Documents on every sub profile",
+      "origin": "feedback",
       "status": "up-next",
       "icon": "doc",
       "summary": "Everything you need to approve a sub, on their profile. No more chasing documents by text or email.",
@@ -378,6 +387,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     },
     {
       "title": "Two-way messaging",
+      "origin": "planned",
       "status": "in-testing",
       "icon": "msg",
       "summary": "Talk to the subs and SNAs you book without leaving ClassCover.",
@@ -387,28 +397,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       ]
     },
     {
-      "title": "Teaching Council checks",
+      "title": "ClassCover TCN Verified tick of approval",
+      "origin": "feedback",
       "status": "in-design",
       "icon": "shield",
-      "summary": "Our team checks each sub's Teaching Council registration, so you don't have to.",
+      "summary": "Our team checks each sub's Teaching Council registration and adds our tick of approval to their profile.",
       "points": [
         "Number, name and expiry checked against the register",
-        "Subs who pass get a TCN verified by ClassCover badge",
+        "Subs who pass get the ClassCover TCN Verified tick",
         "You still approve every sub onto your list"
       ]
     },
     {
-      "title": "TCN verified filter",
+      "title": "ClassCover TCN Verified filter",
+      "origin": "feedback",
       "status": "in-design",
       "icon": "filter",
       "summary": "Find subs with a checked registration at a glance.",
       "points": [
-        "Filter Find New to show only subs with the badge",
+        "Filter Find New to show only subs with the ClassCover TCN Verified tick",
         "Fewer profiles to open before you invite"
       ]
     },
     {
       "title": "School mobile app",
+      "origin": "planned",
       "status": "in-design",
       "icon": "phone",
       "summary": "ClassCover for schools, on your phone.",
@@ -456,6 +469,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       desktop: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>'
     };
     var LABELS = { 'up-next': 'Up next', 'in-development': 'In development', 'in-testing': 'In testing', 'in-design': 'In design', 'planned': 'Planned', 'released': 'Released' };
+    var ORIGINS = { planned: 'Already on our roadmap', feedback: 'Added from your feedback' };
     var MONTHS = ['january','february','march','april','may','june','july','august','september','october','november','december'];
 
     function esc(t) { return String(t).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -467,7 +481,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return '<article class="rl-card' + (opts.featured ? ' is-featured' : '') + '" style="--i:' + i + '">' +
         (opts.num ? '<span class="rl-num" aria-hidden="true">' + (opts.num < 10 ? '0' : '') + opts.num + '</span>' : '') +
         '<div class="rl-card-top"><span class="rl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + icon + '</svg></span>' +
-        '<span class="rl-status is-' + esc(item.status) + '">' + esc(LABELS[item.status] || item.status) + '</span></div>' +
+        '<span class="rl-status is-' + esc(item.status) + '">' + esc(LABELS[item.status] || item.status) + '</span>' +
+        (ORIGINS[item.origin] ? '<span class="rl-origin is-' + esc(item.origin) + '">' + esc(ORIGINS[item.origin]) + '</span>' : '') +
+        '</div>' +
         '<h3>' + esc(item.title) + '</h3>' +
         '<p class="rl-sum">' + esc(item.summary || '') + '</p>' +
         (points ? '<ul class="rl-points">' + points + '</ul>' : '') +
