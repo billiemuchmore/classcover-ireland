@@ -11,6 +11,7 @@ Read the relevant file before producing or editing copy or creative for this sit
 The rules below in this file govern site-specific technical requirements (GTM, consent/CookieYes, Meta Pixel, geo targeting, schema, Ireland terminology) — they stack on top of the brand rules, not replace them.
 
 > **Canonical `<head>` order for any new page** (this is a static site — there is NO shared template, so every page's `<head>` must carry these itself):
+> 0. Consent Mode v2 default snippet (`gtag('consent', 'default', …)` all denied except security_storage, `wait_for_update: 2000`). Copy it from any existing page. It must come before anything Google loads, or the first hit goes out before the visitor has chosen
 > 1. CookieYes consent script (first, so it gates everything)
 > 2. Google Tag Manager snippet
 > 3. `<meta charset>` / `<meta viewport>` → geo meta tags
