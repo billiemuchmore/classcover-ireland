@@ -494,6 +494,55 @@
     }, true); // capture phase: fires even if another handler stops propagation
   }
   wireStoreClicks();
+
+  // --- School sign-up click-out conversion (schools CTA) ---
+  // "Create your school account" links go to booking.classcoverapp.com/
+  // welcome-onboard, where sign-up finishes inside the web app. This click is
+  // the last moment the site can see, so it is the schools conversion. Fires
+  // GA4 "school_signup_click" (mark it a key event in GA4 to import into
+  // Google Ads) and Meta "SubmitApplication" + CAPI with a shared event_id.
+  // Distinct from the EOI "CompleteRegistration" and the subs "Lead". Counted
+  // once per session so repeat clicks don't inflate numbers.
+  function wireSchoolSignupClicks() {
+    document.addEventListener('click', function (e) {
+      if (!e.target || !e.target.closest) return;
+      var a = e.target.closest('a[href*="booking.classcoverapp.com/welcome-onboard"]');
+      if (!a) return;
+      var repeat = false;
+      try {
+        repeat = !!sessionStorage.getItem('cc_school_signup_click');
+        sessionStorage.setItem('cc_school_signup_click', '1');
+      } catch (err) {}
+      if (repeat) return;
+      var eventId = newEventId();
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'school_signup_click', {
+          event_category: 'signup',
+          event_label: location.pathname,
+          signup_type: 'school_account',
+          event_id: eventId
+        });
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'school_signup_click', event_id: eventId });
+      if (adConsentGranted()) {
+        loadPixel();
+        if (window.fbq) {
+          window.fbq('track', 'SubmitApplication',
+            { content_name: 'School account sign-up click', content_category: 'school_signup' },
+            { eventID: eventId });
+        }
+        sendCapi({
+          event_name: 'SubmitApplication',
+          event_id: eventId,
+          event_source_url: location.href,
+          signup_type: 'school_account',
+          utms: UTMS
+        });
+      }
+    }, true);
+  }
+  wireSchoolSignupClicks();
 })();
 
 // ------------------------------------------------------------
