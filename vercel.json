@@ -2,6 +2,16 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/schools/quick-bites",
+      "destination": "/schools/how-to/quick-bites/",
+      "permanent": true
+    },
+    {
+      "source": "/schools/quick-bites/",
+      "destination": "/schools/how-to/quick-bites/",
+      "permanent": true
+    },
+    {
       "source": "/schools/infopack-into",
       "destination": "/morning-scramble",
       "permanent": true
