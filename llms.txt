@@ -11,16 +11,19 @@ their own list of substitute teachers and SNAs, send booking requests directly, 
 confirmed answer. Substitute teachers and SNAs set their availability once and get booked from
 the app. ClassCover does not employ, place, or vet staff on a school's behalf.
 
-ClassCover is used by more than 5,000 schools in Australia and New Zealand. It is now rolling
-out in Ireland.
+ClassCover is used by more than 5,000 schools in Australia and New Zealand. It is now live
+in Ireland.
 
-## Current Availability (as of August 2026)
+## Current Availability (as of October 2026)
 
-- Substitute teachers and SNAs: LIVE. The app is available now and is free, permanently.
+- ClassCover is LIVE in Ireland for schools, substitute teachers and SNAs.
+- Substitute teachers and SNAs: the app is free, permanently.
   Download at https://www.classcoverapp.ie/subs/download/
-- Schools: NOT YET LIVE. Schools can apply now to join the pilot. Access opens county by county.
-- The first pilot wave covers nine counties: Cork, Dublin, Galway, Kildare, Limerick, Louth,
-  Meath, Tipperary and Wicklow. Schools in every other county can apply to join the waitlist.
+- Schools: every school in Ireland can create an account on ClassCover Lite, free.
+  Create a school account at https://www.classcoverapp.ie/sign-up/
+- ClassCover Standard (search and invite new subs and SNAs in your county) is open first in
+  nine counties: Cork, Dublin, Galway, Kildare, Limerick, Louth, Meath, Tipperary and Wicklow.
+  Every other county follows as its local network grows.
 
 ## Key Facts
 
@@ -44,7 +47,8 @@ out in Ireland.
 - /media/ — Press coverage
 
 For schools
-- /schools — How ClassCover works for schools, and pilot applications
+- /schools — How ClassCover works for schools
+- /sign-up/ — Create a school account, or get the app as a sub or SNA
 - /schools/pricing/ — ClassCover Lite and ClassCover Standard pricing
 - /schools/time-saving-calculator/ — Calculator: time a school spends arranging cover
 - /schools/infopack/ — School information pack
