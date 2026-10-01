@@ -22,6 +22,14 @@ The rules below in this file govern site-specific technical requirements (GTM, c
 >
 > Conversion tracking (Meta Pixel, Typeform popups, GA4 `conversion` event) is NOT per-page — it lives in `main.js` and applies everywhere automatically. Never paste pixel/event code into a page.
 
+## Top nav: there is no shared template
+
+The nav is hardcoded on every page, twice (`nav.nav-links` for desktop and `nav.nav-drawer` for mobile). Current order: **For schools · For subs · Demo · Pricing · Blog**, then region, Log in and Sign up.
+
+- **Any nav change must be applied to every HTML page**, both blocks. Check afterwards that every page carrying `nav-links` has the new link exactly once in each block.
+- **New pages and blog posts:** copy the nav from a current page (e.g. `index.html`). Never write it from memory or from an older post.
+- Pricing replaced FAQs in Oct 2026. The homepage FAQ section still exists; it's only off the nav.
+
 ## Google Tag Manager
 
 GTM container ID: **GTM-NZ52F3ND** (owned by the company account; replaced GTM-N4NPQXVQ in Sept 2026)
@@ -67,8 +75,13 @@ Every new HTML page MUST include the CookieYes script as the **first element ins
 
 ## Meta Pixel & domain verification
 
-- **Conversion tracking lives entirely in `main.js`** — Meta Pixel base code, the `CompleteRegistration` event, the GA4 `conversion` event, and the Typeform-popup wiring. It auto-applies to every page. **Never add Meta Pixel or conversion-event code to individual pages.**
-- Pixel ID **2735393030169285**, consent-gated behind the CookieYes `advertisement` category. Fires `CompleteRegistration` (+ GA4 `conversion`) on genuine EOI popup submit, with `signup_type`, UTMs, and a shared `event_id`.
+- **Conversion tracking lives entirely in `main.js`**. It auto-applies to every page. **Never add Meta Pixel or conversion-event code to individual pages.**
+- Pixel ID **2735393030169285**, consent-gated behind the CookieYes `advertisement` category. Browser Pixel + server CAPI (`/api/capi`) share an `event_id` so Meta dedupes them. No PII is sent.
+- **Current conversions (since Sept 2026; the Typeform EOI waitlist is retired):**
+  - **Schools:** a click on "Create your school account" fires GA4 `school_signup_click` and Meta `SubmitApplication`, once per session. The click is the last moment the site can see, because sign-up happens in the web app.
+  - **Subs/SNAs:** a click-out to the App Store or Google Play fires GA4 `app_store_click` and Meta `Lead`, once per store per session.
+  - **Webinar:** landing on `/info-session/registered/` fires GA4 `webinar_registration` and Meta `Schedule`.
+- The old EOI path (Typeform popup → `/thank-you` → GA4 `conversion` + Meta `CompleteRegistration`) is legacy code. The school pilot (`EHewmpE4`) and waitlist (`ipkaJI47`) forms are no longer linked anywhere. Gated Typeforms (training `KLkgh47M`, demo `xCXgyhcg`) redirect and are deliberately not conversions.
 - Every new HTML page MUST include the Meta domain-verification tag in `<head>` (Meta's crawler reads raw HTML, so this can't be JS-injected):
 
 ```html
