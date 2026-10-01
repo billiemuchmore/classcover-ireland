@@ -223,7 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="/schools">For schools</a>
         <a href="/#for-subs">For subs</a>
         <a href="/demo/">Demo</a>
-        <a href="/#faq">FAQs</a>
+        <a href="/schools/pricing/">Pricing</a>
         <a href="/blog/">Blog</a>
         <div class="nav-region" aria-label="Region"><span class="nav-region-current">🇮🇪 IE</span><span class="nav-region-sep">|</span><a href="https://www.classcover.com.au/" class="nav-region-link" target="_blank" rel="noopener" aria-label="Go to ClassCover Australia">🇦🇺 AU</a></div>
         <a href="https://booking.classcoverapp.com/login" class="nav-login">Log in</a>
@@ -237,7 +237,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/schools">For schools</a>
       <a href="/#for-subs">For subs</a>
       <a href="/demo/">Demo</a>
-      <a href="/#faq">FAQs</a>
+      <a href="/schools/pricing/">Pricing</a>
       <a href="/blog/">Blog</a>
       <a href="https://booking.classcoverapp.com/login" class="nav-login">Log in</a>
       <a href="/sign-up/" class="btn">Sign up</a>
@@ -385,9 +385,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script type="application/json" id="rl-data">
   [
     {
+      "title": "Two-way messaging",
+      "origin": "planned",
+      "status": "up-next",
+      "icon": "msg",
+      "summary": "Message the subs and SNAs on your list, and the ones asking to join it, without leaving ClassCover.",
+      "points": [
+        "Every conversation with your subs and SNAs in one inbox",
+        "Ask a sub anything before you approve or book them",
+        "Talk to your booked sub or SNA before they arrive: the class, the timetable, where to sign in",
+        "Request the documents you need and get them back in the chat",
+        "Reach SNAs who've asked to join your list, so you can start their vetting",
+        "Messages are encrypted"
+      ]
+    },
+    {
+      "title": "Sub call outs",
+      "status": "in-development",
+      "icon": "call",
+      "summary": "Show subs and SNAs near you that you're actively looking to grow your list. The ones keen to join more school lists reply with their documents attached, and you add them on the spot.",
+      "points": [
+        "Post a call out whenever you need more subs or SNAs on your list",
+        "Subs reply with their Teaching Council e-card, Garda vetting disclosure, Statutory Declaration and Children First certificate",
+        "Add them to your list in one click and book them straight away"
+      ]
+    },
+    {
       "title": "Documents on every sub profile",
       "origin": "feedback",
-      "status": "up-next",
+      "status": "in-testing",
       "icon": "doc",
       "summary": "Everything you need to approve a sub, on their profile. No more chasing documents by text or email.",
       "points": [
@@ -397,14 +423,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       ]
     },
     {
-      "title": "Two-way messaging",
+      "title": "School mobile app",
       "origin": "planned",
-      "status": "in-testing",
-      "icon": "msg",
-      "summary": "Talk to the subs and SNAs you book without leaving ClassCover.",
+      "status": "in-development",
+      "icon": "phone",
+      "summary": "ClassCover for schools, on your phone.",
       "points": [
-        "Message from the web or the app",
-        "Share what they need to know before they arrive"
+        "Book subs when you're away from your desk",
+        "Message subs and SNAs on the go"
       ]
     },
     {
@@ -428,17 +454,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       "points": [
         "Filter Find New to show only subs with the ClassCover TCN Verified tick",
         "Fewer profiles to open before you invite"
-      ]
-    },
-    {
-      "title": "School mobile app",
-      "origin": "planned",
-      "status": "in-design",
-      "icon": "phone",
-      "summary": "ClassCover for schools, on your phone.",
-      "points": [
-        "Book subs when you're away from your desk",
-        "Message subs and SNAs on the go"
       ]
     },
     {
@@ -477,6 +492,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       filter: '<path d="M22 3H2l8 9.46V19l4 2v-8.54z"/>',
       phone: '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>',
       school: '<path d="m3 10 9-6 9 6"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/>',
+      call: '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
       desktop: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/>'
     };
     var LABELS = { 'up-next': 'Up next', 'in-development': 'In development', 'in-testing': 'In testing', 'in-design': 'In design', 'planned': 'Planned', 'released': 'Released' };
