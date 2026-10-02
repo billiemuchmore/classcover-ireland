@@ -809,6 +809,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .pr-hero-light .pr-plan .btn { width: 100%; text-align: center; }
     .pr-plan-note strong { color: #146C3A; font-weight: 600; }
     .pr-plan-note { font-size: 13.5px; color: var(--muted); margin-top: 12px; width: 100%; text-align: center; }
+    /* Mobile: let the plan cards shrink to the screen (a nowrap button was forcing them wider) */
+    .pr-plan-grid { grid-template-columns: minmax(0, 1fr); }
+    @media (min-width: 820px) { .pr-plan-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+    .pr-plan { min-width: 0; }
+    @media (max-width: 480px) {
+      .pr-hero-light .pr-plan { padding: 32px 22px 24px; }
+      .pr-hero-light .pr-plan .btn { white-space: normal; line-height: 1.3; padding-left: 18px; padding-right: 18px; }
+    }
     .pr-compare {
       position: relative;
       max-width: 880px;
