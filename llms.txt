@@ -32,8 +32,8 @@ in Ireland.
 - Language: en-IE
 - Free for: Substitute teachers and SNAs, permanently
 - School pricing: ClassCover Lite is free for every school. ClassCover Standard runs from
-  €600 per year to €3,300 per year, priced by enrolment across 12 bands, inclusive of VAT.
-  DEIS schools and schools with 100 students or fewer qualify for a discounted rate at launch.
+  €350 per year to €3,300 per year, priced by enrolment across 14 bands, inclusive of VAT.
+  DEIS schools save 20% in every band.
 - Irish legal entity: Class Cover Pvt Limited, CRO 819425, registered office The Black Church,
   St. Mary's Place, Dublin 7, D07 P4AX
 - Parent company: ClassCover (classcover.com.au), Australia
