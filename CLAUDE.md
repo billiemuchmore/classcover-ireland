@@ -22,6 +22,12 @@ The rules below in this file govern site-specific technical requirements (GTM, c
 >
 > Conversion tracking (Meta Pixel, Typeform popups, GA4 `conversion` event) is NOT per-page — it lives in `main.js` and applies everywhere automatically. Never paste pixel/event code into a page.
 
+## Design quality: always use the frontend-design skill
+
+Any change that touches how a page looks (new page, new section, redesign, even a small layout tweak) starts by invoking the `frontend-design` skill. Don't wait to be asked. Billie finds the result is noticeably better when the skill is used, so treat it as the default for this site.
+
+Within the skill, stay inside the live brand: Poppins, the site purples (`#3A0CA3`, `#7B5CC1`, `#BE76F4`, `#EBE7F6`) and their tints. The reference look is `/schools/pricing/` and `/media/` (Oct 2026): a dark purple gradient hero with a fine dot texture, big tight headings, white rounded cards with soft purple shadows, hover lift, and restrained motion that respects `prefers-reduced-motion`. Check every change at desktop and 375px mobile on localhost with no horizontal scroll, then show it before pushing.
+
 ## Top nav: there is no shared template
 
 The nav is hardcoded on every page, twice (`nav.nav-links` for desktop and `nav.nav-drawer` for mobile). Current order: **For schools · For subs · Demo · Pricing · Blog**, then region, Log in and Sign up.
