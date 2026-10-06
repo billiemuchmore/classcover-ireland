@@ -116,6 +116,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --ms-purple:      #371D72;
       --ms-purple-deep: #250564;
       --ms-lavender:    #C291FC;
+      --ms-lime:        #D7F078;
       --ms-lilac:       #DCCFFA;
       --ms-pink:        #EFA0EF;
       --ms-ink:         #1B0E3D;
@@ -187,6 +188,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* Cash leads, the Standard year sits beside it. Two pills rather
        than one long line, so they wrap cleanly on a phone. */
+    /* Campaign refresh flag. Lime mirrors the updated INTO ad, and the
+       pill radius differs from the prize pills so it reads as a
+       separate kind of message rather than a third prize. */
+    .ms-update-pill {
+      display: inline-block;
+      background: var(--ms-lime);
+      color: var(--ms-ink);
+      font-weight: 800;
+      font-size: clamp(12px, 1.8vw, 14.5px);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      line-height: 1.35;
+      padding: 10px 22px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+    }
+
     .ms-flash-row {
       display: flex;
       flex-wrap: wrap;
@@ -268,6 +286,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 1.65;
       max-width: 50ch;
       margin: 0 auto 34px;
+    }
+
+    /* ── Survey refresh band ────────────────────────────────── */
+    /* Speaks to people who already answered. Lime outline so it reads
+       as campaign news rather than another prize. */
+    .ms-update {
+      background: var(--ms-purple-deep);
+      padding: 0 0 84px;
+    }
+    .ms-update-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px solid rgba(215, 240, 120, .38);
+      border-radius: 20px;
+      padding: 40px 34px;
+    }
+    .ms-update-inner .ms-kicker { color: var(--ms-lime); }
+    .ms-update-inner h2 {
+      color: #ffffff;
+      font-size: clamp(23px, 3.2vw, 32px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+    .ms-update-inner p {
+      color: rgba(255,255,255,.8);
+      font-size: clamp(16px, 1.9vw, 18px);
+      line-height: 1.6;
+      max-width: 50ch;
+      margin: 0 auto 28px;
     }
 
     /* ── Prize ──────────────────────────────────────────────── */
@@ -714,6 +763,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="ms-flash">Win €1,000</span>
               <span class="ms-flash ms-flash-alt">plus a full year's subscription to ClassCover Standard</span>
             </div>
+            <span class="ms-update-pill ms-anim ms-anim-2">Updated questions. More chances to win.</span>
             <!-- Light lockup: white "THE GREAT / STUDY" for the dark page.
                  Dark version at /images/morning-scramble-lockup-dark.png. -->
             <img class="ms-lockup-img ms-anim ms-anim-2"
@@ -738,11 +788,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span>The CPD day nobody could cover.</span>
             </p>
             <p class="ms-hero-sub ms-anim ms-anim-4">We are asking principals, teachers and SNAs across Ireland what the morning scramble looks like in their school, and what it costs when no sub can be found. Takes a couple of minutes.</p>
-            <a href="https://rtcon.typeform.com/to/wLQdhwVj" class="ms-btn ms-anim ms-anim-5">Take part</a>
+            <a href="https://rtcon.typeform.com/to/zedEoZfk" class="ms-btn ms-anim ms-anim-5">Take part</a>
           </div>
 
         </div>
 
+      </div>
+    </section>
+
+    <!-- ======================================================
+         SURVEY REFRESH
+    ====================================================== -->
+    <section class="ms-update">
+      <div class="container">
+        <div class="ms-update-inner">
+          <span class="ms-kicker">Updated</span>
+          <h2>Already took part?</h2>
+          <p>We have added new questions since the survey first went out. Answer the updated version and your school gets a second entry in the draw.</p>
+          <a href="https://rtcon.typeform.com/to/zedEoZfk" class="ms-btn">Take the updated survey</a>
+        </div>
       </div>
     </section>
 
@@ -768,7 +832,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <span class="ms-kicker ms-prize-drawn">Drawn 23 November</span>
-        <a href="https://rtcon.typeform.com/to/wLQdhwVj" class="ms-btn ms-prize-cta">Take part</a>
+        <a href="https://rtcon.typeform.com/to/zedEoZfk" class="ms-btn ms-prize-cta">Take part</a>
       </div>
     </section>
 
@@ -860,7 +924,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><strong>Promoter:</strong> Class Cover Pvt Limited (registered in the Republic of Ireland under the Companies Act 2014, company no. 819425), The Black Church, St. Mary's Place, Dublin 7, D07 P4AX, Ireland ("ClassCover").</li>
                 <li>The promotion is <strong>free to enter</strong>. No purchase is necessary.</li>
                 <li><strong>Eligibility:</strong> Open to staff members (including teachers, principals, deputy principals, and SNAs) of a recognised primary or post-primary school in the <strong>Republic of Ireland</strong>, aged 18+. The prize draw is <strong>not open to schools or entrants outside the Republic of Ireland</strong>. Employees of ClassCover, its group companies, and their immediate families are excluded.</li>
-                <li><strong>How to enter:</strong> Complete and submit the survey linked from https://www.classcoverapp.ie/morning-scramble/ during the promotion period. One entry per person. Where more than one staff member from the same school enters, each entry is valid, but a school may win only once. ClassCover reserves the right to disregard incomplete, duplicate or fraudulent entries.</li>
+                <li><strong>How to enter:</strong> Complete and submit the survey linked from https://www.classcoverapp.ie/morning-scramble/ during the promotion period. The survey was updated during the promotion period. One entry per person per version, so anyone who completed the original survey and the updated one has two entries. Where more than one staff member from the same school enters, each entry is valid, but a school may win only once. ClassCover reserves the right to disregard incomplete, repeated or fraudulent submissions of the same version.</li>
                 <li><strong>Promotion period:</strong> Opens 00:01 on Tuesday 22 September 2026 and closes 23:59 on Sunday 22 November 2026 (the "Closing Date"), Irish time. Entries received after the Closing Date will not be counted.</li>
                 <li><strong>Prize:</strong> One (1) prize consisting of €1,000 issued as a CleverCards prepaid card, and twelve (12) months of ClassCover Standard free of charge, awarded to the winner's nominated <strong>Republic of Ireland</strong> school and <strong>not</strong> to the individual entrant. The prize is non-transferable and there is no cash alternative.</li>
                 <li><strong>The ClassCover Standard element:</strong> twelve months of ClassCover Standard for the nominated school, beginning on the date the school chooses to redeem it and running for twelve months from that date. It does not roll into a paid subscription at the end of the twelve months unless the school separately chooses to continue. A school already subscribed to ClassCover receives twelve months credited to its existing subscription instead.</li>
