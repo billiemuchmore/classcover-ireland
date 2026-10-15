@@ -139,6 +139,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
         {
           "@type": "Question",
+          "name": "Does ClassCover help with OLCS returns?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every booking is recorded with the date, the hours, the class and teacher covered, and the absence reason. Export the OLCS report for any date range to Excel and your secretary has it all in one place. Absence reasons stay private to your school. ETB schools use the same report for their own payroll."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "We're an ETB school. Can our head office approve subs for every school?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Head office approves each sub once, and every school in your ETB can then see them, see when they're free, and book them in the app. It's built and proven with Catholic dioceses in Australia and set up for your ETB. Vetting and the final say stay with your ETB."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "My school already has a list of subs we rely on. Does ClassCover replace that?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -163,6 +179,447 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     gtag('config', 'G-NP5RJJQYV0');
   </script>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Schools page (Oct 2026 redesign). Scoped to .sp so shared classes elsewhere are untouched. ── */
+    .sp {
+      --ink: #1A1033;
+      --deep: #22075E;
+      --purple: #3A0CA3;
+      --mid: #7B5CC1;
+      --lilac: #BE76F4;
+      --accent: #C291FC;
+      --tint: #EBE7F6;
+      --tint-2: #F6F3FC;
+      --line: #DED6F3;
+      --muted: #5B5470;
+      --ease: cubic-bezier(.2,.8,.2,1);
+      color: var(--ink);
+      overflow-x: clip;
+    }
+    .sp *, .sp *::before, .sp *::after { box-sizing: border-box; }
+    .sp .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .sp h2 { font-size: clamp(30px, 4.2vw, 46px); line-height: 1.08; letter-spacing: -.025em; color: var(--ink); }
+    .sp-section { padding: 88px 0; }
+    @media (min-width: 900px) { .sp-section { padding: 120px 0; } }
+    .sp-kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--mid); margin-bottom: 16px;
+    }
+    .sp-kicker::before { content: ""; width: 22px; height: 2px; border-radius: 2px; background: currentColor; }
+    .sp-lede { font-size: 18px; line-height: 1.7; color: var(--muted); }
+    .sp-lede + .sp-lede { margin-top: 14px; }
+    .sp-head { max-width: 740px; margin: 0 auto 56px; text-align: center; }
+    .sp-head .sp-kicker { justify-content: center; }
+    .sp-head .sp-lede { margin-top: 18px; }
+    .sp-center { text-align: center; margin-top: 44px; }
+
+    /* Buttons */
+    .sp-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font: 700 16px/1.2 'Poppins', sans-serif; padding: 17px 28px; border-radius: 99px;
+      text-decoration: none; cursor: pointer; white-space: nowrap;
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .2s, border-color .2s;
+    }
+    .sp-btn svg { width: 18px; height: 18px; flex: 0 0 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s var(--ease); }
+    .sp-btn:hover svg, .sp-demo:hover .sp-btn svg { transform: translateX(4px); }
+    .sp-btn--accent { background: var(--accent); color: var(--deep) !important; box-shadow: 0 12px 32px rgba(194,145,252,.32); }
+    .sp-btn--accent:hover { transform: translateY(-2px); box-shadow: 0 18px 44px rgba(194,145,252,.45); }
+    .sp-btn--primary { background: var(--purple); color: #fff !important; box-shadow: 0 12px 28px rgba(58,12,163,.24); }
+    .sp-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(58,12,163,.32); }
+    .sp-btn--ghost { color: #fff !important; border: 1.5px solid rgba(255,255,255,.32); }
+    .sp-btn--ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.6); }
+    .sp-btn:focus-visible, .sp-flu a:focus-visible, .sp-demo:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    @media (max-width: 520px) { .sp-btn { white-space: normal; width: 100%; text-align: center; } }
+
+    /* Flu season pop-up */
+    .sp-flu {
+      position: fixed; z-index: 1001; left: 24px; bottom: 24px; width: 340px; max-width: calc(100vw - 32px);
+      background: #fff; border-radius: 22px; overflow: hidden; color: var(--ink);
+      box-shadow: 0 30px 70px rgba(20,4,60,.35), 0 0 0 1px rgba(58,12,163,.08);
+      opacity: 0; transform: translateY(24px) scale(.97); transform-origin: bottom left;
+      transition: opacity .45s var(--ease), transform .45s var(--ease);
+    }
+    .sp-flu.is-in { opacity: 1; transform: none; }
+    .sp-flu-photo { display: block; width: 100%; height: 172px; object-fit: cover; object-position: 45% 30%; }
+    .sp-flu-media { position: relative; }
+    .sp-flu-text-msg { position: absolute; left: 12px; top: 12px; max-width: 46%; opacity: 0; transform: translateY(-6px) scale(.96); transform-origin: top left; transition: opacity .45s var(--ease) .55s, transform .45s var(--ease) .55s; }
+    .sp-flu.is-in .sp-flu-text-msg { opacity: 1; transform: none; }
+    .sp-flu-text-msg p { margin: 0; background: rgba(236,236,240,.94); color: #111 !important; font: 500 11.5px/1.3 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; padding: 6px 10px; border-radius: 13px 13px 13px 3px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .sp-flu-time { display: block; font: 600 9.5px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: rgba(255,255,255,.85); margin: 0 0 4px 3px; text-shadow: 0 1px 3px rgba(0,0,0,.5); }
+    .sp-flu-body { padding: 18px 22px 22px; }
+    .sp-flu-body p { margin: 0; }
+    .sp-flu-title { font-size: 25px; font-weight: 800; line-height: 1.08; letter-spacing: -.025em; color: var(--ink) !important; }
+    .sp-flu-title em { font-style: normal; color: var(--mid); }
+    .sp-flu-text { font-size: 15px !important; line-height: 1.5; color: var(--muted) !important; margin: 8px 0 16px !important; }
+    .sp-flu-cta { width: 100%; padding: 14px 20px; font-size: 15px; }
+    .sp-flu-close {
+      position: absolute; top: 10px; right: 10px; z-index: 1; width: 34px; height: 34px; border-radius: 50%; border: 0; cursor: pointer;
+      display: grid; place-items: center; background: rgba(20,4,60,.55); color: #fff;
+      -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background .2s;
+    }
+    .sp-flu-close:hover { background: rgba(20,4,60,.8); }
+    .sp-flu-close:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .sp-flu-close svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
+    /* Phones: a compact card along the bottom */
+    @media (max-width: 560px) {
+      .sp-flu { left: 12px; right: 12px; bottom: 12px; width: auto; max-width: none; border-radius: 18px; transform-origin: bottom center; }
+      .sp-flu-photo { height: 132px; object-position: 45% 28%; }
+      .sp-flu-text-msg { left: 10px; top: 10px; max-width: 42%; }
+      .sp-flu-text-msg p { font-size: 11px !important; padding: 5px 9px; }
+      .sp-flu-body { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 12px; padding: 12px 14px 14px; }
+      .sp-flu-title { font-size: 18px; grid-column: 1; }
+      .sp-flu-text { display: none; }
+      .sp-flu-cta { grid-column: 2; grid-row: 1; width: auto !important; padding: 11px 14px; font-size: 13.5px; white-space: nowrap !important; }
+      .sp-flu-cta svg { display: none; }
+      .sp-flu-close { top: 8px; right: 8px; width: 30px; height: 30px; }
+    }
+
+    /* Hero: centred copy, the video is the hero */
+    .sp-hero {
+      position: relative; overflow: hidden; color: #fff; text-align: center; padding: 64px 0 0; margin-top: var(--nav-h);
+      background:
+        radial-gradient(900px 480px at 85% -10%, rgba(190,118,244,.38), transparent 60%),
+        radial-gradient(700px 520px at 0% 70%, rgba(123,92,193,.45), transparent 60%),
+        linear-gradient(160deg, var(--deep) 0%, var(--purple) 70%);
+    }
+    .sp-hero::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,.09) 1px, transparent 1px);
+      background-size: 22px 22px;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+      mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+    }
+    /* White band behind the lower part of the video, so it sits across the edge of the hero */
+    .sp-hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 22%; background: #fff; }
+    @media (min-width: 900px) { .sp-hero { padding-top: 84px; } .sp-hero::after { height: 30%; } }
+    .sp-hero-copy { position: relative; max-width: 1000px; margin: 0 auto; }
+    .sp-pill {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 99px; padding: 7px 15px; margin-bottom: 26px;
+    }
+    @media (max-width: 420px) { .sp-pill { font-size: 10.5px; letter-spacing: .08em; padding: 6px 12px; white-space: nowrap; } }
+    .sp-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: sp-pulse 1.8s ease-out infinite; }
+    @keyframes sp-pulse { 0% { box-shadow: 0 0 0 0 rgba(194,145,252,.7); } 100% { box-shadow: 0 0 0 10px rgba(194,145,252,0); } }
+    .sp-hero h1 { text-wrap: balance; color: #fff; font-size: clamp(38px, 5.6vw, 70px); font-weight: 800; line-height: 1.02; letter-spacing: -.035em; margin: 0 auto 22px; }
+    .sp-hero h1 em { display: block; font-style: normal; background: linear-gradient(90deg, #EBDDFF, var(--accent) 55%, var(--lilac)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .sp-hero-lede { color: rgba(255,255,255,.8); font-size: 18px; line-height: 1.65; max-width: 640px; margin: 0 auto 32px; text-wrap: pretty; }
+    .sp-hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .sp-hero-video { position: relative; z-index: 1; max-width: 1040px; margin: 52px auto 0; animation: sp-rise .9s var(--ease) both .15s; }
+    @media (min-width: 900px) { .sp-hero-video { margin-top: 64px; } }
+    .sp-hero-video::before {
+      content: ""; position: absolute; left: 6%; right: 6%; top: -30px; height: 70%; z-index: -1;
+      background: radial-gradient(closest-side, rgba(194,145,252,.55), transparent); filter: blur(40px);
+    }
+    .sp-video {
+      position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: #0d0425;
+      border: 8px solid rgba(255,255,255,.14); background-clip: padding-box;
+      box-shadow: 0 40px 100px rgba(12,2,40,.35), 0 0 0 1px rgba(255,255,255,.18);
+    }
+    @media (max-width: 600px) { .sp-video { border-width: 5px; border-radius: 16px; } }
+    .sp-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    @keyframes sp-rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+
+    /* People rows in product mocks */
+    .sp-confirm-person img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; flex: 0 0 42px; box-shadow: 0 0 0 3px #E7F6EE; }
+    .sp-person-name { font-size: 15px; font-weight: 700; line-height: 1.25; color: var(--ink) !important; margin: 0; }
+    .sp-person-role { font-size: 13px; color: var(--muted) !important; line-height: 1.3; margin: 0; }
+
+    /* Split sections */
+    .sp-split { display: grid; gap: 48px; align-items: center; }
+    @media (min-width: 960px) {
+      .sp-split { grid-template-columns: .9fr 1.1fr; gap: 72px; }
+      .sp-split--flip { grid-template-columns: 1fr 1fr; }
+      .sp-split--flip .sp-split-visual { order: 2; }
+    }
+    .sp-split-copy h2 { margin-bottom: 20px; }
+    .sp-split-visual img { width: 100%; height: auto; }
+    .sp-product .sp-split-visual img { filter: drop-shadow(0 30px 50px rgba(58,12,163,.16)); }
+
+    .sp-product .sp-lede + .sp-lede { margin-top: 16px; }
+
+    /* How it works */
+    .sp-how { background: var(--tint-2); }
+    .sp-steps { display: grid; gap: 22px; counter-reset: none; }
+    @media (min-width: 900px) { .sp-steps { grid-template-columns: repeat(3, 1fr); gap: 26px; } }
+    .sp-step {
+      background: #fff; border-radius: 24px; padding: 14px 14px 30px; border: 1px solid var(--line);
+      box-shadow: 0 12px 34px rgba(58,12,163,.07);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .sp-step:hover { transform: translateY(-4px); box-shadow: 0 24px 54px rgba(58,12,163,.14); }
+    .sp-step-art {
+      height: 310px; border-radius: 16px; overflow: hidden; margin-bottom: 24px; position: relative;
+      background:
+        radial-gradient(260px 200px at 80% 0%, rgba(190,118,244,.28), transparent 70%),
+        linear-gradient(160deg, #EFE9FB, #E2D8F7);
+    }
+    .sp-step-art > img { position: absolute; left: 50%; top: 18px; width: 62%; max-width: 240px; transform: translateX(-50%); height: auto; transition: transform .5s var(--ease); }
+    .sp-step:hover .sp-step-art > img { transform: translateX(-50%) translateY(-6px); }
+    .sp-step-art--card { display: grid; place-items: center; padding: 20px; }
+    .sp-confirm { width: 100%; max-width: 270px; background: #fff; border-radius: 18px; padding: 22px 20px; text-align: center; box-shadow: 0 18px 44px rgba(58,12,163,.16); }
+    .sp-confirm p { margin: 0; }
+    .sp-confirm-tick { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 12px; background: #E7F6EE; }
+    .sp-confirm-tick svg { width: 22px; height: 22px; fill: none; stroke: #137A43; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .sp-confirm-title { font-size: 17px; font-weight: 800; color: var(--ink) !important; letter-spacing: -.01em; }
+    .sp-confirm-meta { font-size: 12.5px; color: var(--muted) !important; margin-top: 2px !important; }
+    .sp-confirm-person { display: flex; align-items: center; gap: 12px; text-align: left; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--tint); }
+    .sp-step-num { display: block; padding: 0 14px; font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--mid); margin-bottom: 8px; }
+    .sp-step > h3 { padding: 0 14px; font-size: 21px; font-weight: 700; line-height: 1.25; letter-spacing: -.015em; color: var(--ink); margin-bottom: 8px; }
+    .sp-step > p { padding: 0 14px; font-size: 15.5px; line-height: 1.6; color: var(--muted); margin: 0; }
+
+    /* OLCS report */
+    .sp-report {
+      position: relative; overflow: hidden; color: #fff;
+      background:
+        radial-gradient(800px 460px at 100% 0%, rgba(190,118,244,.32), transparent 60%),
+        radial-gradient(700px 500px at 0% 100%, rgba(123,92,193,.4), transparent 60%),
+        linear-gradient(160deg, var(--deep) 0%, var(--purple) 80%);
+    }
+    .sp-report::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size: 22px 22px;
+      -webkit-mask-image: linear-gradient(120deg, #000, transparent 60%); mask-image: linear-gradient(120deg, #000, transparent 60%);
+    }
+    .sp-report-head { position: relative; }
+    .sp-report .sp-kicker { color: var(--accent); }
+    .sp-report h2 { color: #fff; }
+    .sp-report .sp-lede { color: rgba(255,255,255,.8); }
+    .sp-sheet-wrap { position: relative; max-width: 980px; margin: 0 auto; }
+    .sp-sheet-wrap::before { content: ""; position: absolute; left: 8%; right: 8%; top: 10%; bottom: -10%; z-index: 0; background: radial-gradient(closest-side, rgba(194,145,252,.4), transparent); filter: blur(40px); }
+    .sp-sheet-wrap .sp-sheet { position: relative; }
+    .sp-report-points { position: relative; display: grid; gap: 18px 28px; max-width: 980px; margin: 48px auto 0; }
+    @media (min-width: 640px) { .sp-report-points { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1000px) { .sp-report-points { grid-template-columns: repeat(4, 1fr); } }
+    .sp-report-points li { display: flex; align-items: flex-start; gap: 12px; font-size: 15.5px; line-height: 1.55; color: rgba(255,255,255,.9); }
+    .sp-report-points .ic { flex: 0 0 24px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: rgba(194,145,252,.2); border: 1px solid rgba(194,145,252,.4); }
+    .sp-report-points .ic svg { width: 13px; height: 13px; fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .sp-sheet table { font-size: 14.5px; }
+    .sp-sheet { background: #fff; color: var(--ink); border-radius: 22px; overflow: hidden; box-shadow: 0 36px 90px rgba(12,2,40,.5), 0 0 0 1px rgba(255,255,255,.1); }
+    .sp-sheet p { margin: 0; }
+    .sp-sheet-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 22px 18px; }
+    .sp-sheet-title { font-size: 19px; font-weight: 800; letter-spacing: -.015em; color: var(--ink) !important; line-height: 1.2; }
+    .sp-sheet-range { font-size: 13px; color: var(--muted) !important; line-height: 1.3; }
+    .sp-sheet-btn { display: inline-flex; align-items: center; gap: 7px; flex: 0 0 auto; background: var(--purple); color: #fff; font-size: 13px; font-weight: 700; padding: 10px 14px; border-radius: 11px; }
+    .sp-sheet-btn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .sp-sheet table { width: 100%; border-collapse: collapse; }
+    .sp-sheet th { text-align: left; white-space: nowrap; background: #EEEAFD; color: var(--purple); font-size: 12px; font-weight: 700; padding: 11px 12px; }
+    .sp-sheet th:first-child, .sp-sheet td:first-child { padding-left: 22px; }
+    .sp-sheet td { padding: 13px 12px; border-bottom: 1px solid var(--tint); color: var(--ink); white-space: nowrap; line-height: 1.3; }
+    .sp-sheet tbody tr:last-child td { border-bottom: 0; }
+    .sp-reason { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 99px; background: var(--tint-2); color: var(--purple); }
+    @media (max-width: 700px) {
+      .sp-sheet .sp-col-hours, .sp-sheet .sp-col-teacher { display: none; }
+      .sp-sheet td { white-space: normal; }
+      .sp-sheet th, .sp-sheet td { padding-left: 8px; padding-right: 8px; }
+      .sp-sheet th:first-child, .sp-sheet td:first-child { padding-left: 14px; }
+      .sp-sheet-head { padding: 16px 14px; }
+    }
+    @media (max-width: 420px) { .sp-sheet table { font-size: 12.5px; } .sp-reason { font-size: 11px; padding: 3px 8px; } .sp-sheet-btn { padding: 8px 10px; font-size: 12px; } }
+    .sp-js .sp-sheet-wrap tbody tr { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+    .sp-js .sp-sheet-wrap.is-in tbody tr { opacity: 1; transform: none; }
+    .sp-js .sp-sheet-wrap.is-in tbody tr:nth-child(1) { transition-delay: .3s; }
+    .sp-js .sp-sheet-wrap.is-in tbody tr:nth-child(2) { transition-delay: .42s; }
+    .sp-js .sp-sheet-wrap.is-in tbody tr:nth-child(3) { transition-delay: .54s; }
+    .sp-js .sp-sheet-wrap.is-in tbody tr:nth-child(4) { transition-delay: .66s; }
+    .sp-js .sp-sheet-wrap.is-in tbody tr:nth-child(5) { transition-delay: .78s; }
+
+    /* Things schools love */
+    .sp-handy-grid { display: grid; gap: 18px; }
+    @media (min-width: 700px) { .sp-handy-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1040px) { .sp-handy-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
+    .sp-handy {
+      background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 28px 26px 30px;
+      box-shadow: 0 10px 30px rgba(58,12,163,.06);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+    }
+    .sp-handy:hover { transform: translateY(-4px); box-shadow: 0 22px 48px rgba(58,12,163,.13); border-color: #CDBFF0; }
+    .sp-handy-ic { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: var(--tint-2); margin-bottom: 18px; }
+    .sp-handy-ic svg, .sp-systems-ic svg { width: 24px; height: 24px; fill: none; stroke: var(--purple); stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+    .sp-handy h3 { font-size: 18.5px; font-weight: 700; letter-spacing: -.01em; line-height: 1.3; margin-bottom: 8px; color: var(--ink); }
+    .sp-handy p { font-size: 15.5px; line-height: 1.6; color: var(--muted); margin: 0; }
+
+    /* Works the way your school is run */
+    .sp-systems { background: var(--tint-2); }
+    .sp-systems-card { max-width: 1100px; margin: 0 auto; display: grid; overflow: hidden; background: #fff; border: 1px solid var(--line); border-radius: 28px; box-shadow: 0 16px 44px rgba(58,12,163,.08); }
+    @media (min-width: 960px) { .sp-systems-card { grid-template-columns: .85fr 1.4fr; } }
+    .sp-systems-intro {
+      position: relative; overflow: hidden; padding: 40px 34px; color: #fff;
+      background: radial-gradient(380px 260px at 100% 0%, rgba(190,118,244,.38), transparent 70%), linear-gradient(160deg, var(--deep), var(--purple));
+    }
+    .sp-systems-intro .sp-kicker { color: var(--accent); }
+    .sp-systems-intro h2 { color: #fff; font-size: clamp(28px, 3.4vw, 38px); margin-bottom: 16px; }
+    .sp-systems-intro p { color: rgba(255,255,255,.8); font-size: 16.5px; line-height: 1.65; }
+    .sp-systems-list { padding: 8px 34px; }
+    .sp-systems-list li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; padding: 24px 0; border-bottom: 1px solid var(--tint); }
+    .sp-systems-list li:last-child { border-bottom: 0; }
+    .sp-systems-ic { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; background: var(--tint-2); }
+    .sp-systems-ic svg { width: 21px; height: 21px; }
+    .sp-systems-list h3 { font-size: 17.5px; font-weight: 700; line-height: 1.3; color: var(--ink); margin: 2px 0 6px; }
+    .sp-systems-list p { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0; }
+    .sp-systems-list a { display: inline-block; margin-top: 8px; font-size: 15px; font-weight: 700; color: var(--purple); text-decoration: underline; text-underline-offset: 3px; }
+    .sp-systems-list a:hover { color: var(--mid); }
+    @media (max-width: 520px) { .sp-systems-intro { padding: 32px 22px; } .sp-systems-list { padding: 4px 22px; } .sp-systems-list li { grid-template-columns: 1fr; gap: 12px; } }
+
+    /* Tiers */
+    .sp-tier-grid { display: grid; gap: 22px; max-width: 1000px; margin: 0 auto; }
+    @media (min-width: 860px) { .sp-tier-grid { grid-template-columns: 1fr 1fr; } }
+    .sp-tier {
+      display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line);
+      border-radius: 24px; padding: 34px 32px; box-shadow: 0 12px 34px rgba(58,12,163,.07);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .sp-tier:hover { transform: translateY(-4px); box-shadow: 0 24px 54px rgba(58,12,163,.13); }
+    @media (max-width: 480px) { .sp-tier { padding: 28px 22px; } }
+    .sp-tier-tag { align-self: flex-start; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); background: var(--tint-2); border-radius: 99px; padding: 6px 12px; }
+    .sp-tier h3 { font-size: 24px; font-weight: 700; letter-spacing: -.015em; margin: 20px 0 4px; color: var(--ink); }
+    .sp-tier-price { font-size: 30px; font-weight: 800; letter-spacing: -.025em; line-height: 1.15; color: var(--purple); margin: 0 0 10px; }
+    .sp-tier-where { font-size: 15px; line-height: 1.55; color: var(--muted); margin: 0 0 24px; padding-bottom: 22px; border-bottom: 1px solid var(--tint); }
+    .sp-tier-list { display: grid; gap: 14px; margin: 0 0 28px; }
+    .sp-tier-list li { position: relative; padding-left: 32px; font-size: 16px; line-height: 1.45; color: var(--ink); }
+    .sp-tier-list li::before { content: ""; position: absolute; left: 0; top: 1px; width: 21px; height: 21px; border-radius: 50%; background: var(--tint-2); }
+    .sp-tier-list li::after { content: ""; position: absolute; left: 6.5px; top: 7px; width: 8px; height: 5px; border-left: 2px solid var(--purple); border-bottom: 2px solid var(--purple); transform: rotate(-45deg); }
+    .sp-tier-after { margin-top: auto; padding: 14px 18px; border-radius: 14px; background: var(--tint-2); font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+    .sp-tier-after strong { color: var(--purple); }
+    .sp-tier-after a { color: var(--purple); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .sp-special { display: inline-block; margin-left: 6px; vertical-align: 1px; white-space: nowrap; font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #B45309; background: #FFF4E5; border: 1px solid #FCD9A7; border-radius: 99px; padding: 2px 8px; }
+
+    .sp-tier--pilot {
+      position: relative; overflow: hidden; border-color: transparent; color: #fff;
+      background:
+        radial-gradient(420px 260px at 100% 0%, rgba(190,118,244,.35), transparent 70%),
+        linear-gradient(160deg, var(--deep), var(--purple));
+      box-shadow: 0 26px 60px rgba(58,12,163,.3);
+    }
+    .sp-tier--pilot:hover { box-shadow: 0 32px 72px rgba(58,12,163,.38); }
+    .sp-tier--pilot::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size: 20px 20px;
+      -webkit-mask-image: linear-gradient(200deg, #000, transparent 60%); mask-image: linear-gradient(200deg, #000, transparent 60%);
+    }
+    .sp-tier--pilot > * { position: relative; }
+    .sp-tier--pilot .sp-tier-tag { color: var(--deep); background: var(--accent); }
+    .sp-tier--pilot h3 { color: #fff; }
+    .sp-tier--pilot .sp-tier-price { color: var(--accent); }
+    .sp-tier--pilot .sp-tier-where { color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.14); }
+    .sp-tier--pilot .sp-tier-list li { color: #fff; }
+    .sp-tier--pilot .sp-tier-list li::before { background: rgba(194,145,252,.22); }
+    .sp-tier--pilot .sp-tier-list li::after { border-color: var(--accent); }
+    .sp-tier--pilot .sp-tier-after { background: rgba(255,255,255,.08); color: rgba(255,255,255,.82); }
+    .sp-tier--pilot .sp-tier-after strong { color: #fff; }
+    .sp-tier--pilot .sp-tier-after a { color: var(--accent); }
+
+    .sp-timeline { max-width: 1000px; margin: 48px auto 0; }
+    .sp-timeline h3 { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mid); margin-bottom: 22px; text-align: center; }
+    .sp-timeline ol { display: grid; gap: 22px; position: relative; }
+    .sp-timeline li { position: relative; padding-left: 34px; }
+    .sp-timeline li::before { content: ""; position: absolute; left: 0; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--purple); box-shadow: 0 0 0 5px var(--tint-2); }
+    .sp-timeline li:not(:last-child)::after { content: ""; position: absolute; left: 6px; top: 26px; bottom: -18px; width: 2px; background: var(--line); }
+    .sp-timeline-when { display: block; font-size: 19px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); margin-bottom: 4px; }
+    .sp-timeline-body { display: block; font-size: 15px; line-height: 1.6; color: var(--muted); }
+    @media (min-width: 760px) {
+      .sp-timeline ol { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+      .sp-timeline ol::before { content: ""; position: absolute; left: 7px; right: 7px; top: 11px; height: 2px; background: var(--line); }
+      .sp-timeline li { padding-left: 0; padding-top: 38px; }
+      .sp-timeline li::before { top: 4px; }
+      .sp-timeline li:not(:last-child)::after { display: none; }
+    }
+
+    /* Compare table */
+    .sp-compare { background: var(--tint-2); }
+    .sp-table { max-width: 1000px; margin: 0 auto; background: #fff; border: 1px solid var(--line); border-radius: 24px; overflow: hidden; box-shadow: 0 12px 34px rgba(58,12,163,.07); }
+    .sp-table table { width: 100%; border-collapse: collapse; }
+    .sp-table th, .sp-table td { text-align: left; vertical-align: top; padding: 20px 24px; font-size: 15px; line-height: 1.55; border-bottom: 1px solid var(--tint); }
+    .sp-table tbody tr:last-child > * { border-bottom: 0; }
+    .sp-table thead th { font-size: 14px; font-weight: 700; color: var(--ink); background: #fff; padding-top: 22px; padding-bottom: 22px; }
+    .sp-table thead th.is-std { background: var(--purple); color: #fff; }
+    .sp-table tbody th { font-weight: 700; color: var(--ink); width: 26%; }
+    .sp-table td { color: var(--muted); }
+    .sp-table td.is-std { background: #FAF8FE; color: var(--ink); }
+    .sp-table td a { color: var(--purple); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+    @media (max-width: 720px) {
+      .sp-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .sp-table tr { display: block; padding: 18px 20px; border-bottom: 1px solid var(--tint); }
+      .sp-table tbody tr:last-child { border-bottom: 0; }
+      .sp-table th, .sp-table td { display: block; width: auto !important; padding: 0; border: 0; }
+      .sp-table tbody th { font-size: 16px; margin-bottom: 10px; }
+      .sp-table td { display: grid; grid-template-columns: 82px 1fr; gap: 10px; padding: 8px 0; }
+      .sp-table td.is-std { background: none; }
+      .sp-table td::before { content: attr(data-label); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--mid); padding-top: 3px; }
+      .sp-table td.is-std::before { color: var(--purple); }
+      .sp-table td a { grid-column: 2; justify-self: start; }
+      .sp-why-visual { padding: 24px 6px; }
+    }
+
+    /* Why county */
+    .sp-why-visual { position: relative; border-radius: 28px; padding: 36px 20px; background: radial-gradient(360px 260px at 100% 0%, rgba(190,118,244,.3), transparent 70%), linear-gradient(160deg, #EFE9FB, #E2D8F7); }
+    .sp-why-visual img { filter: drop-shadow(0 18px 30px rgba(58,12,163,.14)); }
+
+    /* Demo card */
+    .sp-demo-wrap { padding-top: 0; }
+    .sp-demo {
+      display: grid; overflow: hidden; max-width: 1000px; margin: 0 auto; background: #fff; color: var(--ink);
+      border: 1px solid var(--line); border-radius: 26px; box-shadow: 0 14px 40px rgba(58,12,163,.09);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .sp-demo:hover { transform: translateY(-4px); box-shadow: 0 26px 60px rgba(58,12,163,.16); }
+    @media (min-width: 820px) { .sp-demo { grid-template-columns: 1.15fr 1fr; align-items: center; } }
+    .sp-demo-media { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: var(--tint); }
+    .sp-demo-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+    .sp-demo:hover .sp-demo-media img { transform: scale(1.04); }
+    .sp-demo-play { position: absolute; left: 50%; top: 50%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.95); box-shadow: 0 12px 30px rgba(12,2,40,.35); transition: transform .3s var(--ease); }
+    .sp-demo:hover .sp-demo-play { transform: scale(1.08); }
+    .sp-demo-play svg { width: 26px; height: 26px; fill: var(--purple); margin-left: 4px; }
+    .sp-demo-body { display: flex; flex-direction: column; align-items: flex-start; padding: 34px 36px 38px; }
+    .sp-demo-title { display: block; font-size: clamp(24px, 3vw, 32px); font-weight: 800; line-height: 1.12; letter-spacing: -.02em; margin-bottom: 12px; }
+    .sp-demo-text { display: block; font-size: 16px; line-height: 1.6; color: var(--muted); margin-bottom: 26px; }
+    @media (max-width: 520px) { .sp-demo-body { padding: 26px 22px 28px; } }
+
+    /* FAQ (keeps .faq-* hooks for main.js) */
+    .sp-faq { background: var(--tint-2); }
+    .sp-faq-grid { display: grid; gap: 36px; }
+    @media (min-width: 960px) {
+      .sp-faq-grid { grid-template-columns: .8fr 1.6fr; gap: 64px; align-items: start; }
+      .sp-faq-head { position: sticky; top: calc(var(--nav-h) + 32px); }
+    }
+    .sp-faq .faq-list { max-width: none; margin: 0; display: grid; gap: 12px; }
+    .sp-faq .faq-item { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 0 22px; transition: box-shadow .25s var(--ease), border-color .25s; }
+    .sp-faq .faq-item:hover { border-color: #CDBFF0; }
+    .sp-faq .faq-item.is-open { box-shadow: 0 14px 34px rgba(58,12,163,.09); border-color: #CDBFF0; }
+    .sp-faq .faq-question { padding: 20px 0; font-size: 16.5px; font-weight: 600; color: var(--ink); }
+    .sp-faq .faq-question:hover { color: var(--purple); }
+    .sp-faq .faq-icon { background: var(--tint-2); color: var(--purple); width: 28px; height: 28px; }
+    .sp-faq .faq-item.is-open .faq-icon { background: var(--purple); color: #fff; }
+    .sp-faq .faq-answer { color: var(--muted); font-size: 15.5px; padding-bottom: 22px; }
+
+    /* Final CTA */
+    .sp-final { padding: 96px 0 112px; }
+    .sp-final-card {
+      position: relative; overflow: hidden; text-align: center; color: #fff;
+      border-radius: 32px; padding: 72px 28px;
+      background:
+        radial-gradient(700px 360px at 85% -20%, rgba(190,118,244,.42), transparent 60%),
+        radial-gradient(600px 400px at 0% 120%, rgba(123,92,193,.5), transparent 60%),
+        linear-gradient(160deg, var(--deep), var(--purple) 75%);
+      box-shadow: 0 30px 80px rgba(58,12,163,.28);
+    }
+    .sp-final-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px); background-size: 22px 22px; -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%); }
+    .sp-final-card > * { position: relative; }
+    .sp-final-card h2 { color: #fff; margin-bottom: 18px; font-size: clamp(32px, 4.6vw, 52px); }
+    .sp-final-card p { color: rgba(255,255,255,.82); font-size: 18px; line-height: 1.7; max-width: 600px; margin: 0 auto 34px; }
+
+    /* Scroll reveal */
+    .sp-js .sp-reveal:not(.is-done) { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .sp-js .sp-reveal.is-in:not(.is-done) { opacity: 1; transform: none; }
+    .sp-js .sp-handy-grid .sp-reveal:nth-child(3n+2), .sp-js .sp-steps .sp-reveal:nth-child(2), .sp-js .sp-tier-grid .sp-reveal:nth-child(2) { transition-delay: .08s; }
+    .sp-js .sp-handy-grid .sp-reveal:nth-child(3n), .sp-js .sp-steps .sp-reveal:nth-child(3) { transition-delay: .16s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sp *, .sp *::before, .sp *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
   <meta name="facebook-domain-verification" content="v8a7px9he8pv0dts1qvvg1dwryitva" />
 </head>
 <body>
@@ -213,23 +670,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </nav>
   </header>
 
-  <main>
+  <main class="sp">
 
     <!-- ======================================================
-         HERO
+         HERO: the promo video is the hero
     ====================================================== -->
-    <section class="hero pilot-hero">
+    <section class="sp-hero">
       <div class="container">
-        <span class="eyebrow">Now live for schools across Ireland</span>
-        <h1>Cover sorted in minutes.<br>Not 39 phone calls.</h1>
-        <p class="hero-sub">ClassCover is a booking platform for substitute teachers and SNAs, already trusted by 1 in 2 Australian schools. Nine counties are on the pilot, with ClassCover Standard free until 1 December 2026.</p>
-        <p class="hero-sub" style="font-weight:700;">Every school in Ireland gets ClassCover Lite free.</p>
-        <div class="btn-group" style="justify-content:center;">
-          <a href="https://booking.classcoverapp.com/welcome-onboard" class="btn" target="_blank" rel="noopener">Create your school account</a>
-          <a href="#pilot" class="btn btn-outline">Lite or the pilot? See which is yours</a>
+        <div class="sp-hero-copy">
+          <span class="sp-pill"><span class="dot" aria-hidden="true"></span>Now live for schools across Ireland</span>
+          <h1>Cover sorted in minutes. <em>Not 39 phone calls.</em></h1>
+          <p class="sp-hero-lede">ClassCover is a booking platform for substitute teachers and SNAs, already trusted by 1 in 2 Australian schools. Every school in Ireland gets ClassCover Lite free.</p>
+          <div class="sp-hero-ctas">
+            <a href="https://booking.classcoverapp.com/welcome-onboard" class="sp-btn sp-btn--accent" target="_blank" rel="noopener">Create your school account <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#pilot" class="sp-btn sp-btn--ghost">Lite or the pilot? See which is yours</a>
+          </div>
         </div>
-        <div class="hero-visual">
-          <div class="video-wrapper">
+        <div class="sp-hero-video">
+          <div class="sp-video">
             <iframe
               src="https://player.vimeo.com/video/1232250897?title=0&byline=0&portrait=0&dnt=1"
               allow="autoplay; fullscreen; picture-in-picture"
@@ -244,180 +702,270 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ======================================================
          WHAT CLASSCOVER DOES — FOR COLD AD TRAFFIC
     ====================================================== -->
-    <section class="pilot-product section-pad" id="product">
-      <div class="container">
-
-        <div class="split-section">
-          <div class="split-visual">
-            <img src="images/ireland-school-invite-sent.png" alt="ClassCover Ireland — a school inviting an Irish substitute teacher, with an invite sent confirmation" width="1200" height="1200" loading="lazy" />
-          </div>
-          <div class="split-content">
-            <span class="eyebrow">For Schools</span>
-            <h2>Don't post and wait. Book and be done.</h2>
-            <p>Right now, Irish schools are stuck with WhatsApp groups, phone calls, spreadsheets and message boards. ClassCover replaces all of that with a single app.</p>
-            <div class="schools-mini-callouts">
-              <div class="mini-callout">
-                <h4>Build your sub network</h4>
-                <p>Find and connect with substitute teachers and SNAs in your area.</p>
-              </div>
-              <div class="mini-callout">
-                <h4>No more phone calls</h4>
-                <p>Post the job and let ClassCover do the rest.</p>
-              </div>
-              <div class="mini-callout">
-                <h4>Start with your own list</h4>
-                <p>Upload your existing subs and book them through the app from day one.</p>
-              </div>
-              <div class="mini-callout">
-                <h4>Full visibility</h4>
-                <p>Centralised calendar, payroll reports, and absence tracking in one place.</p>
-              </div>
-            </div>
-          </div>
+    <section class="sp-section sp-product" id="product">
+      <div class="container sp-split">
+        <div class="sp-split-copy sp-reveal">
+          <span class="sp-kicker">For schools</span>
+          <h2>Don't post and wait. Book and be done.</h2>
+          <p class="sp-lede">Right now, Irish schools are stuck with WhatsApp groups, phone calls, spreadsheets and message boards. ClassCover replaces all of that with a single app.</p>
+          <p class="sp-lede">Start with the subs and SNAs you already trust, send one request to the people you choose, and see who accepts.</p>
         </div>
-
+        <div class="sp-split-visual sp-reveal">
+          <img src="/images/product/laptop-phone-invite-list.webp" alt="ClassCover on a laptop and phone: a school's invite list of Irish substitute teachers, ready to send a booking request" width="1400" height="1068" loading="lazy" />
+        </div>
       </div>
     </section>
 
     <!-- ======================================================
          HOW IT WORKS
     ====================================================== -->
-    <section class="how-it-works section-pad" id="how-it-works">
+    <section class="sp-section sp-how" id="how-it-works">
       <div class="container">
 
-        <div class="how-it-works-header">
-          <span class="eyebrow">How it works</span>
+        <div class="sp-head sp-reveal">
+          <span class="sp-kicker">How it works</span>
           <h2>Cover sorted in three steps</h2>
         </div>
 
-        <div class="steps-row">
-          <div class="step-card">
-            <div class="step-num">1</div>
-            <div class="step-text">
-              <h3>Post your absence in seconds</h3>
-              <p>Add the details, shortlist available subs, and send. Your network is notified instantly.</p>
+        <ol class="sp-steps">
+          <li class="sp-step sp-reveal">
+            <div class="sp-step-art">
+              <img src="/images/product/invite-list-request-sent.webp" alt="A school's invite list on ClassCover with a booking request sent" width="760" height="1223" loading="lazy" />
             </div>
-          </div>
-          <div class="step-card">
-            <div class="step-num">2</div>
-            <div class="step-text">
-              <h3>Subs respond through the app</h3>
-              <p>Subs get an instant notification, and respond directly through the app.</p>
+            <span class="sp-step-num">01</span>
+            <h3>Post your absence in seconds</h3>
+            <p>Add the details, shortlist available subs, and send. Your network is notified instantly.</p>
+          </li>
+          <li class="sp-step sp-reveal">
+            <div class="sp-step-art">
+              <img src="/images/product/booking-notification.webp" alt="A substitute teacher's phone showing a ClassCover booking request notification" width="760" height="1095" loading="lazy" />
             </div>
-          </div>
-          <div class="step-card">
-            <div class="step-num">3</div>
-            <div class="step-text">
-              <h3>Booking confirmed. You're covered.</h3>
-              <p>Get back to your day. Most bookings in Australia are confirmed in under three minutes.</p>
+            <span class="sp-step-num">02</span>
+            <h3>Subs respond through the app</h3>
+            <p>Subs get an instant notification, and respond directly through the app.</p>
+          </li>
+          <li class="sp-step sp-reveal">
+            <div class="sp-step-art sp-step-art--card" aria-hidden="true">
+              <div class="sp-confirm">
+                <span class="sp-confirm-tick"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+                <p class="sp-confirm-title">Booking confirmed</p>
+                <p class="sp-confirm-meta">2nd Class · 8:50 AM to 2:30 PM</p>
+                <div class="sp-confirm-person">
+                  <img src="/images/people/roisin-keane.jpg" alt="" width="64" height="64" />
+                  <div>
+                    <p class="sp-person-name">Róisín Keane</p>
+                    <p class="sp-person-role">Substitute teacher</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            <span class="sp-step-num">03</span>
+            <h3>Booking confirmed. You're covered.</h3>
+            <p>Get back to your day. Most bookings in Australia are confirmed in under three minutes.</p>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         OLCS REPORT (strongest reaction in onboarding research)
+    ====================================================== -->
+    <section class="sp-section sp-report" id="olcs-report">
+      <div class="container">
+        <div class="sp-head sp-report-head sp-reveal">
+          <span class="sp-kicker">For the school office</span>
+          <h2>Your OLCS returns, without the guesswork.</h2>
+          <p class="sp-lede">Every booking lands in one OLCS report. Export any date range to Excel, with nothing left to piece together from notes and texts.</p>
+        </div>
+        <div class="sp-sheet-wrap sp-reveal" aria-hidden="true">
+          <div class="sp-sheet">
+            <div class="sp-sheet-head">
+              <div>
+                <p class="sp-sheet-title">OLCS report</p>
+                <p class="sp-sheet-range">1 to 31 October</p>
+              </div>
+              <span class="sp-sheet-btn"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Export to Excel</span>
+            </div>
+            <table>
+              <thead>
+                <tr><th>Substitute</th><th>Date</th><th class="sp-col-hours">Hours</th><th>Class covered</th><th class="sp-col-teacher">Teacher covered</th><th>Absence reason</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Niamh Kelly</td><td>05/10</td><td class="sp-col-hours">5.5</td><td>2nd Class</td><td class="sp-col-teacher">Mr Ó Dálaigh</td><td><span class="sp-reason">Certified sick leave</span></td></tr>
+                <tr><td>Seán Byrne</td><td>06/10</td><td class="sp-col-hours">5.5</td><td>5th Class</td><td class="sp-col-teacher">Ms Walsh</td><td><span class="sp-reason">Course</span></td></tr>
+                <tr><td>Aoife Fitzgerald</td><td>08/10</td><td class="sp-col-hours">2.5</td><td>Junior Infants</td><td class="sp-col-teacher">Ms Ní Bhriain</td><td><span class="sp-reason">Uncertified sick leave</span></td></tr>
+                <tr><td>Ciarán Doyle</td><td>12/10</td><td class="sp-col-hours">5.5</td><td>3rd Class</td><td class="sp-col-teacher">Mr Ryan</td><td><span class="sp-reason">Family leave</span></td></tr>
+                <tr><td>Aisling Walsh</td><td>14/10</td><td class="sp-col-hours">5.5</td><td>6th Class</td><td class="sp-col-teacher">Ms Kavanagh</td><td><span class="sp-reason">Certified sick leave</span></td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
+        <ul class="sp-report-points sp-reveal">
+            <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>The absence reason is recorded with every booking, ready for your returns.</span></li>
+            <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>Absence reasons stay private to your school. Subs never see them.</span></li>
+            <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>Agreed a booking over the phone? Add it as confirmed and it still lands on the report.</span></li>
+            <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span>Give your secretary their own login, and rename the columns to suit your office.</span></li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- ======================================================
+         WHAT SCHOOLS FIND HANDY (from Sep 2026 onboarding calls)
+    ====================================================== -->
+    <section class="sp-section sp-handy-wrap" id="handy">
+      <div class="container">
+        <div class="sp-head sp-reveal">
+          <span class="sp-kicker">Once you're in</span>
+          <h2>The things schools love most</h2>
+        </div>
+        <div class="sp-handy-grid">
+          <div class="sp-handy sp-reveal">
+            <span class="sp-handy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="m9 15 2 2 4-4"/></svg></span>
+            <h3>See who's free before you ring</h3>
+            <p>Subs and SNAs keep their availability up to date, so you stop ringing people who are already booked somewhere else.</p>
+          </div>
+          <div class="sp-handy sp-reveal">
+            <span class="sp-handy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+            <h3>Know who's walking in</h3>
+            <p>Photo, qualifications, subjects and levels sit on every profile, so you know who to expect at the door.</p>
+          </div>
+          <div class="sp-handy sp-reveal">
+            <span class="sp-handy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M21.5 20a6.5 6.5 0 0 0-4-6"/></svg></span>
+            <h3>Your deputy and secretary can book too</h3>
+            <p>Give your team their own logins, so bookings carry on when you're out of the building.</p>
+          </div>
+          <div class="sp-handy sp-reveal">
+            <span class="sp-handy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/><path d="M12 7.5V12l3 2"/></svg></span>
+            <h3>Plan leave weeks ahead</h3>
+            <p>Courses, weddings and operations. Book as soon as you know, and set up repeating days in one go.</p>
+          </div>
+          <div class="sp-handy sp-reveal">
+            <span class="sp-handy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>
+            <h3>Subs and SNAs ask to join you</h3>
+            <p>People near you can ask to join your list. You choose who gets on.</p>
+          </div>
+          <div class="sp-handy sp-reveal">
+            <span class="sp-handy-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 3h5v5M21 3l-7 7"/><path d="M8 21H3v-5M3 21l7-7"/></svg></span>
+            <h3>Need a sub but don't know the class yet?</h3>
+            <p>Use flexi booking. Send the request now, and add the class and teacher once the day takes shape.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         WORKS WITH HOW YOUR SCHOOL IS RUN
+    ====================================================== -->
+    <section class="sp-section sp-systems" id="school-types">
+      <div class="container">
+        <div class="sp-systems-card sp-reveal">
+          <div class="sp-systems-intro">
+            <span class="sp-kicker">Every kind of school</span>
+            <h2>Works the way your school is run.</h2>
+            <p>Irish schools are run in different ways, with different people signing off on who teaches. ClassCover fits around yours.</p>
+          </div>
+          <ul class="sp-systems-list">
+            <li>
+              <span class="sp-systems-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/></svg></span>
+              <div>
+                <h3>Primary and post-primary schools</h3>
+                <p>You vet subs and SNAs through your own vetting body, the way you do now. New people wait on a holding list until you confirm in the app that you've vetted them.</p>
+              </div>
+            </li>
+            <li>
+              <span class="sp-systems-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+              <div>
+                <h3>ETB schools</h3>
+                <p>Head office approves each sub once, and every school in your ETB books from the same approved list.</p>
+                <a href="/schools/etb/">How it works for ETBs <span aria-hidden="true">→</span></a>
+              </div>
+            </li>
+            <li>
+              <span class="sp-systems-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+              <div>
+                <h3>Special schools and special classes</h3>
+                <p>Book SNAs as well as substitute teachers, and add notes to a booking so they know the children's needs before they arrive.</p>
+              </div>
+            </li>
+            <li>
+              <span class="sp-systems-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>
+              <div>
+                <h3>DEIS schools</h3>
+                <p>Save 20% on ClassCover Standard. ClassCover Lite stays free.</p>
+                <a href="/schools/pricing/">See pricing <span aria-hidden="true">→</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- ======================================================
          LITE OR THE PILOT? (two tiers, one date)
     ====================================================== -->
-    <style>
-      .tier-head { text-align: center; max-width: 720px; margin: 0 auto 40px; }
-      .tier-head h2 { margin-top: 12px; }
-      .tier-head p { margin-top: 14px; font-size: 18px; line-height: 1.65; color: #444; }
-      .tier-grid { display: grid; grid-template-columns: 1fr; gap: 22px; }
-      @media (min-width: 860px) { .tier-grid { grid-template-columns: 1fr 1fr; align-items: stretch; } }
-      .tier-card { background: #fff; border: 1.5px solid #E3DAF6; border-radius: 20px; padding: 34px 32px; display: flex; flex-direction: column; box-shadow: 0 8px 26px rgba(58,12,163,.06); }
-      .tier-card.is-pilot { border-color: #3A0CA3; box-shadow: 0 14px 40px rgba(58,12,163,.14); position: relative; }
-      .tier-tag { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #7B5CC1; background: #F6F3FD; border-radius: 999px; padding: 6px 12px; }
-      .tier-card.is-pilot .tier-tag { color: #fff; background: #3A0CA3; }
-      .tier-card h3 { font-size: 24px; margin: 20px 0 4px; letter-spacing: -.01em; }
-      .tier-price { font-size: 30px; font-weight: 800; color: #3A0CA3; margin: 0 0 8px; letter-spacing: -.02em; line-height: 1.15; }
-      .tier-counties { font-size: 15px; color: #666; margin: 0 0 26px; line-height: 1.55; padding-bottom: 22px; border-bottom: 1px solid #E3DAF6; }
-      .tier-list { list-style: none; padding: 0; margin: 0 0 26px; display: grid; gap: 14px; }
-      .tier-list li { position: relative; padding-left: 32px; font-size: 16px; line-height: 1.45; color: #222; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
-      .tier-list li::before { content: ""; position: absolute; left: 0; top: 1px; width: 20px; height: 20px; border-radius: 50%; background: #F6F3FD; }
-      .tier-list li::after { content: ""; position: absolute; left: 6px; top: 7px; width: 8px; height: 5px; border-left: 2px solid #3A0CA3; border-bottom: 2px solid #3A0CA3; transform: rotate(-45deg); }
-      .tier-list li.is-std::before { background: #3A0CA3; }
-      .tier-list li.is-std::after { border-color: #fff; }
-      .tier-list .launch-special { margin-left: 0; }
-      .tier-after { margin-top: auto; padding: 14px 18px; border-radius: 14px; background: #F6F3FD; font-size: 14.5px; line-height: 1.55; color: #444; }
-      .tier-after strong { color: #3A0CA3; }
-      .tier-after a { color: #3A0CA3; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-      .tier-after a:hover { color: #7B5CC1; }
-      .tier-dates { margin: 36px auto 0; max-width: 900px; background: #3A0CA3; color: #fff; border-radius: 20px; padding: 30px 32px; }
-      .tier-dates h3 { color: #fff; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; margin: 0 0 18px; opacity: .85; }
-      .tier-dates ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-      @media (min-width: 760px) { .tier-dates ol { grid-template-columns: repeat(3, 1fr); gap: 24px; } }
-      .tier-dates li { padding-left: 0; }
-      .tier-dates .tier-date { display: block; font-size: 22px; font-weight: 800; letter-spacing: -.01em; margin-bottom: 6px; }
-      .tier-dates .tier-date-body { display: block; font-size: 15px; line-height: 1.55; color: rgba(255,255,255,.88); }
-      .tier-cta { text-align: center; margin-top: 34px; }
-      .compare-table td a { color: #3A0CA3; font-weight: 700; text-decoration: underline; white-space: nowrap; }
-      .infopack-media a { display: block; width: 100%; line-height: 0; }
-      .launch-special { display: inline-flex; align-items: center; background: #FFF4E5; color: #B45309; border: 1px solid #FCD9A7; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 2px 8px; border-radius: 99px; margin-left: 6px; white-space: nowrap; vertical-align: middle; }
-    </style>
-    <section class="pilot-what section-pad" id="pilot">
+    <section class="sp-section sp-tiers" id="pilot">
       <div class="container">
 
-        <div class="tier-head">
-          <span class="eyebrow">Lite or the pilot?</span>
+        <div class="sp-head sp-reveal">
+          <span class="sp-kicker">Lite or the pilot?</span>
           <h2>Two ways to start. Your county decides which.</h2>
-          <p>Every school in Ireland gets ClassCover Lite, free forever. Nine counties are also running the pilot: ClassCover Standard, free until 1 December 2026.</p>
+          <p class="sp-lede">Every school in Ireland gets ClassCover Lite, free forever. Nine counties are also running the pilot: ClassCover Standard, free until 1 December 2026.</p>
         </div>
 
-        <div class="tier-grid">
+        <div class="sp-tier-grid">
 
-          <div class="tier-card is-lite">
-            <span class="tier-tag">Every county</span>
+          <div class="sp-tier sp-reveal">
+            <span class="sp-tier-tag">Every county</span>
             <h3>ClassCover Lite</h3>
-            <p class="tier-price">Free. Forever.</p>
-            <p class="tier-counties">Book the subs and SNAs already on your list.</p>
-            <ul class="tier-list">
+            <p class="sp-tier-price">Free. Forever.</p>
+            <p class="sp-tier-where">Book the subs and SNAs already on your list.</p>
+            <ul class="sp-tier-list">
               <li>Book your own list</li>
               <li>Track absences and bookings</li>
-              <li>Unlimited bookings <span class="launch-special">Launch special</span></li>
-              <li>Accept join requests <span class="launch-special">Launch special</span></li>
+              <li>Unlimited bookings <span class="sp-special">Launch special</span></li>
+              <li>Accept join requests <span class="sp-special">Launch special</span></li>
             </ul>
-            <p class="tier-after">Standard opens in your county as local subs and SNAs join. <a href="#why-county">Why county by county ↓</a></p>
+            <p class="sp-tier-after">Standard opens in your county as local subs and SNAs join. <a href="#why-county">Why county by county ↓</a></p>
           </div>
 
-          <div class="tier-card is-pilot">
-            <span class="tier-tag">The pilot · nine counties</span>
+          <div class="sp-tier sp-tier--pilot sp-reveal">
+            <span class="sp-tier-tag">The pilot · nine counties</span>
             <h3>ClassCover Standard</h3>
-            <p class="tier-price">Free until 1 December 2026</p>
-            <p class="tier-counties">Cork, Dublin, Galway, Kildare, Limerick, Louth, Meath, Tipperary and Wicklow</p>
-            <ul class="tier-list">
+            <p class="sp-tier-price">Free until 1 December 2026</p>
+            <p class="sp-tier-where">Cork, Dublin, Galway, Kildare, Limerick, Louth, Meath, Tipperary and Wicklow</p>
+            <ul class="sp-tier-list">
               <li>Everything in Lite</li>
-              <li class="is-std">Search your county for new subs and SNAs</li>
-              <li class="is-std">Invite them onto your list</li>
-              <li class="is-std">Unlimited bookings, always</li>
-              <li class="is-std">Accept join requests, always</li>
+              <li>Search your county for new subs and SNAs</li>
+              <li>Invite them onto your list</li>
+              <li>Unlimited bookings, always</li>
+              <li>Accept join requests, always</li>
             </ul>
-            <p class="tier-after"><strong>After 1 December:</strong> from €350 a year, or stay on Lite free. <a href="/schools/pricing/">See pricing →</a></p>
+            <p class="sp-tier-after"><strong>After 1 December:</strong> from €350 a year, or stay on Lite free. <a href="/schools/pricing/">See pricing →</a></p>
           </div>
 
         </div>
 
-        <div class="tier-dates" aria-label="Pilot timeline">
+        <div class="sp-timeline sp-reveal" aria-label="Pilot timeline">
           <h3>How the pilot runs</h3>
           <ol>
             <li>
-              <span class="tier-date">Today</span>
-              <span class="tier-date-body">Create your school account and bring your list across. Lite is on for every school from day one.</span>
+              <span class="sp-timeline-when">Today</span>
+              <span class="sp-timeline-body">Create your school account and bring your list across. Lite is on for every school from day one.</span>
             </li>
             <li>
-              <span class="tier-date">Pilot counties</span>
-              <span class="tier-date-body">Schools in the nine counties get Standard switched on, free, for the whole pilot. No card needed.</span>
+              <span class="sp-timeline-when">Pilot counties</span>
+              <span class="sp-timeline-body">Schools in the nine counties get Standard switched on, free, for the whole pilot. No card needed.</span>
             </li>
             <li>
-              <span class="tier-date">1 December 2026</span>
-              <span class="tier-date-body">The pilot ends. Pilot schools choose Standard from €350 a year, or stay on Lite free.</span>
+              <span class="sp-timeline-when">1 December 2026</span>
+              <span class="sp-timeline-body">The pilot ends. Pilot schools choose Standard from €350 a year, or stay on Lite free.</span>
             </li>
           </ol>
         </div>
 
-        <div class="tier-cta">
-          <a href="https://booking.classcoverapp.com/welcome-onboard" class="btn" target="_blank" rel="noopener">Create your school account</a>
+        <div class="sp-center">
+          <a href="https://booking.classcoverapp.com/welcome-onboard" class="sp-btn sp-btn--primary" target="_blank" rel="noopener">Create your school account <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
       </div>
@@ -426,66 +974,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ======================================================
          LITE VS STANDARD
     ====================================================== -->
-    <section class="pilot-compare section-pad" id="compare">
+    <section class="sp-section sp-compare" id="compare">
       <div class="container">
 
-        <div class="pilot-compare-header">
-          <span class="eyebrow">What you get</span>
+        <div class="sp-head sp-reveal">
+          <span class="sp-kicker">What you get</span>
           <h2>ClassCover Lite vs ClassCover Standard</h2>
         </div>
 
-        <div class="compare-table-wrap">
-          <table class="compare-table">
+        <div class="sp-table sp-reveal">
+          <table>
             <thead>
               <tr>
-                <th></th>
+                <th><span class="sr-only">Feature</span></th>
                 <th>ClassCover Lite</th>
-                <th class="compare-highlight">ClassCover Standard</th>
+                <th class="is-std">ClassCover Standard</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="compare-feature">Cost</td>
-                <td>Free. Permanently.</td>
-                <td class="compare-highlight-cell">Free until 1 December 2026 in the nine pilot counties, then from €350 a year. <a href="/schools/pricing/">See pricing →</a></td>
+                <th scope="row">Cost</th>
+                <td data-label="Lite">Free. Permanently.</td>
+                <td data-label="Standard" class="is-std">Free until 1 December 2026 in the nine pilot counties, then from €350 a year. <a href="/schools/pricing/">See pricing →</a></td>
               </tr>
               <tr>
-                <td class="compare-feature">Where</td>
-                <td>Every county in Ireland</td>
-                <td class="compare-highlight-cell">Cork, Dublin, Galway, Kildare, Limerick, Louth, Meath, Tipperary and Wicklow. Other counties as local numbers grow.</td>
+                <th scope="row">Where</th>
+                <td data-label="Lite">Every county in Ireland</td>
+                <td data-label="Standard" class="is-std">Cork, Dublin, Galway, Kildare, Limerick, Louth, Meath, Tipperary and Wicklow. Other counties as local numbers grow.</td>
               </tr>
               <tr>
-                <td class="compare-feature">Bookings</td>
-                <td>Unlimited during launch period. Booking caps may apply later.</td>
-                <td class="compare-highlight-cell">Unlimited</td>
+                <th scope="row">Bookings</th>
+                <td data-label="Lite">Unlimited during launch period. Booking caps may apply later.</td>
+                <td data-label="Standard" class="is-std">Unlimited</td>
               </tr>
               <tr>
-                <td class="compare-feature">Book your own subs</td>
-                <td>Yes. Upload your existing list and send bookings with one tap.</td>
-                <td class="compare-highlight-cell">Yes</td>
+                <th scope="row">Book your own subs</th>
+                <td data-label="Lite">Yes. Upload your existing list and send bookings with one tap.</td>
+                <td data-label="Standard" class="is-std">Yes</td>
               </tr>
               <tr>
-                <td class="compare-feature">Manage absences</td>
-                <td>Yes. Track absences and bookings from your phone.</td>
-                <td class="compare-highlight-cell">Yes</td>
+                <th scope="row">Manage absences</th>
+                <td data-label="Lite">Yes. Track absences and bookings from your phone.</td>
+                <td data-label="Standard" class="is-std">Yes</td>
               </tr>
               <tr>
-                <td class="compare-feature">Connect with new subs and SNAs in your area</td>
-                <td>Accept requests to join from subs and SNAs near you <span class="launch-special">Launch special</span><br>Lite cannot search the network.</td>
-                <td class="compare-highlight-cell">Yes. Search your county, invite subs and SNAs onto your list, and accept requests to join. Always.</td>
+                <th scope="row">Connect with new subs and SNAs in your area</th>
+                <td data-label="Lite">Accept requests to join from subs and SNAs near you <span class="sp-special">Launch special</span><br>Lite cannot search the network.</td>
+                <td data-label="Standard" class="is-std">Yes. Search your county, invite subs and SNAs onto your list, and accept requests to join. Always.</td>
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="compare-callout">
-          <p><strong>Every school in Ireland gets ClassCover Lite free.</strong></p>
-          <p>Schools in the nine pilot counties get ClassCover Standard free until 1 December 2026, including the ability to search their county for substitute teachers and SNAs they do not know yet.</p>
-          <p style="margin-top:14px;"><a href="/schools/pricing/">See ClassCover Standard pricing →</a> <span style="color:#888;">From €350/year, scaled to enrolment. DEIS schools save 20%.</span></p>
-        </div>
-
-        <div class="pilot-cta-center">
-          <a href="https://booking.classcoverapp.com/welcome-onboard" class="btn" target="_blank" rel="noopener">Create your school account</a>
         </div>
 
       </div>
@@ -494,55 +1032,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ======================================================
          WHY WE'RE LAUNCHING THIS WAY
     ====================================================== -->
-    <section class="pilot-why section-pad" id="why-county">
-      <div class="container">
-
-        <div class="pilot-why-inner">
-          <div class="pilot-why-text">
-            <span class="eyebrow">Why county by county</span>
-            <h2>ClassCover works best when schools and subs are in the same area.</h2>
-            <p>A booking platform only works when there are enough substitute teachers and SNAs nearby to fill the gaps. That is why Standard opens county by county, once the local network is strong enough for schools to find people in it.</p>
-            <p>Every school that signs up shows us where demand is strongest. The counties with the most schools on ClassCover are the next to open Standard.</p>
-          </div>
-          <div class="pilot-why-visual">
-            <img src="images/ireland-teacher-profiles.png" alt="ClassCover Ireland — Irish substitute teacher and SNA profiles in your area" width="529" height="538" loading="lazy" />
-          </div>
+    <section class="sp-section sp-why" id="why-county">
+      <div class="container sp-split sp-split--flip">
+        <div class="sp-split-copy sp-reveal">
+          <span class="sp-kicker">Why county by county</span>
+          <h2>ClassCover works best when schools and subs are in the same area.</h2>
+          <p class="sp-lede">A booking platform only works when there are enough substitute teachers and SNAs nearby to fill the gaps. That is why Standard opens county by county, once the local network is strong enough for schools to find people in it.</p>
+          <p class="sp-lede">Every school that signs up shows us where demand is strongest. The counties with the most schools on ClassCover are the next to open Standard.</p>
         </div>
-
+        <div class="sp-split-visual sp-why-visual sp-reveal">
+          <img src="/images/product/vetting-cards.webp" alt="Local substitute teachers and SNAs on a school's ClassCover list, each with their vetting status" width="1300" height="877" loading="lazy" />
+        </div>
       </div>
     </section>
 
     <!-- ======================================================
          DEMO LEAD MAGNET
     ====================================================== -->
-    <section class="infopack-cta section-pad">
+    <section class="sp-section sp-demo-wrap">
       <div class="container">
-        <div class="infopack-card">
-          <div class="infopack-media">
-            <a href="/demo/" aria-label="Watch the ClassCover demo, 4 minutes"><img src="/images/demo-thumbnail.jpg" alt="ClassCover demo: book a sub in minutes" width="1280" height="720" loading="lazy" /></a>
-          </div>
-          <div class="infopack-body">
-            <span class="eyebrow">Demo for schools</span>
-            <h2>See ClassCover in four minutes</h2>
-            <p>How an Irish school books a substitute teacher or SNA, from request to confirmed.</p>
-            <a href="/demo/" class="btn">Watch the demo</a>
-          </div>
-        </div>
+        <a class="sp-demo sp-reveal" href="/demo/">
+          <span class="sp-demo-media">
+            <img src="/images/demo-thumbnail.jpg" alt="ClassCover demo: book a sub in minutes" width="1280" height="720" loading="lazy" />
+            <span class="sp-demo-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="sp-demo-body">
+            <span class="sp-kicker">Demo for schools</span>
+            <span class="sp-demo-title">See ClassCover in four minutes</span>
+            <span class="sp-demo-text">How an Irish school books a substitute teacher or SNA, from request to confirmed.</span>
+            <span class="sp-btn sp-btn--primary">Watch the demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+        </a>
       </div>
     </section>
+
 
     <!-- ======================================================
          FAQ
     ====================================================== -->
-    <section class="faq section-pad" id="faq">
-      <div class="container">
+    <section class="sp-section sp-faq faq" id="faq">
+      <div class="container sp-faq-grid">
 
-        <div class="faq-header">
+        <div class="sp-faq-head sp-reveal">
+          <span class="sp-kicker">FAQs</span>
           <h2>Frequently asked questions</h2>
         </div>
 
         <div class="faq-list">
-
           <div class="faq-item">
             <button class="faq-question" aria-expanded="false">
               Which schools can use ClassCover?
@@ -653,6 +1189,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
 
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Does ClassCover help with OLCS returns?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              Yes. Every booking is recorded with the date, the hours, the class and teacher covered, and the absence reason. Export the OLCS report for any date range to Excel and your secretary has it all in one place. Absence reasons stay private to your school. ETB schools use the same report for their own payroll.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              We're an ETB school. Can our head office approve subs for every school?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              Yes. Head office approves each sub once, and every school in your ETB can then see them, see when they're free, and book them in the app. It's built and proven with Catholic dioceses in Australia and set up for your ETB. Vetting and the final say stay with your ETB. <a href="/schools/etb/">See how it works for ETBs →</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -660,16 +1215,92 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ======================================================
          FINAL CTA
     ====================================================== -->
-    <section class="cta-band cta-band--floating pilot-final-cta" id="apply">
+    <section class="sp-final" id="apply">
       <div class="container">
-        <div class="cta-band-card">
-          <h2 style="color:#fff; margin-bottom:16px;">Get your school set up.</h2>
-          <p style="color:rgba(255,255,255,0.85); font-size:18px; line-height:1.7; margin-bottom:32px; max-width:560px; margin-left:auto; margin-right:auto;">Every school in Ireland gets ClassCover Lite free. Schools in the nine pilot counties also get ClassCover Standard free until 1 December 2026. The more schools in your county that sign up, the sooner Standard opens there.</p>
-          <a href="https://booking.classcoverapp.com/welcome-onboard" class="btn btn-white" target="_blank" rel="noopener">Create your school account</a>
-          <p style="font-size:13px; color:rgba(255,255,255,0.6); margin-top:14px;">Free to start. No card. No contract.</p>
+        <div class="sp-final-card sp-reveal">
+          <h2>Get your school set up.</h2>
+          <p>Every school in Ireland gets ClassCover Lite free. Schools in the nine pilot counties also get ClassCover Standard free until 1 December 2026. The more schools in your county that sign up, the sooner Standard opens there.</p>
+          <a href="https://booking.classcoverapp.com/welcome-onboard" class="sp-btn sp-btn--accent" target="_blank" rel="noopener">Create your school account <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </section>
+
+    <!-- ======================================================
+         FLU SEASON POP-UP (INTO newsletter, Oct 2026). Slides in
+         bottom-left (the chat bubble is bottom-right), waits for the
+         cookie banner, remembers a close for the session, and stops
+         showing after data-hide-after.
+    ====================================================== -->
+    <aside class="sp-flu" id="flu-popup" data-hide-after="2027-03-01" aria-label="Ready for flu season?" hidden>
+      <button class="sp-flu-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div class="sp-flu-media">
+        <img class="sp-flu-photo" src="/images/flu-season-teacher.webp" alt="A teacher in bed with the flu, texting in sick on her phone" width="720" height="450" loading="lazy" />
+        <div class="sp-flu-text-msg" aria-hidden="true">
+          <span class="sp-flu-time">6:52</span>
+          <p>So sorry, I can't come in today. I'm sick.</p>
+        </div>
+      </div>
+      <div class="sp-flu-body">
+        <p class="sp-flu-title">Ready for <em>flu season?</em></p>
+        <p class="sp-flu-text">Swap the WhatsApps and phone calls for one request.</p>
+        <a class="sp-btn sp-btn--primary sp-flu-cta" href="https://booking.classcoverapp.com/welcome-onboard" target="_blank" rel="noopener">Get started for free <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </aside>
+    <script>
+      (function () {
+        var pop = document.getElementById('flu-popup');
+        if (!pop) return;
+        var until = pop.getAttribute('data-hide-after');
+        if (until && new Date() >= new Date(until + 'T00:00:00')) return;
+        try { if (sessionStorage.getItem('cc_flu_popup_closed')) return; } catch (e) {}
+
+        var shown = false;
+        function bannerOpen() {
+          var b = document.querySelector('.cky-consent-container');
+          return !!(b && !b.classList.contains('cky-hide') && b.offsetParent !== null);
+        }
+        function show() {
+          if (shown) return;
+          if (bannerOpen()) return; /* try again once the visitor has chosen */
+          shown = true;
+          pop.hidden = false;
+          requestAnimationFrame(function () { requestAnimationFrame(function () { pop.classList.add('is-in'); }); });
+        }
+        function close() {
+          pop.classList.remove('is-in');
+          setTimeout(function () { pop.hidden = true; }, 400);
+          try { sessionStorage.setItem('cc_flu_popup_closed', '1'); } catch (e) {}
+        }
+        pop.querySelector('.sp-flu-close').addEventListener('click', close);
+        pop.querySelector('.sp-flu-cta').addEventListener('click', function () {
+          try { sessionStorage.setItem('cc_flu_popup_closed', '1'); } catch (e) {}
+        });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && shown && !pop.hidden) close(); });
+        document.addEventListener('cookieyes_consent_update', function () { setTimeout(show, 1200); });
+        window.addEventListener('load', function () { setTimeout(show, 2500); });
+      })();
+    </script>
+
+    <script>
+      /* Scroll reveal. Content stays visible without JS or with reduced motion. */
+      (function () {
+        var root = document.querySelector('.sp');
+        if (!root || !('IntersectionObserver' in window)) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        root.classList.add('sp-js');
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            var el = e.target;
+            el.classList.add('is-in');
+            io.unobserve(el);
+            /* Hand transitions back to the element's own hover styles once revealed. */
+            setTimeout(function () { el.classList.add('is-done'); }, 1000);
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        root.querySelectorAll('.sp-reveal').forEach(function (el) { io.observe(el); });
+      })();
+    </script>
 
   </main>
 
