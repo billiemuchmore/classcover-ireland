@@ -232,48 +232,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .sp-btn:focus-visible, .sp-flu a:focus-visible, .sp-demo:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     @media (max-width: 520px) { .sp-btn { white-space: normal; width: 100%; text-align: center; } }
 
-    /* Flu season pop-up */
+    /* Flu season pop-up: a centred dialog showing the whole photo */
+    .sp-flu-wrap { position: fixed; inset: 0; z-index: 2147483000; display: grid; place-items: center; padding: 20px; }
+    .sp-flu-wrap[hidden] { display: none; }
+    .sp-flu-backdrop { position: absolute; inset: 0; background: rgba(20,6,60,.55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); opacity: 0; transition: opacity .3s var(--ease); }
     .sp-flu {
-      position: fixed; z-index: 1001; left: 24px; bottom: 24px; width: 340px; max-width: calc(100vw - 32px);
-      background: #fff; border-radius: 22px; overflow: hidden; color: var(--ink);
-      box-shadow: 0 30px 70px rgba(20,4,60,.35), 0 0 0 1px rgba(58,12,163,.08);
-      opacity: 0; transform: translateY(24px) scale(.97); transform-origin: bottom left;
-      transition: opacity .45s var(--ease), transform .45s var(--ease);
+      position: relative; width: 100%; max-width: 440px; max-height: calc(100dvh - 40px); overflow: auto;
+      background: #fff; border-radius: 26px; color: var(--ink);
+      box-shadow: 0 30px 80px rgba(20,4,60,.45);
+      opacity: 0; transform: translateY(20px) scale(.97); transition: opacity .35s var(--ease), transform .35s var(--ease);
     }
-    .sp-flu.is-in { opacity: 1; transform: none; }
-    .sp-flu-photo { display: block; width: 100%; height: 172px; object-fit: cover; object-position: 45% 30%; }
+    .sp-flu-wrap.is-in .sp-flu-backdrop { opacity: 1; }
+    .sp-flu-wrap.is-in .sp-flu { opacity: 1; transform: none; }
+    html.sp-flu-open { overflow: hidden; }
     .sp-flu-media { position: relative; }
-    .sp-flu-text-msg { position: absolute; left: 12px; top: 12px; max-width: 46%; opacity: 0; transform: translateY(-6px) scale(.96); transform-origin: top left; transition: opacity .45s var(--ease) .55s, transform .45s var(--ease) .55s; }
-    .sp-flu.is-in .sp-flu-text-msg { opacity: 1; transform: none; }
-    .sp-flu-text-msg p { margin: 0; background: rgba(236,236,240,.94); color: #111 !important; font: 500 11.5px/1.3 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; padding: 6px 10px; border-radius: 13px 13px 13px 3px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
-    .sp-flu-time { display: block; font: 600 9.5px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: rgba(255,255,255,.85); margin: 0 0 4px 3px; text-shadow: 0 1px 3px rgba(0,0,0,.5); }
-    .sp-flu-body { padding: 18px 22px 22px; }
+    .sp-flu-photo { display: block; width: 100%; aspect-ratio: 1 / 1; height: auto; object-fit: cover; object-position: 50% 35%; }
+    .sp-flu-text-msg { position: absolute; left: 18px; top: 18px; max-width: 62%; opacity: 0; transform: translateY(-6px) scale(.96); transform-origin: top left; transition: opacity .45s var(--ease) .45s, transform .45s var(--ease) .45s; }
+    .sp-flu-wrap.is-in .sp-flu-text-msg { opacity: 1; transform: none; }
+    .sp-flu-text-msg p { margin: 0; background: rgba(236,236,240,.95); color: #111 !important; font: 500 15px/1.35 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; padding: 10px 14px; border-radius: 18px 18px 18px 4px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .sp-flu-time { display: block; font: 600 11px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: rgba(255,255,255,.85); margin: 0 0 6px 4px; text-shadow: 0 1px 3px rgba(0,0,0,.5); }
+    .sp-flu-body { padding: 22px 26px 26px; }
     .sp-flu-body p { margin: 0; }
-    .sp-flu-title { font-size: 25px; font-weight: 800; line-height: 1.08; letter-spacing: -.025em; color: var(--ink) !important; }
+    .sp-flu-title { font-size: 28px; font-weight: 800; line-height: 1.08; letter-spacing: -.025em; color: var(--ink) !important; }
     .sp-flu-title em { font-style: normal; color: var(--mid); }
-    .sp-flu-text { font-size: 15px !important; line-height: 1.5; color: var(--muted) !important; margin: 8px 0 16px !important; }
-    .sp-flu-cta { width: 100%; padding: 14px 20px; font-size: 15px; }
+    .sp-flu-text { font-size: 15.5px !important; line-height: 1.55; color: var(--muted) !important; margin: 10px 0 20px !important; }
+    .sp-flu-cta { width: 100%; padding: 15px 20px; font-size: 16px; }
     .sp-flu-close {
-      position: absolute; top: 10px; right: 10px; z-index: 1; width: 34px; height: 34px; border-radius: 50%; border: 0; cursor: pointer;
+      position: absolute; top: 14px; right: 14px; z-index: 2; width: 38px; height: 38px; border-radius: 50%; border: 0; cursor: pointer;
       display: grid; place-items: center; background: rgba(20,4,60,.55); color: #fff;
       -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background .2s;
     }
     .sp-flu-close:hover { background: rgba(20,4,60,.8); }
     .sp-flu-close:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-    .sp-flu-close svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
-    /* Phones: a compact card along the bottom */
-    @media (max-width: 560px) {
-      .sp-flu { left: 12px; right: 12px; bottom: 12px; width: auto; max-width: none; border-radius: 18px; transform-origin: bottom center; }
-      .sp-flu-photo { height: 132px; object-position: 45% 28%; }
-      .sp-flu-text-msg { left: 10px; top: 10px; max-width: 42%; }
-      .sp-flu-text-msg p { font-size: 11px !important; padding: 5px 9px; }
-      .sp-flu-body { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 12px; padding: 12px 14px 14px; }
-      .sp-flu-title { font-size: 18px; grid-column: 1; }
-      .sp-flu-text { display: none; }
-      .sp-flu-cta { grid-column: 2; grid-row: 1; width: auto !important; padding: 11px 14px; font-size: 13.5px; white-space: nowrap !important; }
-      .sp-flu-cta svg { display: none; }
-      .sp-flu-close { top: 8px; right: 8px; width: 30px; height: 30px; }
-    }
+    .sp-flu-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
+    @media (max-height: 700px) { .sp-flu-photo { aspect-ratio: 4 / 3; } }
+    @media (max-width: 420px) { .sp-flu-body { padding: 18px 20px 22px; } .sp-flu-title { font-size: 24px; } }
 
     /* Hero: centred copy, the video is the hero */
     .sp-hero {
@@ -366,6 +359,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .sp-confirm-title { font-size: 17px; font-weight: 800; color: var(--ink) !important; letter-spacing: -.01em; }
     .sp-confirm-meta { font-size: 12.5px; color: var(--muted) !important; margin-top: 2px !important; }
     .sp-confirm-person { display: flex; align-items: center; gap: 12px; text-align: left; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--tint); }
+    .sp-ui { display: block; width: 100%; max-width: 280px; background: #fff; border-radius: 18px; padding: 14px 16px; box-shadow: 0 16px 36px rgba(58,12,163,.16); color: var(--ink); text-align: left; transition: transform .5s var(--ease); }
+    .sp-step:hover .sp-ui { transform: translateY(-4px); }
+    .sp-ui b { font-weight: 700; }
+    .sp-ui small { font-size: 12.5px; color: var(--muted); }
+    .sp-ui-head { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 8px; }
+    .sp-ui-head b { font-size: 15px; }
+    .sp-ui-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid var(--tint); font-size: 14px; }
+    .sp-ui-row img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex: 0 0 30px; }
+    .sp-ui-row b { font-weight: 600; }
+    .sp-v { width: 16px; height: 16px; flex: 0 0 16px; }
+    .sp-v circle { fill: #149A5D; }
+    .sp-v path { fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+    .sp-ui-btn { display: block; margin-top: 8px; text-align: center; font-size: 13.5px; font-weight: 700; color: #fff; background: var(--purple); border-radius: 10px; padding: 9px; }
+    .sp-ui--notif { border-radius: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Poppins', sans-serif; }
+    .sp-ui-app { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .sp-ui-app img { width: 20px; height: 20px; border-radius: 5px; }
+    .sp-ui-app b { flex: 1; font-size: 11.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #4A4656; }
+    .sp-ui-title { display: block; font-size: 15px; line-height: 1.3; }
+    .sp-ui-text { display: block; font-size: 13.5px; line-height: 1.4; color: #3A3646; margin-top: 2px; }
+    .sp-ui-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+    .sp-ui-actions span { text-align: center; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; border-radius: 10px; padding: 8px; }
+    .sp-ui-actions .no { color: var(--purple); border: 1.5px solid var(--line); }
+    .sp-ui-actions .yes { color: #fff; background: var(--purple); }
+    .sp-step-art--card { height: auto; min-height: 310px; padding: 28px 20px; }
+    @media (max-width: 520px) { .sp-step-art--card { min-height: 0; } }
     .sp-step-num { display: block; padding: 0 14px; font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--mid); margin-bottom: 8px; }
     .sp-step > h3 { padding: 0 14px; font-size: 21px; font-weight: 700; line-height: 1.25; letter-spacing: -.015em; color: var(--ink); margin-bottom: 8px; }
     .sp-step > p { padding: 0 14px; font-size: 15.5px; line-height: 1.6; color: var(--muted); margin: 0; }
@@ -729,16 +747,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <ol class="sp-steps">
           <li class="sp-step sp-reveal">
-            <div class="sp-step-art">
-              <img src="/images/product/invite-list-request-sent.webp" alt="A school's invite list on ClassCover with a booking request sent" width="760" height="1223" loading="lazy" />
+            <div class="sp-step-art sp-step-art--card" aria-hidden="true">
+              <span class="sp-ui">
+                <span class="sp-ui-head"><b>Invite list</b><small>One at a time</small></span>
+                <span class="sp-ui-row"><img src="/images/people/aisling-quinn.jpg" alt="" width="64" height="64" loading="lazy" /><b>Aoife Fitzgerald</b><svg class="sp-v" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="m7 12.5 3.2 3.2L17 9"/></svg></span>
+                <span class="sp-ui-row"><img src="/images/people/ciara-doherty.jpg" alt="" width="64" height="64" loading="lazy" /><b>Saoirse Byrne</b><svg class="sp-v" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="m7 12.5 3.2 3.2L17 9"/></svg></span>
+                <span class="sp-ui-row"><img src="/images/people/sean-delaney.jpg" alt="" width="64" height="64" loading="lazy" /><b>Seán Delaney</b><svg class="sp-v" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="m7 12.5 3.2 3.2L17 9"/></svg></span>
+                <span class="sp-ui-btn">Send invite</span>
+              </span>
             </div>
             <span class="sp-step-num">01</span>
             <h3>Post your absence in seconds</h3>
             <p>Add the details, shortlist available subs, and send. Your network is notified instantly.</p>
           </li>
           <li class="sp-step sp-reveal">
-            <div class="sp-step-art">
-              <img src="/images/product/booking-notification.webp" alt="A substitute teacher's phone showing a ClassCover booking request notification" width="760" height="1095" loading="lazy" />
+            <div class="sp-step-art sp-step-art--card" aria-hidden="true">
+              <span class="sp-ui sp-ui--notif">
+                <span class="sp-ui-app"><img src="/favicon.png" alt="" width="32" height="32" /><b>ClassCover</b><small>now</small></span>
+                <b class="sp-ui-title">Booking request from Scoil Bhríde</b>
+                <span class="sp-ui-text">Can you teach Thu 15 Oct, 2nd Class?</span>
+                <span class="sp-ui-actions"><span class="no">Decline</span><span class="yes">Accept</span></span>
+              </span>
             </div>
             <span class="sp-step-num">02</span>
             <h3>Subs respond through the app</h3>
@@ -1226,31 +1255,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ======================================================
-         FLU SEASON POP-UP (INTO newsletter, Oct 2026). Slides in
-         bottom-left (the chat bubble is bottom-right), waits for the
-         cookie banner, remembers a close for the session, and stops
-         showing after data-hide-after.
+         FLU SEASON POP-UP (INTO newsletter, Oct 2026). A centred
+         dialog after 8s and a scroll (or 20s), never over the cookie
+         banner, closed for the session once dismissed, and gone after
+         data-hide-after.
     ====================================================== -->
-    <aside class="sp-flu" id="flu-popup" data-hide-after="2027-03-01" aria-label="Ready for flu season?" hidden>
-      <button class="sp-flu-close" type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-      <div class="sp-flu-media">
-        <img class="sp-flu-photo" src="/images/flu-season-teacher.webp" alt="A teacher in bed with the flu, texting in sick on her phone" width="720" height="450" loading="lazy" />
-        <div class="sp-flu-text-msg" aria-hidden="true">
-          <span class="sp-flu-time">6:52</span>
-          <p>So sorry, I can't come in today. I'm sick.</p>
+    <div class="sp-flu-wrap" id="flu-popup" data-hide-after="2027-03-01" hidden>
+      <div class="sp-flu-backdrop" data-close></div>
+      <div class="sp-flu" role="dialog" aria-modal="true" aria-labelledby="flu-title">
+        <button class="sp-flu-close" type="button" aria-label="Close" data-close><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+        <div class="sp-flu-media">
+          <img class="sp-flu-photo" src="/images/flu-season-square.webp" alt="A teacher in bed with the flu, texting in sick on her phone" width="900" height="900" loading="lazy" />
+          <div class="sp-flu-text-msg" aria-hidden="true">
+            <span class="sp-flu-time">6:52</span>
+            <p>So sorry, I can't come in today. I'm sick.</p>
+          </div>
+        </div>
+        <div class="sp-flu-body">
+          <p class="sp-flu-title" id="flu-title">Ready for <em>flu season?</em></p>
+          <p class="sp-flu-text">Swap the WhatsApps and phone calls for one request. Know who's walking in, and get on with your day.</p>
+          <a class="sp-btn sp-btn--primary sp-flu-cta" href="https://booking.classcoverapp.com/welcome-onboard" target="_blank" rel="noopener">Get started for free <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
-      <div class="sp-flu-body">
-        <p class="sp-flu-title">Ready for <em>flu season?</em></p>
-        <p class="sp-flu-text">Swap the WhatsApps and phone calls for one request.</p>
-        <a class="sp-btn sp-btn--primary sp-flu-cta" href="https://booking.classcoverapp.com/welcome-onboard" target="_blank" rel="noopener">Get started for free <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </aside>
+    </div>
     <script>
       (function () {
-        var pop = document.getElementById('flu-popup');
-        if (!pop) return;
-        var until = pop.getAttribute('data-hide-after');
+        var wrap = document.getElementById('flu-popup');
+        if (!wrap) return;
+        var until = wrap.getAttribute('data-hide-after');
         if (until && new Date() >= new Date(until + 'T00:00:00')) return;
         try { if (sessionStorage.getItem('cc_flu_popup_closed')) return; } catch (e) {}
 
@@ -1259,7 +1291,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            Never while the cookie banner is up, and not until 3s after they've
            made their cookie choice. */
         var MIN_MS = 8000, IDLE_MS = 20000, AFTER_CONSENT_MS = 3000;
-        var start = Date.now(), scrolled = false, consentAt = 0, shown = false, timer;
+        var start = Date.now(), scrolled = false, consentAt = 0, shown = false, timer, lastFocus;
 
         function bannerVisible() {
           var b = document.querySelector('.cky-consent-container');
@@ -1267,11 +1299,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           var r = b.getBoundingClientRect(), cs = getComputedStyle(b);
           return r.height > 0 && cs.display !== 'none' && cs.visibility !== 'hidden';
         }
+        function onKey(e) {
+          if (e.key === 'Escape') close();
+          if (e.key === 'Tab') { /* keep focus inside the dialog */
+            var f = wrap.querySelectorAll('a[href], button');
+            var first = f[0], last = f[f.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+          }
+        }
         function show() {
           shown = true;
           clearInterval(timer);
-          pop.hidden = false;
-          requestAnimationFrame(function () { requestAnimationFrame(function () { pop.classList.add('is-in'); }); });
+          lastFocus = document.activeElement;
+          wrap.hidden = false;
+          document.documentElement.classList.add('sp-flu-open');
+          document.addEventListener('keydown', onKey);
+          requestAnimationFrame(function () { requestAnimationFrame(function () {
+            wrap.classList.add('is-in');
+            wrap.querySelector('.sp-flu-close').focus({ preventScroll: true });
+          }); });
+        }
+        function close() {
+          wrap.classList.remove('is-in');
+          document.documentElement.classList.remove('sp-flu-open');
+          document.removeEventListener('keydown', onKey);
+          setTimeout(function () { wrap.hidden = true; }, 300);
+          try { sessionStorage.setItem('cc_flu_popup_closed', '1'); } catch (e) {}
+          if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
         }
         function check() {
           if (shown) return;
@@ -1282,17 +1337,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           if (consentAt && now - consentAt < AFTER_CONSENT_MS) return;
           show();
         }
-        function close() {
-          pop.classList.remove('is-in');
-          setTimeout(function () { pop.hidden = true; }, 400);
-          try { sessionStorage.setItem('cc_flu_popup_closed', '1'); } catch (e) {}
-        }
 
-        pop.querySelector('.sp-flu-close').addEventListener('click', close);
-        pop.querySelector('.sp-flu-cta').addEventListener('click', function () {
+        wrap.querySelectorAll('[data-close]').forEach(function (el) { el.addEventListener('click', close); });
+        wrap.querySelector('.sp-flu-cta').addEventListener('click', function () {
           try { sessionStorage.setItem('cc_flu_popup_closed', '1'); } catch (e) {}
         });
-        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && shown && !pop.hidden) close(); });
         document.addEventListener('cookieyes_consent_update', function () { consentAt = Date.now(); });
         window.addEventListener('scroll', function () {
           if (window.scrollY > window.innerHeight * 0.4) scrolled = true;
