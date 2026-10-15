@@ -168,13 +168,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @keyframes etb-slide { to { opacity: 1; transform: none; } }
     @media (max-width: 420px) { .etb-panel-tabs span:nth-child(n+3) { display: none; } .etb-status { font-size: 11.5px; padding: 4px 9px; } }
 
-    /* Pains */
-    .etb-pains { display: grid; gap: 18px; }
-    @media (min-width: 860px) { .etb-pains { grid-template-columns: repeat(3, 1fr); gap: 22px; } }
-    .etb-pain { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 30px 28px; box-shadow: 0 10px 30px rgba(58,12,163,.06); }
-    .etb-pain-num { display: block; font-size: 13px; font-weight: 800; letter-spacing: .12em; color: var(--mid); margin-bottom: 14px; }
-    .etb-pain h3, .etb-step h3, .etb-option h3 { font-size: 20px; font-weight: 700; line-height: 1.28; letter-spacing: -.015em; color: var(--ink); margin-bottom: 10px; }
-    .etb-pain p, .etb-step p, .etb-option p { font-size: 15.5px; line-height: 1.6; color: var(--muted); margin: 0; }
+    /* The problem: a stale spreadsheet, deliberately grey so it reads as the old way */
+    .etb-problem-grid { display: grid; gap: 48px; align-items: center; }
+    @media (min-width: 960px) { .etb-problem-grid { grid-template-columns: .9fr 1.1fr; gap: 72px; } }
+    .etb-problem-copy h2 { margin-bottom: 22px; }
+    .etb-problem-copy p { font-size: 18px; line-height: 1.7; color: var(--muted); }
+    .etb-problem-copy p + p { margin-top: 16px; }
+    .etb-sheet { background: #fff; border: 1px solid #D9D9DE; border-radius: 10px; overflow: hidden; box-shadow: 0 18px 50px rgba(20,20,40,.10); transform: rotate(-1.2deg); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .etb-sheet-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #F2F2F4; border-bottom: 1px solid #D9D9DE; font-size: 13px; color: #4A4A55; }
+    .etb-sheet-icon { width: 20px; height: 20px; border-radius: 4px; display: grid; place-items: center; background: #1D6F42; color: #fff; font-size: 11px; font-weight: 700; flex: 0 0 20px; }
+    .etb-sheet-name { font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .etb-sheet-date { font-size: 12px; color: #8A8A95; white-space: nowrap; }
+    .etb-sheet-row { position: relative; display: grid; grid-template-columns: 34px 1.4fr .8fr .9fr; align-items: center; border-bottom: 1px solid #E8E8EC; font-size: 14px; color: #33333D; }
+    .etb-sheet-row > span { padding: 11px 12px; border-right: 1px solid #EDEDF0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .etb-sheet-row > span:first-child { background: #F7F7F8; color: #9A9AA5; font-size: 12px; text-align: center; padding-left: 0; padding-right: 0; }
+    .etb-sheet-head { background: #F7F7F8; font-size: 12px; font-weight: 600; color: #6A6A75; }
+    .etb-sheet-row.is-gone > span:not(:first-child) { color: #A5A5AE; text-decoration: line-through; text-decoration-color: #D9534F; text-decoration-thickness: 1.5px; }
+    .etb-sheet-row.is-wait > span:not(:first-child) { color: #8A8A95; }
+    .etb-note { position: absolute; right: 10px; top: 50%; transform: translateY(-50%) rotate(-2deg); font-style: normal; font-size: 12px; font-weight: 700; color: #C2362F; background: #FDECEC; border: 1px solid #F5C2C0; border-radius: 6px; padding: 3px 8px; white-space: nowrap; }
+    .etb-note--wait { color: #A15C07; background: #FFF4E0; border-color: #F6D9A8; }
+    @media (max-width: 560px) {
+      .etb-sheet { transform: none; }
+      .etb-sheet-row { grid-template-columns: 28px 1fr; font-size: 13px; }
+      .etb-sheet-row > span:nth-child(3), .etb-sheet-row > span:nth-child(4) { display: none; }
+      .etb-note { font-size: 11px; right: 8px; }
+      .etb-sheet-date { display: none; }
+    }
+    .etb-step h3, .etb-option h3 { font-size: 20px; font-weight: 700; line-height: 1.28; letter-spacing: -.015em; color: var(--ink); margin-bottom: 10px; }
+    .etb-step p, .etb-option p { font-size: 15.5px; line-height: 1.6; color: var(--muted); margin: 0; }
 
     /* Steps */
     .etb-steps { display: grid; gap: 22px; position: relative; }
@@ -263,8 +284,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* Scroll reveal */
     .etb-js .etb-reveal:not(.is-done) { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
     .etb-js .etb-reveal.is-in:not(.is-done) { opacity: 1; transform: none; }
-    .etb-js .etb-pains .etb-reveal:nth-child(2), .etb-js .etb-steps .etb-reveal:nth-child(2), .etb-js .etb-trio .etb-reveal:nth-child(2), .etb-js .etb-options .etb-reveal:nth-child(2) { transition-delay: .08s; }
-    .etb-js .etb-pains .etb-reveal:nth-child(3), .etb-js .etb-steps .etb-reveal:nth-child(3), .etb-js .etb-trio .etb-reveal:nth-child(3) { transition-delay: .16s; }
+    .etb-js .etb-steps .etb-reveal:nth-child(2), .etb-js .etb-trio .etb-reveal:nth-child(2), .etb-js .etb-options .etb-reveal:nth-child(2) { transition-delay: .08s; }
+    .etb-js .etb-steps .etb-reveal:nth-child(3), .etb-js .etb-trio .etb-reveal:nth-child(3) { transition-delay: .16s; }
     @media (prefers-reduced-motion: reduce) { .etb *, .etb *::before, .etb *::after { animation: none !important; transition: none !important; } .etb-panel-rows li { opacity: 1 !important; transform: none !important; } }
   </style>
 </head>
@@ -344,27 +365,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ======================================================
          WHY ETBs NEED IT (NAPD, Oct 2026, in our voice)
     ====================================================== -->
-    <section class="etb-section">
-      <div class="container">
-        <div class="etb-head etb-reveal">
+    <section class="etb-section etb-problem">
+      <div class="container etb-problem-grid">
+        <div class="etb-problem-copy etb-reveal">
           <span class="etb-kicker">Why ETBs need it</span>
           <h2>The approved list is out of date before it arrives.</h2>
+          <p>Head office sends the approved list out as a spreadsheet. By the time it lands, many of the subs on it have already taken contracts.</p>
+          <p>Vetting takes time, and the best subs find other work before they clear. So schools book whoever they can, then hand the sub the paperwork and send them off to the ETB to be vetted.</p>
         </div>
-        <div class="etb-pains">
-          <div class="etb-pain etb-reveal">
-            <span class="etb-pain-num">01</span>
-            <h3>Lists go round as spreadsheets</h3>
-            <p>Head office sends the approved list out as a spreadsheet. By the time it lands, many of the subs on it have already taken contracts.</p>
+
+        <div class="etb-sheet etb-reveal" aria-hidden="true">
+          <div class="etb-sheet-bar">
+            <span class="etb-sheet-icon">X</span>
+            <span class="etb-sheet-name">Approved subs list FINAL v3.xlsx</span>
+            <span class="etb-sheet-date">Sent 6 weeks ago</span>
           </div>
-          <div class="etb-pain etb-reveal">
-            <span class="etb-pain-num">02</span>
-            <h3>Good subs take other work while they wait</h3>
-            <p>Vetting takes time, and the best subs find other work before they clear.</p>
-          </div>
-          <div class="etb-pain etb-reveal">
-            <span class="etb-pain-num">03</span>
-            <h3>Schools book whoever they can</h3>
-            <p>Then they hand the sub the paperwork and send them off to the ETB to be vetted.</p>
+          <div class="etb-sheet-grid">
+            <div class="etb-sheet-row etb-sheet-head"><span></span><span>Name</span><span>Role</span><span>County</span></div>
+            <div class="etb-sheet-row is-gone"><span>2</span><span>Ciara Doherty</span><span>Teacher</span><span>Longford</span><em class="etb-note">Took a contract</em></div>
+            <div class="etb-sheet-row is-gone"><span>3</span><span>Seán Delaney</span><span>Teacher</span><span>Westmeath</span><em class="etb-note">Full-time elsewhere</em></div>
+            <div class="etb-sheet-row is-wait"><span>4</span><span>Orla Kinsella</span><span>SNA</span><span>Longford</span><em class="etb-note etb-note--wait">Still waiting on vetting</em></div>
+            <div class="etb-sheet-row is-gone"><span>5</span><span>Pádraig Hennessy</span><span>Teacher</span><span>Westmeath</span><em class="etb-note">Took a maternity post</em></div>
+            <div class="etb-sheet-row"><span>6</span><span>Fiona Dunleavy</span><span>SNA</span><span>Longford</span></div>
+            <div class="etb-sheet-row is-gone"><span>7</span><span>Declan Farrell</span><span>Teacher</span><span>Westmeath</span><em class="etb-note">Took a contract</em></div>
           </div>
         </div>
       </div>
