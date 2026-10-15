@@ -50,6 +50,7 @@ For schools
 - /schools — How ClassCover works for schools
 - /sign-up/ — Create a school account, or get the app as a sub or SNA
 - /schools/pricing/ — ClassCover Lite and ClassCover Standard pricing
+- /schools/etb/ — Group approvals for ETBs: head office approves each sub once for every school in the ETB
 - /schools/time-saving-calculator/ — Calculator: time a school spends arranging cover
 - /schools/infopack/ — School information pack
 - /schools/how-to/ — ClassCover Academy, training for schools
