@@ -1255,9 +1255,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         try { if (sessionStorage.getItem('cc_flu_popup_closed')) return; } catch (e) {}
 
         var shown = false;
+        /* The CookieYes banner is position:fixed, so check its real size on screen.
+           Until the visitor has chosen, the consent cookie has no "action:yes". */
         function bannerOpen() {
           var b = document.querySelector('.cky-consent-container');
-          return !!(b && !b.classList.contains('cky-hide') && b.offsetParent !== null);
+          if (b && !b.classList.contains('cky-hide')) {
+            var r = b.getBoundingClientRect(), cs = getComputedStyle(b);
+            if (r.height > 0 && cs.display !== 'none' && cs.visibility !== 'hidden') return true;
+          }
+          return !/cookieyes-consent=[^;]*action:yes/.test(document.cookie) && !!document.getElementById('cookieyes') && !b;
         }
         function show() {
           if (shown) return;
@@ -1277,7 +1283,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && shown && !pop.hidden) close(); });
         document.addEventListener('cookieyes_consent_update', function () { setTimeout(show, 1200); });
-        window.addEventListener('load', function () { setTimeout(show, 2500); });
+        /* Retry while CookieYes is still loading. If the banner never appears
+           (blocked by the browser), show the pop-up anyway after the last try. */
+        window.addEventListener('load', function () {
+          [2500, 5000, 8000].forEach(function (ms, i, all) {
+            setTimeout(function () {
+              if (i === all.length - 1 && !document.querySelector('.cky-consent-container')) { shownForce(); }
+              else show();
+            }, ms);
+          });
+        });
+        function shownForce() {
+          if (shown) return;
+          shown = true;
+          pop.hidden = false;
+          requestAnimationFrame(function () { requestAnimationFrame(function () { pop.classList.add('is-in'); }); });
+        }
       })();
     </script>
 
