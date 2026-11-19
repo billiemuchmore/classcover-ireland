@@ -648,22 +648,6 @@
     .hp-faq .faq-item.is-open .faq-icon { background: var(--purple); color: #fff; }
     .hp-faq .faq-answer { color: var(--muted); font-size: 15.5px; padding-bottom: 22px; }
 
-    /* Subscribe */
-    .hp-subscribe { padding: 88px 0 104px; }
-    .hp-sub-card { display: grid; gap: 28px; align-items: center; max-width: 1040px; margin: 0 auto; padding: 48px 0 0; border-top: 1px solid var(--line); }
-    @media (min-width: 900px) { .hp-sub-card { grid-template-columns: 1fr 1.1fr; gap: 48px; } }
-
-    .hp-sub-copy h2 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 10px; }
-    .hp-sub-copy p { font-size: 16px; line-height: 1.65; color: var(--muted); }
-    .hp-sub-form { position: relative; }
-    .hp-sub-row { display: flex; gap: 10px; }
-    .hp-sub-row input { flex: 1; min-width: 0; padding: 15px 20px; border: 1.5px solid var(--line); border-radius: 99px; font: 400 15px 'Poppins', sans-serif; color: var(--ink); outline: none; transition: border-color .2s, box-shadow .2s; }
-    .hp-sub-row input:focus { border-color: var(--purple); box-shadow: 0 0 0 4px rgba(58,12,163,.12); }
-    .hp-sub-row .hp-btn { padding: 15px 24px; width: auto; }
-    @media (max-width: 520px) { .hp-sub-row { flex-direction: column; } .hp-sub-row .hp-btn { width: 100%; } }
-    .hp .hp-sub-legal { margin-top: 12px; font-size: 13px; line-height: 1.5; color: var(--muted); }
-    .hp-sub-legal a { color: var(--purple); text-decoration: underline; }
-
     /* Scroll reveal */
     .hp-js .hp-reveal:not(.is-done) { opacity: 0; transform: translateY(24px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
     .hp-js .hp-reveal.is-in:not(.is-done) { opacity: 1; transform: none; }
@@ -1165,40 +1149,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               Once you create a profile you can request to join the lists of schools in your area. Schools with a ClassCover account can also search the directory and find you directly. Your profile acts as your digital CV, visible to schools looking for cover in your area.
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================
-         SUBSCRIBE TO UPDATES
-    ====================================================== -->
-    <section class="hp-subscribe" id="subscribe">
-      <div class="container">
-        <div class="hp-sub-card hp-reveal">
-          <div class="hp-sub-copy">
-            <h2>Get updates as we roll out</h2>
-            <p>We'll keep you posted as ClassCover rolls out across Ireland. No spam, just the important stuff.</p>
-          </div>
-          <form
-            class="mc-form hp-sub-form"
-            action="https://classcover.us4.list-manage.com/subscribe/post?u=018b837d961f63a0ffb0e1c88&amp;id=2718d27bbf"
-            method="post"
-            id="mc-subscribe-form-home"
-            target="_blank"
-            novalidate
-          >
-            <label for="mce-EMAIL-home" class="hp-sr">Email address</label>
-            <div class="hp-sub-row">
-              <input type="email" name="EMAIL" id="mce-EMAIL-home" placeholder="Your email address" required autocomplete="email" />
-              <button type="submit" class="hp-btn hp-btn--primary">Subscribe</button>
-            </div>
-            <!-- Mailchimp honeypot — do not remove -->
-            <div style="position:absolute;left:-5000px" aria-hidden="true">
-              <input type="text" name="b_018b837d961f63a0ffb0e1c88_2718d27bbf" tabindex="-1" value="" />
-            </div>
-            <input type="hidden" name="SOURCE" value="homepage" />
-            <p class="hp-sub-legal">We respect your privacy. Unsubscribe at any time. By subscribing you agree to our <a href="/privacy">Privacy Policy</a>.</p>
-          </form>
         </div>
       </div>
     </section>
