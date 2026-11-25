@@ -28,7 +28,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="geo.country" content="Ireland" />
   <meta name="ICBM" content="53.3498,-6.2603" />
   <title>The Great Morning Scramble Study | ClassCover Ireland</title>
-  <meta name="description" content="The 8am ring-around. The split class. The CPD day nobody could cover. We are asking principals, teachers and SNAs across Ireland what the morning scramble looks like in their school, and what it costs when no sub can be found. Take part and your school goes into the draw for €1,000 plus a full year's subscription to ClassCover Standard." />
+  <meta name="description" content="The 8am ring-around. The split class. The CPD day nobody could cover. We asked principals, teachers and SNAs across Ireland what the morning scramble looks like in their school, and what it costs when no sub can be found. The survey is now closed. The report findings, and the winner of €1,000 plus a full year's subscription to ClassCover Standard, will be announced soon." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#250564" />
   <link rel="canonical" href="https://www.classcoverapp.ie/morning-scramble/" />
@@ -38,14 +38,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="manifest" href="/manifest.json" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="The Great Morning Scramble Study | ClassCover Ireland" />
-  <meta property="og:description" content="What the morning scramble looks like in Irish schools, and what it costs when no sub can be found. Take part and your school goes into the draw for €1,000 plus a full year's subscription to ClassCover Standard." />
+  <meta property="og:description" content="What the morning scramble looks like in Irish schools, and what it costs when no sub can be found. The survey is now closed. Report findings and winner announced soon." />
   <meta property="og:url" content="https://www.classcoverapp.ie/morning-scramble/" />
   <meta property="og:locale" content="en_IE" />
   <meta property="og:site_name" content="ClassCover Ireland" />
   <meta property="og:image" content="https://www.classcoverapp.ie/images/morning-scramble-og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Great Morning Scramble Study | ClassCover Ireland" />
-  <meta name="twitter:description" content="What the morning scramble looks like in Irish schools, and what it costs when no sub can be found. Take part and your school goes into the draw for €1,000 plus a full year's subscription to ClassCover Standard." />
+  <meta name="twitter:description" content="What the morning scramble looks like in Irish schools, and what it costs when no sub can be found. The survey is now closed. Report findings and winner announced soon." />
   <meta name="twitter:image" content="https://www.classcoverapp.ie/images/morning-scramble-og.png" />
   <link rel="alternate" hreflang="en-IE" href="https://www.classcoverapp.ie/morning-scramble/" />
   <link rel="alternate" hreflang="x-default" href="https://www.classcoverapp.ie" />
@@ -186,52 +186,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       margin-bottom: 46px;
     }
 
-    /* Cash leads, the Standard year sits beside it. Two pills rather
-       than one long line, so they wrap cleanly on a phone. */
-    /* Campaign refresh flag. Lime mirrors the updated INTO ad, and the
-       pill radius differs from the prize pills so it reads as a
-       separate kind of message rather than a third prize. */
-    .ms-update-pill {
-      display: inline-block;
-      background: var(--ms-lime);
-      color: var(--ms-ink);
-      font-weight: 800;
-      font-size: clamp(12px, 1.8vw, 14.5px);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      line-height: 1.35;
-      padding: 10px 22px;
-      border-radius: 99px;
-      margin-bottom: 10px;
-    }
-
-    .ms-flash-row {
+    /* Campaign status. One statement, no pill: the lime dot and the
+       scale do the work, so it reads before the lockup does. */
+    .ms-closed { margin: 0 0 30px; }
+    .ms-closed-title {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 26px;
-    }
-    .ms-flash {
-      display: inline-block;
-      background: var(--ms-lilac);
-      color: var(--ms-ink);
+      gap: 14px;
+      color: var(--ms-lime);
+      font-size: clamp(34px, 5.4vw, 58px);
       font-weight: 800;
-      font-size: clamp(14px, 2.2vw, 17px);
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      padding: 10px 20px;
-      border-radius: 12px;
+      line-height: 1;
+      letter-spacing: -0.025em;
     }
-    .ms-flash-alt {
-      background: transparent;
-      border: 1.5px solid rgba(194,145,252,.5);
-      color: var(--ms-lavender);
+    .ms-closed-title::before {
+      content: '';
+      flex: 0 0 auto;
+      width: .32em;
+      height: .32em;
+      border-radius: 50%;
+      background: var(--ms-lime);
+      box-shadow: 0 0 0 .14em rgba(215,240,120,.22);
+    }
+    .ms-closed-sub {
+      display: block;
+      color: #ffffff;
+      font-size: clamp(18px, 2.3vw, 24px);
       font-weight: 600;
-      font-size: clamp(12.5px, 1.8vw, 14.5px);
-      letter-spacing: .01em;
-      text-transform: none;
-      padding: 9px 18px;
+      line-height: 1.3;
+      margin-top: 12px;
+      text-wrap: balance;
     }
 
     .ms-lockup-img {
@@ -286,37 +270,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       line-height: 1.65;
       max-width: 50ch;
       margin: 0 auto 34px;
-    }
-
-    /* ── Survey refresh band ────────────────────────────────── */
-    /* Speaks to people who already answered. Lime outline so it reads
-       as campaign news rather than another prize. */
-    .ms-update {
-      background: var(--ms-purple-deep);
-      padding: 0 0 84px;
-    }
-    .ms-update-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
-      border: 1px solid rgba(215, 240, 120, .38);
-      border-radius: 20px;
-      padding: 40px 34px;
-    }
-    .ms-update-inner .ms-kicker { color: var(--ms-lime); }
-    .ms-update-inner h2 {
-      color: #ffffff;
-      font-size: clamp(23px, 3.2vw, 32px);
-      font-weight: 800;
-      line-height: 1.2;
-      margin: 0 0 14px;
-    }
-    .ms-update-inner p {
-      color: rgba(255,255,255,.8);
-      font-size: clamp(16px, 1.9vw, 18px);
-      line-height: 1.6;
-      max-width: 50ch;
-      margin: 0 auto 28px;
     }
 
     /* ── Prize ──────────────────────────────────────────────── */
@@ -759,11 +712,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="ms-hero-top">
 
           <div class="ms-hero-lead">
-            <div class="ms-flash-row ms-anim ms-anim-1">
-              <span class="ms-flash">Win €1,000</span>
-              <span class="ms-flash ms-flash-alt">plus a full year's subscription to ClassCover Standard</span>
-            </div>
-            <span class="ms-update-pill ms-anim ms-anim-2">Updated questions. More chances to win.</span>
+            <p class="ms-closed ms-anim ms-anim-1">
+              <span class="ms-closed-title">Survey closed</span>
+              <span class="ms-closed-sub">Report findings and winner announced soon</span>
+            </p>
             <!-- Light lockup: white "THE GREAT / STUDY" for the dark page.
                  Dark version at /images/morning-scramble-lockup-dark.png. -->
             <img class="ms-lockup-img ms-anim ms-anim-2"
@@ -787,26 +739,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span>The split class.</span>
               <span>The CPD day nobody could cover.</span>
             </p>
-            <p class="ms-hero-sub ms-anim ms-anim-4">We are asking principals, teachers and SNAs across Ireland what the morning scramble looks like in their school, and what it costs when no sub can be found. Takes a couple of minutes.</p>
-            <a href="https://rtcon.typeform.com/to/zedEoZfk" class="ms-btn ms-anim ms-anim-5">Take part</a>
+            <p class="ms-hero-sub ms-anim ms-anim-4">We asked principals, teachers and SNAs across Ireland what the morning scramble looks like in their school, and what it costs when no sub can be found. Thank you to everyone who took part.</p>
           </div>
 
         </div>
 
-      </div>
-    </section>
-
-    <!-- ======================================================
-         SURVEY REFRESH
-    ====================================================== -->
-    <section class="ms-update">
-      <div class="container">
-        <div class="ms-update-inner">
-          <span class="ms-kicker">Updated</span>
-          <h2>Already took part?</h2>
-          <p>We have added new questions since the survey first went out. Answer the updated version and your school gets a second entry in the draw.</p>
-          <a href="https://rtcon.typeform.com/to/zedEoZfk" class="ms-btn">Take the updated survey</a>
-        </div>
       </div>
     </section>
 
@@ -831,8 +768,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
         </div>
-        <span class="ms-kicker ms-prize-drawn">Drawn 23 November</span>
-        <a href="https://rtcon.typeform.com/to/zedEoZfk" class="ms-btn ms-prize-cta">Take part</a>
+        <span class="ms-kicker ms-prize-drawn">Winner announced soon</span>
       </div>
     </section>
 
@@ -889,8 +825,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="ms-nov-step">
             <span class="ms-nov-date">Sunday 22 November</span>
-            <h3>Entries close</h3>
-            <p>The survey closes at 23:59. Anything after that does not go into the draw.</p>
+            <h3>Entries closed</h3>
+            <p>The survey closed at 23:59. Thank you to every school that took part.</p>
           </div>
 
           <div class="ms-nov-step">
